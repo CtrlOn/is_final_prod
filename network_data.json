@@ -1,0 +1,3500 @@
+{
+    "nodes": [
+        {
+            "id": "Adomas Birštunas",
+            "name": "Adomas Birštunas",
+            "institutes": [
+                "II"
+            ],
+            "val": 12
+        },
+        {
+            "id": "Agnė Brilingaitė",
+            "name": "Agnė Brilingaitė",
+            "institutes": [
+                "II"
+            ],
+            "val": 50
+        },
+        {
+            "id": "Aidas Balčiūnas",
+            "name": "Aidas Balčiūnas",
+            "institutes": [
+                "MI"
+            ],
+            "val": 20
+        },
+        {
+            "id": "Aistis Raudys",
+            "name": "Aistis Raudys",
+            "institutes": [
+                "II"
+            ],
+            "val": 32
+        },
+        {
+            "id": "Aistė Elijio",
+            "name": "Aistė Elijio",
+            "institutes": [
+                "MI"
+            ],
+            "val": 36
+        },
+        {
+            "id": "Aivaras Novikas",
+            "name": "Aivaras Novikas",
+            "institutes": [
+                "MI",
+                "TMI"
+            ],
+            "val": 30
+        },
+        {
+            "id": "Albertas Zinevičius",
+            "name": "Albertas Zinevičius",
+            "institutes": [
+                "MI"
+            ],
+            "val": 7
+        },
+        {
+            "id": "Aldona Skučaitė",
+            "name": "Aldona Skučaitė",
+            "institutes": [
+                "MI"
+            ],
+            "val": 8
+        },
+        {
+            "id": "Aleksandr Igumenov",
+            "name": "Aleksandr Igumenov",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 12
+        },
+        {
+            "id": "Alfredas Račkauskas",
+            "name": "Alfredas Račkauskas",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 121
+        },
+        {
+            "id": "Algimantas Birbilas",
+            "name": "Algimantas Birbilas",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 3
+        },
+        {
+            "id": "Algirdas Lančinskas",
+            "name": "Algirdas Lančinskas",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 41
+        },
+        {
+            "id": "Alminas Čivilis",
+            "name": "Alminas Čivilis",
+            "institutes": [
+                "II"
+            ],
+            "val": 24
+        },
+        {
+            "id": "Andrius Buteikis",
+            "name": "Andrius Buteikis",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 9
+        },
+        {
+            "id": "Andrius Grigutis",
+            "name": "Andrius Grigutis",
+            "institutes": [
+                "MI"
+            ],
+            "val": 27
+        },
+        {
+            "id": "Andrius Vytautas Misiukas Misiūnas",
+            "name": "Andrius Vytautas Misiukas Misiūnas",
+            "institutes": [
+                "II"
+            ],
+            "val": 10
+        },
+        {
+            "id": "Andrius Čiginas",
+            "name": "Andrius Čiginas",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 42
+        },
+        {
+            "id": "Anita Juškevičienė",
+            "name": "Anita Juškevičienė",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 39
+        },
+        {
+            "id": "Antanas Laurinčikas",
+            "name": "Antanas Laurinčikas",
+            "institutes": [
+                "MI"
+            ],
+            "val": 501
+        },
+        {
+            "id": "Antanas Vaitkus",
+            "name": "Antanas Vaitkus",
+            "institutes": [
+                "II"
+            ],
+            "val": 2
+        },
+        {
+            "id": "Arnas Radzevičius",
+            "name": "Arnas Radzevičius",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
+        },
+        {
+            "id": "Arnoldas Budžys",
+            "name": "Arnoldas Budžys",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 15
+        },
+        {
+            "id": "Artūras Dubickas",
+            "name": "Artūras Dubickas",
+            "institutes": [
+                "MI"
+            ],
+            "val": 336
+        },
+        {
+            "id": "Artūras Štikonas",
+            "name": "Artūras Štikonas",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 135
+        },
+        {
+            "id": "Asta Slotkienė",
+            "name": "Asta Slotkienė",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 17
+        },
+        {
+            "id": "Audrius Kačėnas",
+            "name": "Audrius Kačėnas",
+            "institutes": [
+                "MI"
+            ],
+            "val": 12
+        },
+        {
+            "id": "Audronė Jakaitienė",
+            "name": "Audronė Jakaitienė",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 95
+        },
+        {
+            "id": "Audronė Lupeikienė",
+            "name": "Audronė Lupeikienė",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 60
+        },
+        {
+            "id": "Austėja Bauraitė",
+            "name": "Austėja Bauraitė",
+            "institutes": [
+                "II"
+            ],
+            "val": 2
+        },
+        {
+            "id": "Aušra Šubonienė",
+            "name": "Aušra Šubonienė",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 11
+        },
+        {
+            "id": "Benjaminas Togobickij",
+            "name": "Benjaminas Togobickij",
+            "institutes": [
+                "MI"
+            ],
+            "val": 1
+        },
+        {
+            "id": "Boleslovas Dapkūnas",
+            "name": "Boleslovas Dapkūnas",
+            "institutes": [
+                "II"
+            ],
+            "val": 8
+        },
+        {
+            "id": "Dainius Dzindzalieta",
+            "name": "Dainius Dzindzalieta",
+            "institutes": [
+                "MI"
+            ],
+            "val": 12
+        },
+        {
+            "id": "Dalia Breskuvienė",
+            "name": "Dalia Breskuvienė",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 12
+        },
+        {
+            "id": "Daniel Zakševski",
+            "name": "Daniel Zakševski",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 3
+        },
+        {
+            "id": "Daniele Ettore Otera",
+            "name": "Daniele Ettore Otera",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 41
+        },
+        {
+            "id": "Darius Baronas",
+            "name": "Darius Baronas",
+            "institutes": [
+                "II"
+            ],
+            "val": 4
+        },
+        {
+            "id": "Darius Plikynas",
+            "name": "Darius Plikynas",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 16
+        },
+        {
+            "id": "Darius Sabaliauskas",
+            "name": "Darius Sabaliauskas",
+            "institutes": [
+                "DMSTI",
+                "TMI"
+            ],
+            "val": 2
+        },
+        {
+            "id": "Darius Šiaučiūnas",
+            "name": "Darius Šiaučiūnas",
+            "institutes": [
+                "MI"
+            ],
+            "val": 20
+        },
+        {
+            "id": "Dmitrij Celov",
+            "name": "Dmitrij Celov",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 14
+        },
+        {
+            "id": "Donatas Šlevinskas",
+            "name": "Donatas Šlevinskas",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 0
+        },
+        {
+            "id": "Dovilė Stumbrienė",
+            "name": "Dovilė Stumbrienė",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 33
+        },
+        {
+            "id": "Edmundas Mazėtis",
+            "name": "Edmundas Mazėtis",
+            "institutes": [
+                "MI"
+            ],
+            "val": 25
+        },
+        {
+            "id": "Eduardas Kutka",
+            "name": "Eduardas Kutka",
+            "institutes": [
+                "II"
+            ],
+            "val": 15
+        },
+        {
+            "id": "Edvardas Dlugauskas",
+            "name": "Edvardas Dlugauskas",
+            "institutes": [
+                "II"
+            ],
+            "val": 1
+        },
+        {
+            "id": "Eglė Jaunė",
+            "name": "Eglė Jaunė",
+            "institutes": [
+                "MI"
+            ],
+            "val": 3
+        },
+        {
+            "id": "Erikas Karikovas",
+            "name": "Erikas Karikovas",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 6
+        },
+        {
+            "id": "Ernestas Filatovas",
+            "name": "Ernestas Filatovas",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 64
+        },
+        {
+            "id": "Gabija Liaudanskaitė",
+            "name": "Gabija Liaudanskaitė",
+            "institutes": [
+                "MI",
+                "TMI"
+            ],
+            "val": 5
+        },
+        {
+            "id": "Gabrielė Skirmantaitė",
+            "name": "Gabrielė Skirmantaitė",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 2
+        },
+        {
+            "id": "Gabrielė Stupurienė",
+            "name": "Gabrielė Stupurienė",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 44
+        },
+        {
+            "id": "Gediminas Navickas",
+            "name": "Gediminas Navickas",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 18
+        },
+        {
+            "id": "Gerda Ana Melnik-Leroy",
+            "name": "Gerda Ana Melnik-Leroy",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 18
+        },
+        {
+            "id": "Giedrius Alkauskas",
+            "name": "Giedrius Alkauskas",
+            "institutes": [
+                "II"
+            ],
+            "val": 35
+        },
+        {
+            "id": "Gintaras Puriuškis",
+            "name": "Gintaras Puriuškis",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 21
+        },
+        {
+            "id": "Gintaras Skersys",
+            "name": "Gintaras Skersys",
+            "institutes": [
+                "II"
+            ],
+            "val": 12
+        },
+        {
+            "id": "Gintautas Dzemyda",
+            "name": "Gintautas Dzemyda",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 247
+        },
+        {
+            "id": "Gintautas Tamulevičius",
+            "name": "Gintautas Tamulevičius",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 57
+        },
+        {
+            "id": "Gražina Korvel",
+            "name": "Gražina Korvel",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 87
+        },
+        {
+            "id": "Grigory Petrovitch Panassenko",
+            "name": "Grigory Petrovitch Panassenko",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 34
+        },
+        {
+            "id": "Haroldas Giedra",
+            "name": "Haroldas Giedra",
+            "institutes": [
+                "II"
+            ],
+            "val": 15
+        },
+        {
+            "id": "Ieva Kilienė",
+            "name": "Ieva Kilienė",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 10
+        },
+        {
+            "id": "Igor Katin",
+            "name": "Igor Katin",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 13
+        },
+        {
+            "id": "Igoris Belovas",
+            "name": "Igoris Belovas",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 80
+        },
+        {
+            "id": "Ilja Jurčenko",
+            "name": "Ilja Jurčenko",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 1
+        },
+        {
+            "id": "Irmantas Radavičius",
+            "name": "Irmantas Radavičius",
+            "institutes": [
+                "II"
+            ],
+            "val": 5
+        },
+        {
+            "id": "Joana Katina",
+            "name": "Joana Katina",
+            "institutes": [
+                "II"
+            ],
+            "val": 19
+        },
+        {
+            "id": "Jokūbas Putrius",
+            "name": "Jokūbas Putrius",
+            "institutes": [
+                "MI"
+            ],
+            "val": 3
+        },
+        {
+            "id": "Jolanta Miliauskaitė",
+            "name": "Jolanta Miliauskaitė",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 34
+        },
+        {
+            "id": "Jolita Bernatavičienė",
+            "name": "Jolita Bernatavičienė",
+            "institutes": [
+                "DMSTI",
+                "TMI"
+            ],
+            "val": 109
+        },
+        {
+            "id": "Jonas Dagys",
+            "name": "Jonas Dagys",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 0
+        },
+        {
+            "id": "Jonas Jankauskas",
+            "name": "Jonas Jankauskas",
+            "institutes": [
+                "MI"
+            ],
+            "val": 30
+        },
+        {
+            "id": "Jonas Mindaugas Rimšelis",
+            "name": "Jonas Mindaugas Rimšelis",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 4
+        },
+        {
+            "id": "Jonas Sprindys",
+            "name": "Jonas Sprindys",
+            "institutes": [
+                "MI"
+            ],
+            "val": 6
+        },
+        {
+            "id": "Jonas Šiaulys",
+            "name": "Jonas Šiaulys",
+            "institutes": [
+                "MI"
+            ],
+            "val": 160
+        },
+        {
+            "id": "Julius Damarackas",
+            "name": "Julius Damarackas",
+            "institutes": [
+                "MI"
+            ],
+            "val": 6
+        },
+        {
+            "id": "Julius Venskus",
+            "name": "Julius Venskus",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 26
+        },
+        {
+            "id": "Julius Žilinskas",
+            "name": "Julius Žilinskas",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 162
+        },
+        {
+            "id": "Juozapas Rokas Čypas",
+            "name": "Juozapas Rokas Čypas",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 7
+        },
+        {
+            "id": "Jurgita Markevičiūtė",
+            "name": "Jurgita Markevičiūtė",
+            "institutes": [
+                "DMSTI",
+                "TMI"
+            ],
+            "val": 42
+        },
+        {
+            "id": "Justina Ramonaitė",
+            "name": "Justina Ramonaitė",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 8
+        },
+        {
+            "id": "Justinas Jucevičius",
+            "name": "Justinas Jucevičius",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 9
+        },
+        {
+            "id": "Justinas Lekavičius",
+            "name": "Justinas Lekavičius",
+            "institutes": [
+                "II"
+            ],
+            "val": 3
+        },
+        {
+            "id": "Jūratė Karasevičienė",
+            "name": "Jūratė Karasevičienė",
+            "institutes": [
+                "MI"
+            ],
+            "val": 3
+        },
+        {
+            "id": "Jūratė Skūpienė",
+            "name": "Jūratė Skūpienė",
+            "institutes": [
+                "II"
+            ],
+            "val": 17
+        },
+        {
+            "id": "Karolis Bartkus",
+            "name": "Karolis Bartkus",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 4
+        },
+        {
+            "id": "Karolis Petrauskas",
+            "name": "Karolis Petrauskas",
+            "institutes": [
+                "II"
+            ],
+            "val": 27
+        },
+        {
+            "id": "Konstantinas Pileckas",
+            "name": "Konstantinas Pileckas",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 95
+        },
+        {
+            "id": "Kristina Kaulakytė",
+            "name": "Kristina Kaulakytė",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 19
+        },
+        {
+            "id": "Kristina Lapin",
+            "name": "Kristina Lapin",
+            "institutes": [
+                "II"
+            ],
+            "val": 50
+        },
+        {
+            "id": "Kursat Komurcu",
+            "name": "Kursat Komurcu",
+            "institutes": [
+                "II"
+            ],
+            "val": 7
+        },
+        {
+            "id": "Kęstutis Karčiauskas",
+            "name": "Kęstutis Karčiauskas",
+            "institutes": [
+                "MI"
+            ],
+            "val": 80
+        },
+        {
+            "id": "Laima Paliulionienė",
+            "name": "Laima Paliulionienė",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 21
+        },
+        {
+            "id": "Laimonas Vėbra",
+            "name": "Laimonas Vėbra",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 1
+        },
+        {
+            "id": "Laura Ringienė",
+            "name": "Laura Ringienė",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 24
+        },
+        {
+            "id": "Linas Aidokas",
+            "name": "Linas Aidokas",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 4
+        },
+        {
+            "id": "Linas Bukauskas",
+            "name": "Linas Bukauskas",
+            "institutes": [
+                "II"
+            ],
+            "val": 62
+        },
+        {
+            "id": "Linas Laibinis",
+            "name": "Linas Laibinis",
+            "institutes": [
+                "II"
+            ],
+            "val": 12
+        },
+        {
+            "id": "Linas Litvinas",
+            "name": "Linas Litvinas",
+            "institutes": [
+                "II"
+            ],
+            "val": 18
+        },
+        {
+            "id": "Linas Petkevičius",
+            "name": "Linas Petkevičius",
+            "institutes": [
+                "II"
+            ],
+            "val": 69
+        },
+        {
+            "id": "Linas Stripinis",
+            "name": "Linas Stripinis",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 19
+        },
+        {
+            "id": "Lukas Kuzma",
+            "name": "Lukas Kuzma",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 5
+        },
+        {
+            "id": "Lukas Maciulevičius",
+            "name": "Lukas Maciulevičius",
+            "institutes": [
+                "MI"
+            ],
+            "val": 3
+        },
+        {
+            "id": "Marco Marcozzi",
+            "name": "Marco Marcozzi",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 7
+        },
+        {
+            "id": "Margarita Beniušė",
+            "name": "Margarita Beniušė",
+            "institutes": [
+                "II"
+            ],
+            "val": 14
+        },
+        {
+            "id": "Marius Liutvinavičius",
+            "name": "Marius Liutvinavičius",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 3
+        },
+        {
+            "id": "Martynas Manstavičius",
+            "name": "Martynas Manstavičius",
+            "institutes": [
+                "MI"
+            ],
+            "val": 17
+        },
+        {
+            "id": "Martynas Sabaliauskas",
+            "name": "Martynas Sabaliauskas",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 42
+        },
+        {
+            "id": "Matas Niewulis",
+            "name": "Matas Niewulis",
+            "institutes": [
+                "II"
+            ],
+            "val": 1
+        },
+        {
+            "id": "Matas Šileikis",
+            "name": "Matas Šileikis",
+            "institutes": [
+                "II"
+            ],
+            "val": 1
+        },
+        {
+            "id": "Mindaugas Bloznelis",
+            "name": "Mindaugas Bloznelis",
+            "institutes": [
+                "II"
+            ],
+            "val": 92
+        },
+        {
+            "id": "Mindaugas Juodis",
+            "name": "Mindaugas Juodis",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 13
+        },
+        {
+            "id": "Mindaugas Kepalas",
+            "name": "Mindaugas Kepalas",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 3
+        },
+        {
+            "id": "Modestas Motiejauskas",
+            "name": "Modestas Motiejauskas",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 3
+        },
+        {
+            "id": "Nikolajus Kozulinas",
+            "name": "Nikolajus Kozulinas",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 9
+        },
+        {
+            "id": "Olga Kurasova",
+            "name": "Olga Kurasova",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 171
+        },
+        {
+            "id": "Olga Štikonienė",
+            "name": "Olga Štikonienė",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 57
+        },
+        {
+            "id": "Paulius Drungilas",
+            "name": "Paulius Drungilas",
+            "institutes": [
+                "MI"
+            ],
+            "val": 47
+        },
+        {
+            "id": "Paulius Virbalas",
+            "name": "Paulius Virbalas",
+            "institutes": [
+                "MI"
+            ],
+            "val": 6
+        },
+        {
+            "id": "Paulius Zaranka",
+            "name": "Paulius Zaranka",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 2
+        },
+        {
+            "id": "Pijus Kasparaitis",
+            "name": "Pijus Kasparaitis",
+            "institutes": [
+                "DMSTI",
+                "II"
+            ],
+            "val": 30
+        },
+        {
+            "id": "Povilas Treigys",
+            "name": "Povilas Treigys",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 137
+        },
+        {
+            "id": "Raivydas Šimėnas",
+            "name": "Raivydas Šimėnas",
+            "institutes": [
+                "MI"
+            ],
+            "val": 22
+        },
+        {
+            "id": "Ramūnas Garunkštis",
+            "name": "Ramūnas Garunkštis",
+            "institutes": [
+                "MI"
+            ],
+            "val": 97
+        },
+        {
+            "id": "Rasa Karbauskaitė",
+            "name": "Rasa Karbauskaitė",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 20
+        },
+        {
+            "id": "Remigijus Leipus",
+            "name": "Remigijus Leipus",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 131
+        },
+        {
+            "id": "Remigijus Paulavičius",
+            "name": "Remigijus Paulavičius",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 79
+        },
+        {
+            "id": "Rimantas Kybartas",
+            "name": "Rimantas Kybartas",
+            "institutes": [
+                "II"
+            ],
+            "val": 5
+        },
+        {
+            "id": "Rimantas Vaicekauskas",
+            "name": "Rimantas Vaicekauskas",
+            "institutes": [
+                "II"
+            ],
+            "val": 62
+        },
+        {
+            "id": "Rimas Norvaiša",
+            "name": "Rimas Norvaiša",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 47
+        },
+        {
+            "id": "Rimvydas Krasauskas",
+            "name": "Rimvydas Krasauskas",
+            "institutes": [
+                "II"
+            ],
+            "val": 38
+        },
+        {
+            "id": "Rita Juodagalvytė",
+            "name": "Rita Juodagalvytė",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 4
+        },
+        {
+            "id": "Robertas Jurkus",
+            "name": "Robertas Jurkus",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 11
+        },
+        {
+            "id": "Rokas Astrauskas",
+            "name": "Rokas Astrauskas",
+            "institutes": [
+                "II"
+            ],
+            "val": 10
+        },
+        {
+            "id": "Rokas Gipiškis",
+            "name": "Rokas Gipiškis",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 10
+        },
+        {
+            "id": "Rokas Gylys",
+            "name": "Rokas Gylys",
+            "institutes": [
+                "MI"
+            ],
+            "val": 3
+        },
+        {
+            "id": "Rolandas Gricius",
+            "name": "Rolandas Gricius",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 3
+        },
+        {
+            "id": "Rolandas Naujikas",
+            "name": "Rolandas Naujikas",
+            "institutes": [
+                "II"
+            ],
+            "val": 5
+        },
+        {
+            "id": "Roma Kačinskaitė",
+            "name": "Roma Kačinskaitė",
+            "institutes": [
+                "MI"
+            ],
+            "val": 15
+        },
+        {
+            "id": "Romas Alonderis",
+            "name": "Romas Alonderis",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 33
+        },
+        {
+            "id": "Romas Baronas",
+            "name": "Romas Baronas",
+            "institutes": [
+                "II"
+            ],
+            "val": 203
+        },
+        {
+            "id": "Rūta Levulienė",
+            "name": "Rūta Levulienė",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 53
+        },
+        {
+            "id": "Sandra Virbukaitė",
+            "name": "Sandra Virbukaitė",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 8
+        },
+        {
+            "id": "Sathuta Piripun Sellapperuma",
+            "name": "Sathuta Piripun Sellapperuma",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 2
+        },
+        {
+            "id": "Saulius Gražulis",
+            "name": "Saulius Gražulis",
+            "institutes": [
+                "II"
+            ],
+            "val": 27
+        },
+        {
+            "id": "Saulius Grigaitis",
+            "name": "Saulius Grigaitis",
+            "institutes": [
+                "II"
+            ],
+            "val": 4
+        },
+        {
+            "id": "Saulius Jokubaitis",
+            "name": "Saulius Jokubaitis",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 4
+        },
+        {
+            "id": "Saulius Maskeliūnas",
+            "name": "Saulius Maskeliūnas",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 39
+        },
+        {
+            "id": "Saulius Ragaišis",
+            "name": "Saulius Ragaišis",
+            "institutes": [
+                "II"
+            ],
+            "val": 37
+        },
+        {
+            "id": "Saulė Girdzijauskaitė",
+            "name": "Saulė Girdzijauskaitė",
+            "institutes": [
+                "II"
+            ],
+            "val": 1
+        },
+        {
+            "id": "Saulė Satkauskienė",
+            "name": "Saulė Satkauskienė",
+            "institutes": [
+                "II"
+            ],
+            "val": 3
+        },
+        {
+            "id": "Seid Kassaw Muhie",
+            "name": "Seid Kassaw Muhie",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 2
+        },
+        {
+            "id": "Severinas Zubė",
+            "name": "Severinas Zubė",
+            "institutes": [
+                "II"
+            ],
+            "val": 22
+        },
+        {
+            "id": "Simonas Šimėnas",
+            "name": "Simonas Šimėnas",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 2
+        },
+        {
+            "id": "Snieguolė Meškauskienė",
+            "name": "Snieguolė Meškauskienė",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 1
+        },
+        {
+            "id": "Stasys Peldžius",
+            "name": "Stasys Peldžius",
+            "institutes": [
+                "II"
+            ],
+            "val": 12
+        },
+        {
+            "id": "Steponas Tolomanovas",
+            "name": "Steponas Tolomanovas",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 2
+        },
+        {
+            "id": "Tadas Danielius",
+            "name": "Tadas Danielius",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 9
+        },
+        {
+            "id": "Tadas Meškauskas",
+            "name": "Tadas Meškauskas",
+            "institutes": [
+                "II"
+            ],
+            "val": 44
+        },
+        {
+            "id": "Tadas Žvirblis",
+            "name": "Tadas Žvirblis",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 19
+        },
+        {
+            "id": "Tatjana Jevsikova",
+            "name": "Tatjana Jevsikova",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 59
+        },
+        {
+            "id": "Tomas Juškevičius",
+            "name": "Tomas Juškevičius",
+            "institutes": [
+                "II"
+            ],
+            "val": 5
+        },
+        {
+            "id": "Tomas Plankis",
+            "name": "Tomas Plankis",
+            "institutes": [
+                "II"
+            ],
+            "val": 6
+        },
+        {
+            "id": "Tomas Raila",
+            "name": "Tomas Raila",
+            "institutes": [
+                "II"
+            ],
+            "val": 7
+        },
+        {
+            "id": "Urtė Deinoravičiūtė",
+            "name": "Urtė Deinoravičiūtė",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 3
+        },
+        {
+            "id": "Vaida Masiulionytė-Dagienė",
+            "name": "Vaida Masiulionytė-Dagienė",
+            "institutes": [
+                "DMSTI",
+                "II"
+            ],
+            "val": 12
+        },
+        {
+            "id": "Valdas Rapševičius",
+            "name": "Valdas Rapševičius",
+            "institutes": [
+                "II"
+            ],
+            "val": 16
+        },
+        {
+            "id": "Valentas Gružauskas",
+            "name": "Valentas Gružauskas",
+            "institutes": [
+                "II"
+            ],
+            "val": 18
+        },
+        {
+            "id": "Valentas Kurauskas",
+            "name": "Valentas Kurauskas",
+            "institutes": [
+                "MI"
+            ],
+            "val": 19
+        },
+        {
+            "id": "Valentina Dagienė",
+            "name": "Valentina Dagienė",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 263
+        },
+        {
+            "id": "Viktor Medvedev",
+            "name": "Viktor Medvedev",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 93
+        },
+        {
+            "id": "Viktor Skorniakov",
+            "name": "Viktor Skorniakov",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 47
+        },
+        {
+            "id": "Virgilijus Krinickij",
+            "name": "Virgilijus Krinickij",
+            "institutes": [
+                "II"
+            ],
+            "val": 14
+        },
+        {
+            "id": "Virginijus Marcinkevičius",
+            "name": "Virginijus Marcinkevičius",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 107
+        },
+        {
+            "id": "Vladimiras Dolgopolovas",
+            "name": "Vladimiras Dolgopolovas",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 28
+        },
+        {
+            "id": "Vydas Čekanavičius",
+            "name": "Vydas Čekanavičius",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 85
+        },
+        {
+            "id": "Vytautas Ašeris",
+            "name": "Vytautas Ašeris",
+            "institutes": [
+                "II"
+            ],
+            "val": 24
+        },
+        {
+            "id": "Vytautas Bačianskas",
+            "name": "Vytautas Bačianskas",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 1
+        },
+        {
+            "id": "Vytautas Lėveris",
+            "name": "Vytautas Lėveris",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 1
+        },
+        {
+            "id": "Vytautas Paura",
+            "name": "Vytautas Paura",
+            "institutes": [
+                "II"
+            ],
+            "val": 5
+        },
+        {
+            "id": "Vytautas Valaitis",
+            "name": "Vytautas Valaitis",
+            "institutes": [
+                "II"
+            ],
+            "val": 9
+        },
+        {
+            "id": "Vytautas Čyras",
+            "name": "Vytautas Čyras",
+            "institutes": [
+                "II"
+            ],
+            "val": 103
+        },
+        {
+            "id": "Vytenis Šumskas",
+            "name": "Vytenis Šumskas",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 6
+        },
+        {
+            "id": "Zigmantas Kęstutis Juškevičius",
+            "name": "Zigmantas Kęstutis Juškevičius",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 4
+        },
+        {
+            "id": "Šarūnas Dirmeikis",
+            "name": "Šarūnas Dirmeikis",
+            "institutes": [
+                "MI"
+            ],
+            "val": 1
+        },
+        {
+            "id": "Žilvinas Ledas",
+            "name": "Žilvinas Ledas",
+            "institutes": [
+                "II"
+            ],
+            "val": 21
+        },
+        {
+            "id": "Žydrūnas Vaišnoras",
+            "name": "Žydrūnas Vaišnoras",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 1
+        },
+        {
+            "id": "Žygimantas Jonas Abramikas",
+            "name": "Žygimantas Jonas Abramikas",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 0
+        }
+    ],
+    "links": [
+        {
+            "source": "Adomas Birštunas",
+            "target": "Saulius Ragaišis",
+            "value": 0.25
+        },
+        {
+            "source": "Agnė Brilingaitė",
+            "target": "Linas Bukauskas",
+            "value": 8.702
+        },
+        {
+            "source": "Agnė Brilingaitė",
+            "target": "Austėja Bauraitė",
+            "value": 0.6667
+        },
+        {
+            "source": "Agnė Brilingaitė",
+            "target": "Alminas Čivilis",
+            "value": 0.8667
+        },
+        {
+            "source": "Agnė Brilingaitė",
+            "target": "Virgilijus Krinickij",
+            "value": 0.75
+        },
+        {
+            "source": "Agnė Brilingaitė",
+            "target": "Kristina Lapin",
+            "value": 0.125
+        },
+        {
+            "source": "Agnė Brilingaitė",
+            "target": "Eduardas Kutka",
+            "value": 1.75
+        },
+        {
+            "source": "Agnė Brilingaitė",
+            "target": "Anita Juškevičienė",
+            "value": 0.3333
+        },
+        {
+            "source": "Agnė Brilingaitė",
+            "target": "Rimantas Kybartas",
+            "value": 0.5
+        },
+        {
+            "source": "Aidas Balčiūnas",
+            "target": "Darius Šiaučiūnas",
+            "value": 1.5833
+        },
+        {
+            "source": "Aidas Balčiūnas",
+            "target": "Antanas Laurinčikas",
+            "value": 1.5
+        },
+        {
+            "source": "Aidas Balčiūnas",
+            "target": "Artūras Dubickas",
+            "value": 0.3333
+        },
+        {
+            "source": "Aistis Raudys",
+            "target": "Aušra Šubonienė",
+            "value": 0.8333
+        },
+        {
+            "source": "Aistis Raudys",
+            "target": "Arnas Radzevičius",
+            "value": 0.3333
+        },
+        {
+            "source": "Aistis Raudys",
+            "target": "Pijus Kasparaitis",
+            "value": 0.3333
+        },
+        {
+            "source": "Aistis Raudys",
+            "target": "Darius Plikynas",
+            "value": 0.6667
+        },
+        {
+            "source": "Aistė Elijio",
+            "target": "Jonas Šiaulys",
+            "value": 0.25
+        },
+        {
+            "source": "Aistė Elijio",
+            "target": "Remigijus Leipus",
+            "value": 0.25
+        },
+        {
+            "source": "Aistė Elijio",
+            "target": "Vydas Čekanavičius",
+            "value": 2.0
+        },
+        {
+            "source": "Aivaras Novikas",
+            "target": "Artūras Dubickas",
+            "value": 6.3333
+        },
+        {
+            "source": "Aivaras Novikas",
+            "target": "Ramūnas Garunkštis",
+            "value": 1.1667
+        },
+        {
+            "source": "Aivaras Novikas",
+            "target": "Edmundas Mazėtis",
+            "value": 0.5
+        },
+        {
+            "source": "Aivaras Novikas",
+            "target": "Paulius Drungilas",
+            "value": 1.1667
+        },
+        {
+            "source": "Albertas Zinevičius",
+            "target": "Artūras Dubickas",
+            "value": 0.5
+        },
+        {
+            "source": "Aldona Skučaitė",
+            "target": "Jonas Šiaulys",
+            "value": 0.45
+        },
+        {
+            "source": "Aleksandr Igumenov",
+            "target": "Ernestas Filatovas",
+            "value": 1.0833
+        },
+        {
+            "source": "Aleksandr Igumenov",
+            "target": "Viktor Medvedev",
+            "value": 0.5
+        },
+        {
+            "source": "Aleksandr Igumenov",
+            "target": "Remigijus Paulavičius",
+            "value": 1.0833
+        },
+        {
+            "source": "Aleksandr Igumenov",
+            "target": "Saulius Grigaitis",
+            "value": 0.25
+        },
+        {
+            "source": "Aleksandr Igumenov",
+            "target": "Julius Žilinskas",
+            "value": 2.25
+        },
+        {
+            "source": "Alfredas Račkauskas",
+            "target": "Karolis Bartkus",
+            "value": 1.5
+        },
+        {
+            "source": "Alfredas Račkauskas",
+            "target": "Jurgita Markevičiūtė",
+            "value": 2.5
+        },
+        {
+            "source": "Alfredas Račkauskas",
+            "target": "Algimantas Birbilas",
+            "value": 1.0
+        },
+        {
+            "source": "Alfredas Račkauskas",
+            "target": "Tadas Danielius",
+            "value": 1.0
+        },
+        {
+            "source": "Alfredas Račkauskas",
+            "target": "Remigijus Leipus",
+            "value": 1.5833
+        },
+        {
+            "source": "Alfredas Račkauskas",
+            "target": "Olga Štikonienė",
+            "value": 0.0833
+        },
+        {
+            "source": "Alfredas Račkauskas",
+            "target": "Rimas Norvaiša",
+            "value": 2.0
+        },
+        {
+            "source": "Alfredas Račkauskas",
+            "target": "Mindaugas Bloznelis",
+            "value": 1.2
+        },
+        {
+            "source": "Alfredas Račkauskas",
+            "target": "Mindaugas Juodis",
+            "value": 2.1667
+        },
+        {
+            "source": "Alfredas Račkauskas",
+            "target": "Martynas Manstavičius",
+            "value": 1.0
+        },
+        {
+            "source": "Algirdas Lančinskas",
+            "target": "Sathuta Piripun Sellapperuma",
+            "value": 0.5
+        },
+        {
+            "source": "Algirdas Lančinskas",
+            "target": "Julius Žilinskas",
+            "value": 10.8667
+        },
+        {
+            "source": "Algirdas Lančinskas",
+            "target": "Virginijus Marcinkevičius",
+            "value": 0.6667
+        },
+        {
+            "source": "Algirdas Lančinskas",
+            "target": "Ernestas Filatovas",
+            "value": 0.25
+        },
+        {
+            "source": "Algirdas Lančinskas",
+            "target": "Olga Kurasova",
+            "value": 0.25
+        },
+        {
+            "source": "Algirdas Lančinskas",
+            "target": "Romas Baronas",
+            "value": 1.1167
+        },
+        {
+            "source": "Algirdas Lančinskas",
+            "target": "Darius Baronas",
+            "value": 0.2
+        },
+        {
+            "source": "Alminas Čivilis",
+            "target": "Linas Bukauskas",
+            "value": 0.8667
+        },
+        {
+            "source": "Alminas Čivilis",
+            "target": "Virgilijus Krinickij",
+            "value": 0.1667
+        },
+        {
+            "source": "Alminas Čivilis",
+            "target": "Linas Petkevičius",
+            "value": 0.7
+        },
+        {
+            "source": "Alminas Čivilis",
+            "target": "Eduardas Kutka",
+            "value": 0.3333
+        },
+        {
+            "source": "Andrius Buteikis",
+            "target": "Jurgita Markevičiūtė",
+            "value": 0.3333
+        },
+        {
+            "source": "Andrius Buteikis",
+            "target": "Remigijus Leipus",
+            "value": 2.5
+        },
+        {
+            "source": "Andrius Grigutis",
+            "target": "Jonas Jankauskas",
+            "value": 0.8333
+        },
+        {
+            "source": "Andrius Grigutis",
+            "target": "Jonas Šiaulys",
+            "value": 2.3333
+        },
+        {
+            "source": "Andrius Grigutis",
+            "target": "Ramūnas Garunkštis",
+            "value": 2.8333
+        },
+        {
+            "source": "Andrius Grigutis",
+            "target": "Darius Šiaučiūnas",
+            "value": 0.5
+        },
+        {
+            "source": "Andrius Grigutis",
+            "target": "Antanas Laurinčikas",
+            "value": 0.3333
+        },
+        {
+            "source": "Andrius Vytautas Misiukas Misiūnas",
+            "target": "Tadas Meškauskas",
+            "value": 3.25
+        },
+        {
+            "source": "Andrius Vytautas Misiukas Misiūnas",
+            "target": "Valdas Rapševičius",
+            "value": 0.25
+        },
+        {
+            "source": "Andrius Čiginas",
+            "target": "Donatas Šlevinskas",
+            "value": 0.3333
+        },
+        {
+            "source": "Andrius Čiginas",
+            "target": "Mindaugas Bloznelis",
+            "value": 0.5
+        },
+        {
+            "source": "Anita Juškevičienė",
+            "target": "Linas Bukauskas",
+            "value": 0.3333
+        },
+        {
+            "source": "Anita Juškevičienė",
+            "target": "Gabrielė Stupurienė",
+            "value": 2.3167
+        },
+        {
+            "source": "Anita Juškevičienė",
+            "target": "Tatjana Jevsikova",
+            "value": 1.9833
+        },
+        {
+            "source": "Anita Juškevičienė",
+            "target": "Valentina Dagienė",
+            "value": 3.1833
+        },
+        {
+            "source": "Anita Juškevičienė",
+            "target": "Vladimiras Dolgopolovas",
+            "value": 0.3333
+        },
+        {
+            "source": "Anita Juškevičienė",
+            "target": "Dovilė Stumbrienė",
+            "value": 0.2
+        },
+        {
+            "source": "Antanas Laurinčikas",
+            "target": "Darius Šiaučiūnas",
+            "value": 26.5833
+        },
+        {
+            "source": "Antanas Laurinčikas",
+            "target": "Artūras Dubickas",
+            "value": 1.6667
+        },
+        {
+            "source": "Antanas Laurinčikas",
+            "target": "Ramūnas Garunkštis",
+            "value": 5.95
+        },
+        {
+            "source": "Antanas Laurinčikas",
+            "target": "Roma Kačinskaitė",
+            "value": 7.0
+        },
+        {
+            "source": "Antanas Laurinčikas",
+            "target": "Audrius Kačėnas",
+            "value": 2.1667
+        },
+        {
+            "source": "Antanas Vaitkus",
+            "target": "Saulius Gražulis",
+            "value": 3.0777
+        },
+        {
+            "source": "Antanas Vaitkus",
+            "target": "Karolis Petrauskas",
+            "value": 0.2
+        },
+        {
+            "source": "Antanas Vaitkus",
+            "target": "Linas Laibinis",
+            "value": 0.2
+        },
+        {
+            "source": "Antanas Vaitkus",
+            "target": "Saulė Girdzijauskaitė",
+            "value": 0.2
+        },
+        {
+            "source": "Arnas Radzevičius",
+            "target": "Pijus Kasparaitis",
+            "value": 0.3333
+        },
+        {
+            "source": "Arnoldas Budžys",
+            "target": "Viktor Medvedev",
+            "value": 4.4
+        },
+        {
+            "source": "Arnoldas Budžys",
+            "target": "Olga Kurasova",
+            "value": 4.0667
+        },
+        {
+            "source": "Artūras Dubickas",
+            "target": "Ramūnas Garunkštis",
+            "value": 0.9167
+        },
+        {
+            "source": "Artūras Dubickas",
+            "target": "Paulius Drungilas",
+            "value": 10.5833
+        },
+        {
+            "source": "Artūras Dubickas",
+            "target": "Paulius Virbalas",
+            "value": 0.5
+        },
+        {
+            "source": "Artūras Dubickas",
+            "target": "Lukas Maciulevičius",
+            "value": 0.5
+        },
+        {
+            "source": "Artūras Dubickas",
+            "target": "Jonas Jankauskas",
+            "value": 6.25
+        },
+        {
+            "source": "Artūras Dubickas",
+            "target": "Tomas Plankis",
+            "value": 0.5
+        },
+        {
+            "source": "Artūras Dubickas",
+            "target": "Giedrius Alkauskas",
+            "value": 0.5
+        },
+        {
+            "source": "Artūras Dubickas",
+            "target": "Gintaras Puriuškis",
+            "value": 1.0
+        },
+        {
+            "source": "Artūras Štikonas",
+            "target": "Olga Štikonienė",
+            "value": 7.5333
+        },
+        {
+            "source": "Artūras Štikonas",
+            "target": "Saulius Maskeliūnas",
+            "value": 0.2
+        },
+        {
+            "source": "Asta Slotkienė",
+            "target": "Jolanta Miliauskaitė",
+            "value": 2.25
+        },
+        {
+            "source": "Asta Slotkienė",
+            "target": "Rasa Karbauskaitė",
+            "value": 0.3333
+        },
+        {
+            "source": "Audrius Kačėnas",
+            "target": "Paulius Drungilas",
+            "value": 0.3333
+        },
+        {
+            "source": "Audrius Kačėnas",
+            "target": "Ramūnas Garunkštis",
+            "value": 0.3333
+        },
+        {
+            "source": "Audrius Kačėnas",
+            "target": "Darius Šiaučiūnas",
+            "value": 1.0
+        },
+        {
+            "source": "Audronė Jakaitienė",
+            "target": "Tadas Žvirblis",
+            "value": 0.8333
+        },
+        {
+            "source": "Audronė Jakaitienė",
+            "target": "Laura Ringienė",
+            "value": 4.5278
+        },
+        {
+            "source": "Audronė Jakaitienė",
+            "target": "Gabrielė Stupurienė",
+            "value": 0.4
+        },
+        {
+            "source": "Audronė Jakaitienė",
+            "target": "Dovilė Stumbrienė",
+            "value": 6.7778
+        },
+        {
+            "source": "Audronė Jakaitienė",
+            "target": "Julius Žilinskas",
+            "value": 2.0944
+        },
+        {
+            "source": "Audronė Jakaitienė",
+            "target": "Olga Štikonienė",
+            "value": 1.0
+        },
+        {
+            "source": "Audronė Jakaitienė",
+            "target": "Joana Katina",
+            "value": 0.5
+        },
+        {
+            "source": "Audronė Lupeikienė",
+            "target": "Gintautas Dzemyda",
+            "value": 2.1
+        },
+        {
+            "source": "Audronė Lupeikienė",
+            "target": "Jolanta Miliauskaitė",
+            "value": 1.3333
+        },
+        {
+            "source": "Audronė Lupeikienė",
+            "target": "Viktor Medvedev",
+            "value": 0.9333
+        },
+        {
+            "source": "Audronė Lupeikienė",
+            "target": "Olga Kurasova",
+            "value": 0.6
+        },
+        {
+            "source": "Audronė Lupeikienė",
+            "target": "Laima Paliulionienė",
+            "value": 0.3333
+        },
+        {
+            "source": "Austėja Bauraitė",
+            "target": "Linas Bukauskas",
+            "value": 0.6667
+        },
+        {
+            "source": "Aušra Šubonienė",
+            "target": "Gintautas Dzemyda",
+            "value": 0.8472
+        },
+        {
+            "source": "Aušra Šubonienė",
+            "target": "Olga Kurasova",
+            "value": 0.8472
+        },
+        {
+            "source": "Aušra Šubonienė",
+            "target": "Viktor Medvedev",
+            "value": 0.8472
+        },
+        {
+            "source": "Aušra Šubonienė",
+            "target": "Rokas Gipiškis",
+            "value": 0.2222
+        },
+        {
+            "source": "Benjaminas Togobickij",
+            "target": "Roma Kačinskaitė",
+            "value": 0.5
+        },
+        {
+            "source": "Boleslovas Dapkūnas",
+            "target": "Romas Baronas",
+            "value": 2.3333
+        },
+        {
+            "source": "Boleslovas Dapkūnas",
+            "target": "Žilvinas Ledas",
+            "value": 0.6667
+        },
+        {
+            "source": "Dainius Dzindzalieta",
+            "target": "Tomas Juškevičius",
+            "value": 0.8333
+        },
+        {
+            "source": "Dainius Dzindzalieta",
+            "target": "Matas Šileikis",
+            "value": 0.3333
+        },
+        {
+            "source": "Dalia Breskuvienė",
+            "target": "Gintautas Dzemyda",
+            "value": 4.0
+        },
+        {
+            "source": "Daniel Zakševski",
+            "target": "Gražina Korvel",
+            "value": 0.5333
+        },
+        {
+            "source": "Daniel Zakševski",
+            "target": "Gintautas Tamulevičius",
+            "value": 1.0333
+        },
+        {
+            "source": "Daniel Zakševski",
+            "target": "Justina Ramonaitė",
+            "value": 0.2
+        },
+        {
+            "source": "Daniele Ettore Otera",
+            "target": "Seid Kassaw Muhie",
+            "value": 1.0
+        },
+        {
+            "source": "Darius Baronas",
+            "target": "Romas Baronas",
+            "value": 1.0333
+        },
+        {
+            "source": "Darius Plikynas",
+            "target": "Virginijus Marcinkevičius",
+            "value": 0.3333
+        },
+        {
+            "source": "Darius Plikynas",
+            "target": "Gražina Korvel",
+            "value": 0.3333
+        },
+        {
+            "source": "Darius Sabaliauskas",
+            "target": "Jolanta Miliauskaitė",
+            "value": 0.5
+        },
+        {
+            "source": "Darius Šiaučiūnas",
+            "target": "Raivydas Šimėnas",
+            "value": 0.3333
+        },
+        {
+            "source": "Dmitrij Celov",
+            "target": "Remigijus Leipus",
+            "value": 2.6667
+        },
+        {
+            "source": "Dmitrij Celov",
+            "target": "Saulius Jokubaitis",
+            "value": 0.8333
+        },
+        {
+            "source": "Dovilė Stumbrienė",
+            "target": "Tatjana Jevsikova",
+            "value": 0.5333
+        },
+        {
+            "source": "Dovilė Stumbrienė",
+            "target": "Gabrielė Stupurienė",
+            "value": 0.2
+        },
+        {
+            "source": "Dovilė Stumbrienė",
+            "target": "Valentina Dagienė",
+            "value": 0.2
+        },
+        {
+            "source": "Dovilė Stumbrienė",
+            "target": "Julius Žilinskas",
+            "value": 0.7611
+        },
+        {
+            "source": "Dovilė Stumbrienė",
+            "target": "Laura Ringienė",
+            "value": 0.7111
+        },
+        {
+            "source": "Edmundas Mazėtis",
+            "target": "Rasa Karbauskaitė",
+            "value": 0.3333
+        },
+        {
+            "source": "Edmundas Mazėtis",
+            "target": "Gintautas Dzemyda",
+            "value": 0.3333
+        },
+        {
+            "source": "Edmundas Mazėtis",
+            "target": "Rimas Norvaiša",
+            "value": 0.0588
+        },
+        {
+            "source": "Eduardas Kutka",
+            "target": "Linas Bukauskas",
+            "value": 1.75
+        },
+        {
+            "source": "Eduardas Kutka",
+            "target": "Virgilijus Krinickij",
+            "value": 0.25
+        },
+        {
+            "source": "Eduardas Kutka",
+            "target": "Jolita Bernatavičienė",
+            "value": 0.5
+        },
+        {
+            "source": "Eduardas Kutka",
+            "target": "Rolandas Naujikas",
+            "value": 0.25
+        },
+        {
+            "source": "Eduardas Kutka",
+            "target": "Jonas Šiaulys",
+            "value": 0.3333
+        },
+        {
+            "source": "Edvardas Dlugauskas",
+            "target": "Karolis Petrauskas",
+            "value": 0.5
+        },
+        {
+            "source": "Eglė Jaunė",
+            "target": "Jonas Šiaulys",
+            "value": 0.8333
+        },
+        {
+            "source": "Erikas Karikovas",
+            "target": "Ramūnas Garunkštis",
+            "value": 0.75
+        },
+        {
+            "source": "Erikas Karikovas",
+            "target": "Raivydas Šimėnas",
+            "value": 0.25
+        },
+        {
+            "source": "Ernestas Filatovas",
+            "target": "Viktor Medvedev",
+            "value": 0.5
+        },
+        {
+            "source": "Ernestas Filatovas",
+            "target": "Remigijus Paulavičius",
+            "value": 8.2
+        },
+        {
+            "source": "Ernestas Filatovas",
+            "target": "Saulius Grigaitis",
+            "value": 1.25
+        },
+        {
+            "source": "Ernestas Filatovas",
+            "target": "Olga Kurasova",
+            "value": 8.5333
+        },
+        {
+            "source": "Ernestas Filatovas",
+            "target": "Julius Žilinskas",
+            "value": 0.5833
+        },
+        {
+            "source": "Ernestas Filatovas",
+            "target": "Linas Petkevičius",
+            "value": 0.3333
+        },
+        {
+            "source": "Ernestas Filatovas",
+            "target": "Marco Marcozzi",
+            "value": 1.75
+        },
+        {
+            "source": "Ernestas Filatovas",
+            "target": "Linas Stripinis",
+            "value": 0.95
+        },
+        {
+            "source": "Ernestas Filatovas",
+            "target": "Mindaugas Juodis",
+            "value": 1.1667
+        },
+        {
+            "source": "Ernestas Filatovas",
+            "target": "Povilas Treigys",
+            "value": 0.3333
+        },
+        {
+            "source": "Gabija Liaudanskaitė",
+            "target": "Vydas Čekanavičius",
+            "value": 2.5
+        },
+        {
+            "source": "Gabrielė Skirmantaitė",
+            "target": "Gražina Korvel",
+            "value": 0.5
+        },
+        {
+            "source": "Gabrielė Stupurienė",
+            "target": "Tatjana Jevsikova",
+            "value": 2.65
+        },
+        {
+            "source": "Gabrielė Stupurienė",
+            "target": "Valentina Dagienė",
+            "value": 9.1671
+        },
+        {
+            "source": "Gabrielė Stupurienė",
+            "target": "Laura Ringienė",
+            "value": 0.4
+        },
+        {
+            "source": "Gabrielė Stupurienė",
+            "target": "Vaida Masiulionytė-Dagienė",
+            "value": 0.1742
+        },
+        {
+            "source": "Gediminas Navickas",
+            "target": "Gerda Ana Melnik-Leroy",
+            "value": 3.0
+        },
+        {
+            "source": "Gediminas Navickas",
+            "target": "Gražina Korvel",
+            "value": 1.75
+        },
+        {
+            "source": "Gediminas Navickas",
+            "target": "Gintautas Tamulevičius",
+            "value": 0.5
+        },
+        {
+            "source": "Gediminas Navickas",
+            "target": "Pijus Kasparaitis",
+            "value": 0.0833
+        },
+        {
+            "source": "Gediminas Navickas",
+            "target": "Margarita Beniušė",
+            "value": 0.0833
+        },
+        {
+            "source": "Gediminas Navickas",
+            "target": "Laimonas Vėbra",
+            "value": 0.0833
+        },
+        {
+            "source": "Gediminas Navickas",
+            "target": "Steponas Tolomanovas",
+            "value": 0.0833
+        },
+        {
+            "source": "Gediminas Navickas",
+            "target": "Jolita Bernatavičienė",
+            "value": 0.8333
+        },
+        {
+            "source": "Gediminas Navickas",
+            "target": "Povilas Treigys",
+            "value": 0.5
+        },
+        {
+            "source": "Gerda Ana Melnik-Leroy",
+            "target": "Jolita Bernatavičienė",
+            "value": 0.1667
+        },
+        {
+            "source": "Gerda Ana Melnik-Leroy",
+            "target": "Gražina Korvel",
+            "value": 0.1667
+        },
+        {
+            "source": "Gerda Ana Melnik-Leroy",
+            "target": "Gintautas Tamulevičius",
+            "value": 0.1667
+        },
+        {
+            "source": "Gerda Ana Melnik-Leroy",
+            "target": "Povilas Treigys",
+            "value": 0.5
+        },
+        {
+            "source": "Gerda Ana Melnik-Leroy",
+            "target": "Linas Aidokas",
+            "value": 0.2679
+        },
+        {
+            "source": "Gerda Ana Melnik-Leroy",
+            "target": "Gintautas Dzemyda",
+            "value": 0.7679
+        },
+        {
+            "source": "Gerda Ana Melnik-Leroy",
+            "target": "Virginijus Marcinkevičius",
+            "value": 0.2679
+        },
+        {
+            "source": "Gintaras Puriuškis",
+            "target": "Kristina Kaulakytė",
+            "value": 0.3333
+        },
+        {
+            "source": "Gintaras Skersys",
+            "target": "Pijus Kasparaitis",
+            "value": 0.5
+        },
+        {
+            "source": "Gintautas Dzemyda",
+            "target": "Viktor Medvedev",
+            "value": 12.1651
+        },
+        {
+            "source": "Gintautas Dzemyda",
+            "target": "Olga Kurasova",
+            "value": 12.4607
+        },
+        {
+            "source": "Gintautas Dzemyda",
+            "target": "Rokas Gipiškis",
+            "value": 0.2222
+        },
+        {
+            "source": "Gintautas Dzemyda",
+            "target": "Linas Aidokas",
+            "value": 0.2679
+        },
+        {
+            "source": "Gintautas Dzemyda",
+            "target": "Virginijus Marcinkevičius",
+            "value": 6.8845
+        },
+        {
+            "source": "Gintautas Dzemyda",
+            "target": "Modestas Motiejauskas",
+            "value": 1.5
+        },
+        {
+            "source": "Gintautas Dzemyda",
+            "target": "Jolita Bernatavičienė",
+            "value": 5.9214
+        },
+        {
+            "source": "Gintautas Dzemyda",
+            "target": "Martynas Sabaliauskas",
+            "value": 7.6667
+        },
+        {
+            "source": "Gintautas Dzemyda",
+            "target": "Rasa Karbauskaitė",
+            "value": 7.1667
+        },
+        {
+            "source": "Gintautas Dzemyda",
+            "target": "Gintautas Tamulevičius",
+            "value": 0.7667
+        },
+        {
+            "source": "Gintautas Dzemyda",
+            "target": "Povilas Treigys",
+            "value": 2.8345
+        },
+        {
+            "source": "Gintautas Dzemyda",
+            "target": "Justinas Jucevičius",
+            "value": 0.1429
+        },
+        {
+            "source": "Gintautas Dzemyda",
+            "target": "Laura Ringienė",
+            "value": 1.5
+        },
+        {
+            "source": "Gintautas Dzemyda",
+            "target": "Julius Žilinskas",
+            "value": 0.6667
+        },
+        {
+            "source": "Gintautas Dzemyda",
+            "target": "Valentina Dagienė",
+            "value": 0.3333
+        },
+        {
+            "source": "Gintautas Tamulevičius",
+            "target": "Gražina Korvel",
+            "value": 4.25
+        },
+        {
+            "source": "Gintautas Tamulevičius",
+            "target": "Justina Ramonaitė",
+            "value": 1.2833
+        },
+        {
+            "source": "Gintautas Tamulevičius",
+            "target": "Jolita Bernatavičienė",
+            "value": 1.5833
+        },
+        {
+            "source": "Gintautas Tamulevičius",
+            "target": "Povilas Treigys",
+            "value": 2.25
+        },
+        {
+            "source": "Gintautas Tamulevičius",
+            "target": "Rasa Karbauskaitė",
+            "value": 1.6667
+        },
+        {
+            "source": "Gintautas Tamulevičius",
+            "target": "Julius Venskus",
+            "value": 0.2
+        },
+        {
+            "source": "Gintautas Tamulevičius",
+            "target": "Viktor Medvedev",
+            "value": 0.2
+        },
+        {
+            "source": "Gražina Korvel",
+            "target": "Justina Ramonaitė",
+            "value": 2.2833
+        },
+        {
+            "source": "Gražina Korvel",
+            "target": "Pijus Kasparaitis",
+            "value": 0.0833
+        },
+        {
+            "source": "Gražina Korvel",
+            "target": "Margarita Beniušė",
+            "value": 0.0833
+        },
+        {
+            "source": "Gražina Korvel",
+            "target": "Laimonas Vėbra",
+            "value": 0.0833
+        },
+        {
+            "source": "Gražina Korvel",
+            "target": "Steponas Tolomanovas",
+            "value": 0.0833
+        },
+        {
+            "source": "Gražina Korvel",
+            "target": "Jolita Bernatavičienė",
+            "value": 2.25
+        },
+        {
+            "source": "Gražina Korvel",
+            "target": "Povilas Treigys",
+            "value": 3.3333
+        },
+        {
+            "source": "Gražina Korvel",
+            "target": "Vytautas Lėveris",
+            "value": 0.5
+        },
+        {
+            "source": "Gražina Korvel",
+            "target": "Paulius Zaranka",
+            "value": 0.75
+        },
+        {
+            "source": "Gražina Korvel",
+            "target": "Virginijus Marcinkevičius",
+            "value": 0.25
+        },
+        {
+            "source": "Gražina Korvel",
+            "target": "Ieva Kilienė",
+            "value": 0.3333
+        },
+        {
+            "source": "Gražina Korvel",
+            "target": "Olga Kurasova",
+            "value": 1.5833
+        },
+        {
+            "source": "Grigory Petrovitch Panassenko",
+            "target": "Konstantinas Pileckas",
+            "value": 3.05
+        },
+        {
+            "source": "Grigory Petrovitch Panassenko",
+            "target": "Kristina Kaulakytė",
+            "value": 0.3
+        },
+        {
+            "source": "Grigory Petrovitch Panassenko",
+            "target": "Nikolajus Kozulinas",
+            "value": 0.55
+        },
+        {
+            "source": "Grigory Petrovitch Panassenko",
+            "target": "Vytenis Šumskas",
+            "value": 0.45
+        },
+        {
+            "source": "Haroldas Giedra",
+            "target": "Romas Alonderis",
+            "value": 4.1667
+        },
+        {
+            "source": "Haroldas Giedra",
+            "target": "Jonas Dagys",
+            "value": 0.6667
+        },
+        {
+            "source": "Ieva Kilienė",
+            "target": "Rimas Norvaiša",
+            "value": 1.5
+        },
+        {
+            "source": "Igor Katin",
+            "target": "Joana Katina",
+            "value": 3.5833
+        },
+        {
+            "source": "Igoris Belovas",
+            "target": "Ilja Jurčenko",
+            "value": 0.3333
+        },
+        {
+            "source": "Igoris Belovas",
+            "target": "Martynas Sabaliauskas",
+            "value": 4.6667
+        },
+        {
+            "source": "Igoris Belovas",
+            "target": "Rolandas Gricius",
+            "value": 1.3333
+        },
+        {
+            "source": "Igoris Belovas",
+            "target": "Lukas Kuzma",
+            "value": 1.3333
+        },
+        {
+            "source": "Igoris Belovas",
+            "target": "Virginijus Marcinkevičius",
+            "value": 0.6667
+        },
+        {
+            "source": "Irmantas Radavičius",
+            "target": "Mindaugas Bloznelis",
+            "value": 2.0
+        },
+        {
+            "source": "Jokūbas Putrius",
+            "target": "Ramūnas Garunkštis",
+            "value": 1.3333
+        },
+        {
+            "source": "Jolanta Miliauskaitė",
+            "target": "Rasa Karbauskaitė",
+            "value": 0.3333
+        },
+        {
+            "source": "Jolanta Miliauskaitė",
+            "target": "Saulius Maskeliūnas",
+            "value": 0.25
+        },
+        {
+            "source": "Jolanta Miliauskaitė",
+            "target": "Laima Paliulionienė",
+            "value": 1.0
+        },
+        {
+            "source": "Jolita Bernatavičienė",
+            "target": "Povilas Treigys",
+            "value": 10.8917
+        },
+        {
+            "source": "Jolita Bernatavičienė",
+            "target": "Viktor Medvedev",
+            "value": 2.969
+        },
+        {
+            "source": "Jolita Bernatavičienė",
+            "target": "Olga Kurasova",
+            "value": 3.2
+        },
+        {
+            "source": "Jolita Bernatavičienė",
+            "target": "Virginijus Marcinkevičius",
+            "value": 3.2833
+        },
+        {
+            "source": "Jolita Bernatavičienė",
+            "target": "Justinas Jucevičius",
+            "value": 1.4095
+        },
+        {
+            "source": "Jolita Bernatavičienė",
+            "target": "Julius Venskus",
+            "value": 1.9262
+        },
+        {
+            "source": "Jolita Bernatavičienė",
+            "target": "Jurgita Markevičiūtė",
+            "value": 2.2929
+        },
+        {
+            "source": "Jolita Bernatavičienė",
+            "target": "Zigmantas Kęstutis Juškevičius",
+            "value": 0.9167
+        },
+        {
+            "source": "Jolita Bernatavičienė",
+            "target": "Simonas Šimėnas",
+            "value": 0.5333
+        },
+        {
+            "source": "Jolita Bernatavičienė",
+            "target": "Žygimantas Jonas Abramikas",
+            "value": 0.25
+        },
+        {
+            "source": "Jolita Bernatavičienė",
+            "target": "Jonas Mindaugas Rimšelis",
+            "value": 1.1667
+        },
+        {
+            "source": "Jolita Bernatavičienė",
+            "target": "Tadas Žvirblis",
+            "value": 0.25
+        },
+        {
+            "source": "Jolita Bernatavičienė",
+            "target": "Sandra Virbukaitė",
+            "value": 3.6667
+        },
+        {
+            "source": "Jolita Bernatavičienė",
+            "target": "Steponas Tolomanovas",
+            "value": 0.3333
+        },
+        {
+            "source": "Jolita Bernatavičienė",
+            "target": "Rūta Levulienė",
+            "value": 0.5333
+        },
+        {
+            "source": "Jonas Jankauskas",
+            "target": "Jonas Šiaulys",
+            "value": 0.3333
+        },
+        {
+            "source": "Jonas Jankauskas",
+            "target": "Paulius Drungilas",
+            "value": 3.7833
+        },
+        {
+            "source": "Jonas Mindaugas Rimšelis",
+            "target": "Povilas Treigys",
+            "value": 0.25
+        },
+        {
+            "source": "Jonas Mindaugas Rimšelis",
+            "target": "Zigmantas Kęstutis Juškevičius",
+            "value": 0.25
+        },
+        {
+            "source": "Jonas Mindaugas Rimšelis",
+            "target": "Tadas Žvirblis",
+            "value": 0.25
+        },
+        {
+            "source": "Jonas Sprindys",
+            "target": "Jonas Šiaulys",
+            "value": 2.3333
+        },
+        {
+            "source": "Jonas Šiaulys",
+            "target": "Remigijus Leipus",
+            "value": 14.4167
+        },
+        {
+            "source": "Jonas Šiaulys",
+            "target": "Jūratė Karasevičienė",
+            "value": 1.25
+        },
+        {
+            "source": "Jonas Šiaulys",
+            "target": "Rokas Gylys",
+            "value": 1.5
+        },
+        {
+            "source": "Jonas Šiaulys",
+            "target": "Jurgita Markevičiūtė",
+            "value": 0.3333
+        },
+        {
+            "source": "Jonas Šiaulys",
+            "target": "Martynas Manstavičius",
+            "value": 0.3333
+        },
+        {
+            "source": "Jonas Šiaulys",
+            "target": "Julius Damarackas",
+            "value": 1.0
+        },
+        {
+            "source": "Julius Damarackas",
+            "target": "Mindaugas Bloznelis",
+            "value": 0.5
+        },
+        {
+            "source": "Julius Venskus",
+            "target": "Povilas Treigys",
+            "value": 7.6762
+        },
+        {
+            "source": "Julius Venskus",
+            "target": "Viktor Medvedev",
+            "value": 1.1762
+        },
+        {
+            "source": "Julius Venskus",
+            "target": "Jurgita Markevičiūtė",
+            "value": 1.1667
+        },
+        {
+            "source": "Julius Venskus",
+            "target": "Rūta Levulienė",
+            "value": 0.3333
+        },
+        {
+            "source": "Julius Venskus",
+            "target": "Robertas Jurkus",
+            "value": 3.9167
+        },
+        {
+            "source": "Julius Žilinskas",
+            "target": "Olga Kurasova",
+            "value": 0.9167
+        },
+        {
+            "source": "Julius Žilinskas",
+            "target": "Laura Ringienė",
+            "value": 1.1111
+        },
+        {
+            "source": "Julius Žilinskas",
+            "target": "Mindaugas Kepalas",
+            "value": 1.5
+        },
+        {
+            "source": "Julius Žilinskas",
+            "target": "Linas Stripinis",
+            "value": 0.9167
+        },
+        {
+            "source": "Julius Žilinskas",
+            "target": "Remigijus Paulavičius",
+            "value": 10.85
+        },
+        {
+            "source": "Juozapas Rokas Čypas",
+            "target": "Olga Kurasova",
+            "value": 1.0
+        },
+        {
+            "source": "Juozapas Rokas Čypas",
+            "target": "Viktor Medvedev",
+            "value": 1.3333
+        },
+        {
+            "source": "Jurgita Markevičiūtė",
+            "target": "Povilas Treigys",
+            "value": 2.8762
+        },
+        {
+            "source": "Jurgita Markevičiūtė",
+            "target": "Simonas Šimėnas",
+            "value": 0.2
+        },
+        {
+            "source": "Jurgita Markevičiūtė",
+            "target": "Sandra Virbukaitė",
+            "value": 0.3333
+        },
+        {
+            "source": "Jurgita Markevičiūtė",
+            "target": "Rūta Levulienė",
+            "value": 0.6444
+        },
+        {
+            "source": "Jurgita Markevičiūtė",
+            "target": "Viktor Medvedev",
+            "value": 0.5333
+        },
+        {
+            "source": "Jurgita Markevičiūtė",
+            "target": "Robertas Jurkus",
+            "value": 0.25
+        },
+        {
+            "source": "Jurgita Markevičiūtė",
+            "target": "Urtė Deinoravičiūtė",
+            "value": 0.3333
+        },
+        {
+            "source": "Jurgita Markevičiūtė",
+            "target": "Karolis Bartkus",
+            "value": 0.3333
+        },
+        {
+            "source": "Justinas Jucevičius",
+            "target": "Povilas Treigys",
+            "value": 1.6595
+        },
+        {
+            "source": "Justinas Jucevičius",
+            "target": "Viktor Medvedev",
+            "value": 0.1429
+        },
+        {
+            "source": "Justinas Lekavičius",
+            "target": "Valentas Gružauskas",
+            "value": 1.0
+        },
+        {
+            "source": "Jūratė Karasevičienė",
+            "target": "Remigijus Leipus",
+            "value": 0.25
+        },
+        {
+            "source": "Jūratė Skūpienė",
+            "target": "Valentina Dagienė",
+            "value": 2.5909
+        },
+        {
+            "source": "Karolis Petrauskas",
+            "target": "Romas Baronas",
+            "value": 6.5
+        },
+        {
+            "source": "Karolis Petrauskas",
+            "target": "Linas Laibinis",
+            "value": 0.2
+        },
+        {
+            "source": "Karolis Petrauskas",
+            "target": "Saulius Gražulis",
+            "value": 0.2
+        },
+        {
+            "source": "Karolis Petrauskas",
+            "target": "Linas Litvinas",
+            "value": 0.1667
+        },
+        {
+            "source": "Karolis Petrauskas",
+            "target": "Linas Petkevičius",
+            "value": 0.4167
+        },
+        {
+            "source": "Karolis Petrauskas",
+            "target": "Vytautas Ašeris",
+            "value": 0.3333
+        },
+        {
+            "source": "Konstantinas Pileckas",
+            "target": "Kristina Kaulakytė",
+            "value": 3.05
+        },
+        {
+            "source": "Konstantinas Pileckas",
+            "target": "Nikolajus Kozulinas",
+            "value": 0.55
+        },
+        {
+            "source": "Konstantinas Pileckas",
+            "target": "Vytenis Šumskas",
+            "value": 0.7
+        },
+        {
+            "source": "Konstantinas Pileckas",
+            "target": "Rita Juodagalvytė",
+            "value": 1.0
+        },
+        {
+            "source": "Kristina Kaulakytė",
+            "target": "Nikolajus Kozulinas",
+            "value": 0.6333
+        },
+        {
+            "source": "Kristina Kaulakytė",
+            "target": "Vytenis Šumskas",
+            "value": 0.2
+        },
+        {
+            "source": "Kristina Kaulakytė",
+            "target": "Rita Juodagalvytė",
+            "value": 0.8333
+        },
+        {
+            "source": "Kristina Kaulakytė",
+            "target": "Vytautas Bačianskas",
+            "value": 0.5
+        },
+        {
+            "source": "Kristina Lapin",
+            "target": "Vytautas Čyras",
+            "value": 4.2917
+        },
+        {
+            "source": "Kristina Lapin",
+            "target": "Saulius Ragaišis",
+            "value": 1.0
+        },
+        {
+            "source": "Kursat Komurcu",
+            "target": "Linas Petkevičius",
+            "value": 2.0
+        },
+        {
+            "source": "Kęstutis Karčiauskas",
+            "target": "Rimvydas Krasauskas",
+            "value": 2.0
+        },
+        {
+            "source": "Laimonas Vėbra",
+            "target": "Pijus Kasparaitis",
+            "value": 0.0833
+        },
+        {
+            "source": "Laimonas Vėbra",
+            "target": "Margarita Beniušė",
+            "value": 0.0833
+        },
+        {
+            "source": "Laimonas Vėbra",
+            "target": "Steponas Tolomanovas",
+            "value": 0.0833
+        },
+        {
+            "source": "Linas Aidokas",
+            "target": "Virginijus Marcinkevičius",
+            "value": 0.2679
+        },
+        {
+            "source": "Linas Bukauskas",
+            "target": "Virgilijus Krinickij",
+            "value": 4.5833
+        },
+        {
+            "source": "Linas Bukauskas",
+            "target": "Matas Niewulis",
+            "value": 0.3333
+        },
+        {
+            "source": "Linas Laibinis",
+            "target": "Saulius Gražulis",
+            "value": 0.2
+        },
+        {
+            "source": "Linas Litvinas",
+            "target": "Romas Baronas",
+            "value": 3.4167
+        },
+        {
+            "source": "Linas Litvinas",
+            "target": "Linas Petkevičius",
+            "value": 0.4167
+        },
+        {
+            "source": "Linas Petkevičius",
+            "target": "Romas Baronas",
+            "value": 5.1667
+        },
+        {
+            "source": "Linas Petkevičius",
+            "target": "Saulė Satkauskienė",
+            "value": 0.65
+        },
+        {
+            "source": "Linas Petkevičius",
+            "target": "Tadas Žvirblis",
+            "value": 0.8429
+        },
+        {
+            "source": "Linas Petkevičius",
+            "target": "Rimantas Vaicekauskas",
+            "value": 0.2
+        },
+        {
+            "source": "Linas Stripinis",
+            "target": "Remigijus Paulavičius",
+            "value": 7.3667
+        },
+        {
+            "source": "Linas Stripinis",
+            "target": "Marco Marcozzi",
+            "value": 0.25
+        },
+        {
+            "source": "Lukas Kuzma",
+            "target": "Martynas Sabaliauskas",
+            "value": 1.3333
+        },
+        {
+            "source": "Lukas Kuzma",
+            "target": "Virginijus Marcinkevičius",
+            "value": 0.25
+        },
+        {
+            "source": "Lukas Maciulevičius",
+            "target": "Paulius Drungilas",
+            "value": 0.5
+        },
+        {
+            "source": "Marco Marcozzi",
+            "target": "Remigijus Paulavičius",
+            "value": 1.75
+        },
+        {
+            "source": "Margarita Beniušė",
+            "target": "Pijus Kasparaitis",
+            "value": 1.0833
+        },
+        {
+            "source": "Margarita Beniušė",
+            "target": "Steponas Tolomanovas",
+            "value": 0.0833
+        },
+        {
+            "source": "Marius Liutvinavičius",
+            "target": "Olga Kurasova",
+            "value": 1.3333
+        },
+        {
+            "source": "Martynas Manstavičius",
+            "target": "Remigijus Leipus",
+            "value": 0.5
+        },
+        {
+            "source": "Martynas Sabaliauskas",
+            "target": "Viktor Medvedev",
+            "value": 1.3333
+        },
+        {
+            "source": "Martynas Sabaliauskas",
+            "target": "Virginijus Marcinkevičius",
+            "value": 2.0
+        },
+        {
+            "source": "Matas Niewulis",
+            "target": "Virgilijus Krinickij",
+            "value": 0.3333
+        },
+        {
+            "source": "Matas Šileikis",
+            "target": "Tomas Juškevičius",
+            "value": 0.3333
+        },
+        {
+            "source": "Mindaugas Bloznelis",
+            "target": "Rimantas Vaicekauskas",
+            "value": 0.6667
+        },
+        {
+            "source": "Mindaugas Bloznelis",
+            "target": "Valentas Kurauskas",
+            "value": 2.7333
+        },
+        {
+            "source": "Mindaugas Bloznelis",
+            "target": "Vydas Čekanavičius",
+            "value": 0.3333
+        },
+        {
+            "source": "Mindaugas Juodis",
+            "target": "Remigijus Paulavičius",
+            "value": 1.1667
+        },
+        {
+            "source": "Nikolajus Kozulinas",
+            "target": "Vytenis Šumskas",
+            "value": 0.45
+        },
+        {
+            "source": "Nikolajus Kozulinas",
+            "target": "Rokas Astrauskas",
+            "value": 0.45
+        },
+        {
+            "source": "Olga Kurasova",
+            "target": "Viktor Medvedev",
+            "value": 11.2389
+        },
+        {
+            "source": "Olga Kurasova",
+            "target": "Rokas Gipiškis",
+            "value": 2.5556
+        },
+        {
+            "source": "Olga Kurasova",
+            "target": "Povilas Treigys",
+            "value": 0.5
+        },
+        {
+            "source": "Olga Kurasova",
+            "target": "Virginijus Marcinkevičius",
+            "value": 4.6
+        },
+        {
+            "source": "Olga Kurasova",
+            "target": "Rasa Karbauskaitė",
+            "value": 0.3333
+        },
+        {
+            "source": "Olga Kurasova",
+            "target": "Tadas Žvirblis",
+            "value": 0.3667
+        },
+        {
+            "source": "Olga Kurasova",
+            "target": "Žydrūnas Vaišnoras",
+            "value": 0.5
+        },
+        {
+            "source": "Olga Kurasova",
+            "target": "Valentina Dagienė",
+            "value": 0.5
+        },
+        {
+            "source": "Olga Štikonienė",
+            "target": "Remigijus Leipus",
+            "value": 0.9167
+        },
+        {
+            "source": "Olga Štikonienė",
+            "target": "Saulius Maskeliūnas",
+            "value": 0.2
+        },
+        {
+            "source": "Paulius Drungilas",
+            "target": "Ramūnas Garunkštis",
+            "value": 1.0
+        },
+        {
+            "source": "Paulius Zaranka",
+            "target": "Virginijus Marcinkevičius",
+            "value": 0.25
+        },
+        {
+            "source": "Pijus Kasparaitis",
+            "target": "Steponas Tolomanovas",
+            "value": 0.0833
+        },
+        {
+            "source": "Pijus Kasparaitis",
+            "target": "Žilvinas Ledas",
+            "value": 0.5
+        },
+        {
+            "source": "Povilas Treigys",
+            "target": "Remigijus Paulavičius",
+            "value": 0.3333
+        },
+        {
+            "source": "Povilas Treigys",
+            "target": "Viktor Medvedev",
+            "value": 2.519
+        },
+        {
+            "source": "Povilas Treigys",
+            "target": "Virginijus Marcinkevičius",
+            "value": 5.3333
+        },
+        {
+            "source": "Povilas Treigys",
+            "target": "Žygimantas Jonas Abramikas",
+            "value": 0.125
+        },
+        {
+            "source": "Povilas Treigys",
+            "target": "Simonas Šimėnas",
+            "value": 0.2
+        },
+        {
+            "source": "Povilas Treigys",
+            "target": "Zigmantas Kęstutis Juškevičius",
+            "value": 0.25
+        },
+        {
+            "source": "Povilas Treigys",
+            "target": "Steponas Tolomanovas",
+            "value": 0.3333
+        },
+        {
+            "source": "Povilas Treigys",
+            "target": "Rūta Levulienė",
+            "value": 0.5333
+        },
+        {
+            "source": "Povilas Treigys",
+            "target": "Robertas Jurkus",
+            "value": 3.5833
+        },
+        {
+            "source": "Povilas Treigys",
+            "target": "Urtė Deinoravičiūtė",
+            "value": 0.3333
+        },
+        {
+            "source": "Raivydas Šimėnas",
+            "target": "Ramūnas Garunkštis",
+            "value": 4.5833
+        },
+        {
+            "source": "Ramūnas Garunkštis",
+            "target": "Roma Kačinskaitė",
+            "value": 0.1111
+        },
+        {
+            "source": "Rasa Karbauskaitė",
+            "target": "Virginijus Marcinkevičius",
+            "value": 1.0
+        },
+        {
+            "source": "Remigijus Leipus",
+            "target": "Saulius Jokubaitis",
+            "value": 0.8333
+        },
+        {
+            "source": "Remigijus Leipus",
+            "target": "Viktor Skorniakov",
+            "value": 0.5833
+        },
+        {
+            "source": "Remigijus Leipus",
+            "target": "Rimas Norvaiša",
+            "value": 1.0
+        },
+        {
+            "source": "Remigijus Paulavičius",
+            "target": "Viktor Medvedev",
+            "value": 0.5
+        },
+        {
+            "source": "Remigijus Paulavičius",
+            "target": "Saulius Grigaitis",
+            "value": 1.25
+        },
+        {
+            "source": "Rimas Norvaiša",
+            "target": "Šarūnas Dirmeikis",
+            "value": 0.5
+        },
+        {
+            "source": "Rimvydas Krasauskas",
+            "target": "Severinas Zubė",
+            "value": 3.8333
+        },
+        {
+            "source": "Rokas Astrauskas",
+            "target": "Vytenis Šumskas",
+            "value": 0.2
+        },
+        {
+            "source": "Rokas Gipiškis",
+            "target": "Viktor Medvedev",
+            "value": 0.2222
+        },
+        {
+            "source": "Rolandas Naujikas",
+            "target": "Valdas Rapševičius",
+            "value": 0.25
+        },
+        {
+            "source": "Romas Baronas",
+            "target": "Žilvinas Ledas",
+            "value": 5.7
+        },
+        {
+            "source": "Romas Baronas",
+            "target": "Vytautas Ašeris",
+            "value": 5.8333
+        },
+        {
+            "source": "Rūta Levulienė",
+            "target": "Viktor Medvedev",
+            "value": 0.5333
+        },
+        {
+            "source": "Rūta Levulienė",
+            "target": "Vydas Čekanavičius",
+            "value": 0.5
+        },
+        {
+            "source": "Saulius Gražulis",
+            "target": "Saulė Girdzijauskaitė",
+            "value": 0.2
+        },
+        {
+            "source": "Saulius Ragaišis",
+            "target": "Stasys Peldžius",
+            "value": 4.1667
+        },
+        {
+            "source": "Saulius Ragaišis",
+            "target": "Vytautas Valaitis",
+            "value": 0.3333
+        },
+        {
+            "source": "Simonas Šimėnas",
+            "target": "Zigmantas Kęstutis Juškevičius",
+            "value": 0.3333
+        },
+        {
+            "source": "Snieguolė Meškauskienė",
+            "target": "Valentina Dagienė",
+            "value": 0.3333
+        },
+        {
+            "source": "Stasys Peldžius",
+            "target": "Vytautas Valaitis",
+            "value": 0.3333
+        },
+        {
+            "source": "Tadas Meškauskas",
+            "target": "Valdas Rapševičius",
+            "value": 0.25
+        },
+        {
+            "source": "Tadas Meškauskas",
+            "target": "Tomas Raila",
+            "value": 0.9262
+        },
+        {
+            "source": "Tatjana Jevsikova",
+            "target": "Valentina Dagienė",
+            "value": 13.675
+        },
+        {
+            "source": "Tatjana Jevsikova",
+            "target": "Vaida Masiulionytė-Dagienė",
+            "value": 1.5
+        },
+        {
+            "source": "Tatjana Jevsikova",
+            "target": "Vladimiras Dolgopolovas",
+            "value": 2.25
+        },
+        {
+            "source": "Tomas Juškevičius",
+            "target": "Valentas Kurauskas",
+            "value": 1.0
+        },
+        {
+            "source": "Vaida Masiulionytė-Dagienė",
+            "target": "Valentina Dagienė",
+            "value": 0.5031
+        },
+        {
+            "source": "Valdas Rapševičius",
+            "target": "Virginijus Marcinkevičius",
+            "value": 1.0
+        },
+        {
+            "source": "Valentina Dagienė",
+            "target": "Vladimiras Dolgopolovas",
+            "value": 6.9287
+        },
+        {
+            "source": "Viktor Medvedev",
+            "target": "Virginijus Marcinkevičius",
+            "value": 4.35
+        },
+        {
+            "source": "Virginijus Marcinkevičius",
+            "target": "Vytautas Paura",
+            "value": 2.5
+        },
+        {
+            "source": "Virginijus Marcinkevičius",
+            "target": "Vytautas Valaitis",
+            "value": 0.3333
+        }
+    ]
+}

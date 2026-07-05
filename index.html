@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIF VU Authors 3D Explorer</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind/CSS - We use Vanilla CSS for maximum control and premium glassmorphism -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- ThreeJS and 3D Force Graph via CDN -->
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <script src="https://unpkg.com/3d-force-graph@1.73.0/dist/3d-force-graph.min.js"></script>
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loader" class="loader-container">
+    <div class="loader-spinner"></div>
+    <div class="loader-text">Initializing 3D Force-Directed Simulation...</div>
+  </div>
+
+  <!-- Background WebGL Graph -->
+  <div id="3d-graph"></div>
+
+  <!-- Glassmorphic Left Sidebar: Author Details -->
+  <div id="detail-panel" class="panel detail-panel hidden">
+    <button id="close-detail-btn" class="close-btn">&times;</button>
+    
+    <div class="panel-section">
+      <div class="author-avatar">
+        <span id="author-initials">AS</span>
+      </div>
+      <h2 id="author-name" class="author-title">Artūras Štikonas</h2>
+      <div id="author-institutes" class="tag-container">
+        <!-- Color coded tags -->
+      </div>
+    </div>
+    
+    <div class="panel-section stats-grid">
+      <div class="stat-card">
+        <span class="stat-value" id="author-pub-count">14</span>
+        <span class="stat-label">Publications</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value" id="author-coauthor-count">5</span>
+        <span class="stat-label">Co-Authors</span>
+      </div>
+    </div>
+
+    <div class="panel-section flex-grow">
+      <h3>Publications</h3>
+      <div id="author-publications" class="publication-list">
+        <!-- Rendered list of publications -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Glassmorphic Right Sidebar: Settings & Search -->
+  <div class="panel controls-panel">
+    <div class="panel-section header-section">
+      <h1>MIF VU AUTHORS</h1>
+      <p class="subtitle">3D Network Visualizer</p>
+    </div>
+
+    <!-- Search Section -->
+    <div class="panel-section">
+      <h3>Search Author</h3>
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Type name (e.g. Štikonas)..." autocomplete="off">
+        <button id="search-btn">Search</button>
+      </div>
+      <div id="search-suggestions" class="search-suggestions hidden"></div>
+    </div>
+
+    <!-- Filter by Institute -->
+    <div class="panel-section">
+      <h3>Filter by Institute</h3>
+      <div id="filter-group" class="filter-group">
+        <!-- Populated dynamically in JavaScript -->
+      </div>
+    </div>
+
+    <!-- Network Stats -->
+    <div class="panel-section network-stats">
+      <h3>Network Statistics</h3>
+      <div class="stats-row">
+        <span>Active Authors:</span>
+        <strong id="stat-nodes-count">0</strong>
+      </div>
+      <div class="stats-row">
+        <span>Co-author Connections:</span>
+        <strong id="stat-links-count">0</strong>
+      </div>
+    </div>
+
+    <div class="panel-footer">
+      Sourced from eLABa
+    </div>
+  </div>
+
+  <!-- Main JavaScript App -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>
