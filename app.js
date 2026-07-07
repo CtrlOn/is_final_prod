@@ -319,9 +319,30 @@ function handleNodeHover(node) {
 function handleNodeClick(node) {
   selectedNode = node;
   
-  // Focus camera on clicked node
-  const distance = 90;
-  const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
+  // Find co-authors currently visible in the active graph
+  const neighbors = activeGraphData.nodes.filter(n => {
+    if (n.id === node.id) return false;
+    return activeGraphData.links.some(link => {
+      const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
+      const targetId = typeof link.target === 'object' ? link.target.id : link.target;
+      return (sourceId === node.id && targetId === n.id) || (targetId === node.id && sourceId === n.id);
+    });
+  });
+  
+  // Calculate maximum distance to any co-author
+  let maxDist = 0;
+  neighbors.forEach(n => {
+    const d = Math.hypot(n.x - node.x, n.y - node.y, n.z - node.z);
+    if (d > maxDist) {
+      maxDist = d;
+    }
+  });
+  
+  // Calculate dynamic camera distance (ensure minimum zoom level is comfortable, e.g., 180)
+  const distance = Math.max(180, maxDist * 2.0 + 40);
+  const nodeDist = Math.hypot(node.x, node.y, node.z) || 1;
+  const distRatio = 1 + distance / nodeDist;
+  
   Graph.cameraPosition(
     { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }, // camera coordinate
     node, // focal target (node position)
