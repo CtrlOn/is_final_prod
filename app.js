@@ -102,7 +102,8 @@ const Graph = ForceGraph3D()(document.getElementById('3d-graph'))
     const primaryInst = institutes[0] || 'DEFAULT';
     sprite.color = INSTITUTE_COLORS[primaryInst] || INSTITUTE_COLORS.DEFAULT;
     sprite.textHeight = 10;
-        sprite.center.y = -1.8 - nodeSize * 0.1; // shift above node
+    sprite.padding = 1;    // Add padding to prevent diacritics (e.g. Ž) from clipping
+    sprite.center.y = -1.8 - nodeSize * 0.1; // shift above node
     
     // Disable raycasting on the sprite so hover events/tooltips only target the sphere!
     sprite.raycast = () => null;
