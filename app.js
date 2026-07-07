@@ -30,6 +30,8 @@ const highlightLinks = new Set();
 // Active filters
 const activeInstitutes = new Set();
 let dynamicInstitutesList = [];
+let isInitializing = true;
+
 
 // DOM Elements
 const loader = document.getElementById('loader');
@@ -83,7 +85,7 @@ const Graph = ForceGraph3D()(document.getElementById('3d-graph'))
     }
     
     const sphereTexture = new THREE.CanvasTexture(sphereCanvas);
-    const nodeSize = Math.sqrt(node.val) + 4;
+    const nodeSize = Math.cbrt(node.val) * 3;
     const sphereGeom = new THREE.SphereGeometry(nodeSize, 32, 32);
     const sphereMat = new THREE.MeshBasicMaterial({
       map: sphereTexture,
@@ -171,10 +173,23 @@ Promise.all([
     });
   }
   
-  // Parse publications into lines, removing empty rows
+  // Pre-parse publications with a fast regex to avoid CPU-heavy DOMParser during runtime
+  const authorRegex = /<author[^>]*>([^<]+)<\/author>/g;
   publicationsList = pubsText.split('\n')
-    .map(line => line.strip ? line.strip() : line.trim())
-    .filter(line => line.length > 0);
+    .map(line => line.trim())
+    .filter(line => line.length > 0)
+    .map(pubHtml => {
+      const authors = [];
+      let match;
+      authorRegex.lastIndex = 0;
+      while ((match = authorRegex.exec(pubHtml)) !== null) {
+        authors.push(normalizeAuthorName(match[1]).toLowerCase());
+      }
+      return {
+        html: pubHtml,
+        authors: authors
+      };
+    });
   
   // Save full copies
   allGraphData.nodes.forEach(node => {
@@ -196,12 +211,31 @@ Promise.all([
     );
     
     if (targetNode) {
-      // Delay slightly so the simulation/canvas is ready and positioned
-      setTimeout(() => {
+      // Instantly open the details panel and apply selection highlights (so the UI is responsive immediately)
+      selectedNode = targetNode;
+      openDetailPanel(targetNode);
+      updateHighlights();
+      
+      // Wait for the simulation layout to completely settle before focusing camera
+      let focused = false;
+      let focusTimeout = null;
+      const focusCamera = () => {
+        if (focused) return;
+        focused = true;
+        if (focusTimeout) clearTimeout(focusTimeout);
+        Graph.onEngineStop(() => {}); // Clean up the engine stop listener
+        
+        // If the user has already navigated to a different node, do not override their action
+        if (selectedNode !== targetNode) return;
         handleNodeClick(targetNode);
-      }, 600);
+      };
+      Graph.onEngineStop(focusCamera);
+      focusTimeout = setTimeout(focusCamera, 1000); // Fail-safe fallback if engine settles immediately
     }
   }
+  
+  // Done initializing, future state changes should update the URL
+  isInitializing = false;
   
   // Hide Loading Screen
   setTimeout(() => {
@@ -345,6 +379,7 @@ function updateHighlights() {
 
 // Sync current filter & selected node state to URL query parameters
 function updateURL() {
+  if (isInitializing) return;
   const url = new URL(window.location.href);
   
   // Encode active institutes list as a bitmask (1 = checked, 0 = unchecked)
@@ -375,6 +410,9 @@ function handleNodeHover(node) {
 
 // Click Event Handler
 function handleNodeClick(node) {
+  // Clear any pending on-load simulation zoom listeners to prevent overriding manual user clicks
+  Graph.onEngineStop(() => {});
+  
   selectedNode = node;
   
   // Find co-authors currently visible in the active graph
@@ -429,27 +467,10 @@ function normalizeAuthorName(name) {
 
 // Parse raw HTML publication entries to find matches
 function findPublicationsForAuthor(authorName) {
-  const matches = [];
-  const parser = new DOMParser();
-  
-  publicationsList.forEach(pubHtml => {
-    const doc = parser.parseFromString(`<div>${pubHtml}</div>`, 'text/html');
-    const authors = doc.querySelectorAll('author');
-    
-    let isMatch = false;
-    authors.forEach(authEl => {
-      const parsedName = normalizeAuthorName(authEl.textContent);
-      if (parsedName.toLowerCase() === authorName.toLowerCase()) {
-        isMatch = true;
-      }
-    });
-    
-    if (isMatch) {
-      matches.push(pubHtml);
-    }
-  });
-  
-  return matches;
+  const lowerName = authorName.toLowerCase();
+  return publicationsList
+    .filter(pub => pub.authors.includes(lowerName))
+    .map(pub => pub.html);
 }
 
 // Detail Panel Populator
