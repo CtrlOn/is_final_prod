@@ -42,7 +42,6 @@ const detailPanel = document.getElementById('detail-panel');
 const closeDetailBtn = document.getElementById('close-detail-btn');
 
 // Detail Panel Elements
-const authorInitials = document.getElementById('author-initials');
 const authorName = document.getElementById('author-name');
 const authorInstitutesContainer = document.getElementById('author-institutes');
 const authorPubCount = document.getElementById('author-pub-count');
@@ -517,11 +516,6 @@ function findPublicationsForAuthor(authorName) {
 
 // Detail Panel Populator
 function openDetailPanel(node) {
-  // Get initials
-  const nameParts = node.name.split(' ');
-  const initials = nameParts.map(p => p[0]).join('').substring(0, 3).toUpperCase();
-  authorInitials.innerText = initials;
-  
   authorName.innerText = node.name;
   
   // Render colored tag groups dynamically

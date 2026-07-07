@@ -269,7 +269,7 @@ body {
 .publication-list {
   overflow-y: auto;
   flex-grow: 1;
-  max-height: 200px;
+  max-height: 300px;
   padding-right: 8px;
 }
 
