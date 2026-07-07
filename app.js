@@ -604,6 +604,31 @@ function setupEventListeners() {
       searchSuggestions.classList.add('hidden');
     }
   });
+  
+  // Backspace key event listener for unselection and centering camera target
+  document.addEventListener('keydown', (e) => {
+    // Do not intercept backspace if the user is typing in the search box or other input elements
+    if (document.activeElement && (
+      document.activeElement.tagName === 'INPUT' || 
+      document.activeElement.tagName === 'TEXTAREA' || 
+      document.activeElement.isContentEditable
+    )) {
+      return;
+    }
+    
+    if (e.key === 'Backspace') {
+      if (selectedNode) {
+        // Deselect current author
+        detailPanel.classList.add('hidden');
+        selectedNode = null;
+        updateHighlights();
+        updateURL();
+      } else {
+        // Smoothly zoom out and center the camera to frame the entire active graph nicely
+        Graph.zoomToFit(1500, 50);
+      }
+    }
+  });
 }
 
 // Find a node by name, pan camera to it, and open its details
