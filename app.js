@@ -688,6 +688,38 @@ function setupEventListeners() {
       updateGraph();
     });
   }
+  
+  // Info Modal Dialog open/close listeners
+  const infoBtn = document.getElementById('info-btn');
+  const infoModal = document.getElementById('info-modal');
+  const closeInfoBtn = document.getElementById('close-info-btn');
+  
+  if (infoBtn && infoModal) {
+    infoBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      infoModal.classList.remove('hidden');
+    });
+  }
+  
+  if (closeInfoBtn && infoModal) {
+    closeInfoBtn.addEventListener('click', () => {
+      infoModal.classList.add('hidden');
+    });
+  }
+  
+  if (infoModal) {
+    infoModal.addEventListener('click', (e) => {
+      if (e.target === infoModal) {
+        infoModal.classList.add('hidden');
+      }
+    });
+    
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !infoModal.classList.contains('hidden')) {
+        infoModal.classList.add('hidden');
+      }
+    });
+  }
 }
 
 // Find a node by name, pan camera to it, and open its details

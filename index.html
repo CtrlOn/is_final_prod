@@ -65,7 +65,10 @@
   <!-- Glassmorphic Right Sidebar: Settings & Search -->
   <div class="panel controls-panel">
     <div class="panel-section header-section">
-      <h1>MIF VU AUTHORS</h1>
+      <div class="title-container">
+        <h1>MIF VU AUTHORS</h1>
+        <button id="info-btn" class="info-btn" title="About this graph">i</button>
+      </div>
       <p class="subtitle">3D Network Visualizer</p>
     </div>
 
@@ -117,7 +120,55 @@
     </div>
   </div>
 
+  <!-- Premium Glassmorphic Info Modal -->
+  <div id="info-modal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <button id="close-info-btn" class="modal-close-btn">&times;</button>
+      <h2>Explorer Guide &amp; Methodology</h2>
+      
+      <div class="modal-body">
+        <section class="modal-section">
+          <h3>Node Visual Scaling</h3>
+          <p>
+            An author's node sphere size is determined by their total publication count:
+          </p>
+          <div class="formula-box">
+            Node Size ∝ ∛(Publications)
+          </div>
+          <p class="explanation">
+            Nodes volume is proportional amount of publications. Cube root is taken from publications count before setting radius of the node, that is because radius cubed is proportional to sphere's volume.
+          </p>
+        </section>
+
+        <section class="modal-section">
+          <h3>Co-Authorship Connection Strength</h3>
+          <p>
+            The thickness and brightness of the links represent the co-authorship similarity score between two researchers:
+          </p>
+          <div class="formula-box">
+            Weight(A, B) = Σ (1 / N)
+          </div>
+          <p class="explanation">
+            Connection strength is equal to sum of reciprocals of author count in each publication. This way publications with too many authors do not dominate the connection strength, while publications with few authors contribute more to the connection strength.
+          </p>
+        </section>
+
+        <section class="modal-section">
+          <h3>Navigation &amp; Controls</h3>
+          <ul class="controls-list">
+            <li><strong>Rotate Camera:</strong> Left-click and drag anywhere on the screen.</li>
+            <li><strong>Pan View:</strong> Right-click and drag (or hold Ctrl + Left-click and drag).</li>
+            <li><strong>Zoom In / Out:</strong> Scroll the mouse wheel.</li>
+            <li><strong>Select Researcher:</strong> Single-click on any sphere to focus on them and open their details panel.</li>
+            <li><strong>Deselect / Clear Focus:</strong> Single-click on empty background space.</li>
+            <li><strong>Center Network:</strong> Double-click on empty background space (or hit Backspace when nothing is selected) to frame the entire network nicely.</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </div>
+
   <!-- Main JavaScript App -->
-  <script type="module" src="app.js?v=1.1"></script>
+  <script type="module" src="app.js?v=1.2"></script>
 </body>
 </html>
