@@ -540,12 +540,23 @@ function setupEventListeners() {
     updateURL();
   });
   
-  // Close details panel on background click
+  // Close details panel on background click (single click deselects, double click centers)
+  let lastBgClickTime = 0;
   Graph.onBackgroundClick(() => {
-    detailPanel.classList.add('hidden');
-    selectedNode = null;
-    updateHighlights();
-    updateURL();
+    const now = Date.now();
+    const delay = now - lastBgClickTime;
+    lastBgClickTime = now;
+    
+    if (selectedNode) {
+      detailPanel.classList.add('hidden');
+      selectedNode = null;
+      updateHighlights();
+      updateURL();
+    } else {
+      if (delay < 350) {
+        Graph.zoomToFit(1500, 50);
+      }
+    }
   });
   
   // Search Bar Auto-complete
