@@ -17,12 +17,28 @@
             "val": 50
         },
         {
+            "id": "Agnė Petkevičiūtė",
+            "name": "Agnė Petkevičiūtė",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 0
+        },
+        {
             "id": "Aidas Balčiūnas",
             "name": "Aidas Balčiūnas",
             "institutes": [
                 "MI"
             ],
             "val": 20
+        },
+        {
+            "id": "Aidas Medžiūnas",
+            "name": "Aidas Medžiūnas",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 6
         },
         {
             "id": "Aistis Raudys",
@@ -41,6 +57,14 @@
             "val": 36
         },
         {
+            "id": "Aistė Grikietė",
+            "name": "Aistė Grikietė",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
+        },
+        {
             "id": "Aivaras Novikas",
             "name": "Aivaras Novikas",
             "institutes": [
@@ -56,6 +80,14 @@
                 "MI"
             ],
             "val": 7
+        },
+        {
+            "id": "Albertas Šermokas",
+            "name": "Albertas Šermokas",
+            "institutes": [
+                "II"
+            ],
+            "val": 4
         },
         {
             "id": "Aldona Skučaitė",
@@ -98,12 +130,28 @@
             "val": 41
         },
         {
+            "id": "Algis Kavaliauskas",
+            "name": "Algis Kavaliauskas",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 9
+        },
+        {
             "id": "Alminas Čivilis",
             "name": "Alminas Čivilis",
             "institutes": [
                 "II"
             ],
             "val": 24
+        },
+        {
+            "id": "Andreea-Iulia Lefterovici",
+            "name": "Andreea-Iulia Lefterovici",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 0
         },
         {
             "id": "Andrius Buteikis",
@@ -120,6 +168,14 @@
                 "MI"
             ],
             "val": 27
+        },
+        {
+            "id": "Andrius Uždanavičius",
+            "name": "Andrius Uždanavičius",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
         },
         {
             "id": "Andrius Vytautas Misiukas Misiūnas",
@@ -154,6 +210,14 @@
             "val": 501
         },
         {
+            "id": "Antanas Lenkšas",
+            "name": "Antanas Lenkšas",
+            "institutes": [
+                "MI"
+            ],
+            "val": 6
+        },
+        {
             "id": "Antanas Vaitkus",
             "name": "Antanas Vaitkus",
             "institutes": [
@@ -178,12 +242,28 @@
             "val": 15
         },
         {
+            "id": "Artiom Hovhannisyan",
+            "name": "Artiom Hovhannisyan",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
+        },
+        {
             "id": "Artūras Dubickas",
             "name": "Artūras Dubickas",
             "institutes": [
                 "MI"
             ],
             "val": 336
+        },
+        {
+            "id": "Artūras Jankus",
+            "name": "Artūras Jankus",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
         },
         {
             "id": "Artūras Štikonas",
@@ -194,12 +274,36 @@
             "val": 135
         },
         {
+            "id": "Arūnas Šaltis",
+            "name": "Arūnas Šaltis",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
+        },
+        {
+            "id": "Asta Paškovskė",
+            "name": "Asta Paškovskė",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 0
+        },
+        {
             "id": "Asta Slotkienė",
             "name": "Asta Slotkienė",
             "institutes": [
                 "DMSTI"
             ],
             "val": 17
+        },
+        {
+            "id": "Audrius Džiaugys",
+            "name": "Audrius Džiaugys",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
         },
         {
             "id": "Audrius Kačėnas",
@@ -210,6 +314,14 @@
             "val": 12
         },
         {
+            "id": "Audrius Linartas",
+            "name": "Audrius Linartas",
+            "institutes": [
+                "MI"
+            ],
+            "val": 0
+        },
+        {
             "id": "Audronė Jakaitienė",
             "name": "Audronė Jakaitienė",
             "institutes": [
@@ -218,12 +330,36 @@
             "val": 95
         },
         {
+            "id": "Audronė Jašinskienė",
+            "name": "Audronė Jašinskienė",
+            "institutes": [
+                "MI"
+            ],
+            "val": 0
+        },
+        {
             "id": "Audronė Lupeikienė",
             "name": "Audronė Lupeikienė",
             "institutes": [
                 "DMSTI"
             ],
             "val": 60
+        },
+        {
+            "id": "Augustė Raišytė",
+            "name": "Augustė Raišytė",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
+        },
+        {
+            "id": "Aurimas Šimkus",
+            "name": "Aurimas Šimkus",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
         },
         {
             "id": "Austėja Bauraitė",
@@ -242,6 +378,22 @@
             "val": 11
         },
         {
+            "id": "Balys Šulmanas",
+            "name": "Balys Šulmanas",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
+        },
+        {
+            "id": "Benas Zabita",
+            "name": "Benas Zabita",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 0
+        },
+        {
             "id": "Benjaminas Togobickij",
             "name": "Benjaminas Togobickij",
             "institutes": [
@@ -258,6 +410,14 @@
             "val": 8
         },
         {
+            "id": "Dainius Baliūnas",
+            "name": "Dainius Baliūnas",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 0
+        },
+        {
             "id": "Dainius Dzindzalieta",
             "name": "Dainius Dzindzalieta",
             "institutes": [
@@ -266,12 +426,37 @@
             "val": 12
         },
         {
+            "id": "Dalia Akulavičienė",
+            "name": "Dalia Akulavičienė",
+            "institutes": [
+                "II",
+                "TMI"
+            ],
+            "val": 0
+        },
+        {
             "id": "Dalia Breskuvienė",
             "name": "Dalia Breskuvienė",
             "institutes": [
                 "DMSTI"
             ],
             "val": 12
+        },
+        {
+            "id": "Dalia Šukvietienė",
+            "name": "Dalia Šukvietienė",
+            "institutes": [
+                "MI"
+            ],
+            "val": 0
+        },
+        {
+            "id": "Dalius Gudeika",
+            "name": "Dalius Gudeika",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 1
         },
         {
             "id": "Daniel Zakševski",
@@ -290,12 +475,28 @@
             "val": 41
         },
         {
+            "id": "Danutė Rimeisienė",
+            "name": "Danutė Rimeisienė",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 0
+        },
+        {
             "id": "Darius Baronas",
             "name": "Darius Baronas",
             "institutes": [
                 "II"
             ],
             "val": 4
+        },
+        {
+            "id": "Darius Juostas",
+            "name": "Darius Juostas",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
         },
         {
             "id": "Darius Plikynas",
@@ -315,6 +516,14 @@
             "val": 2
         },
         {
+            "id": "Darius Sauliūnas",
+            "name": "Darius Sauliūnas",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
+        },
+        {
             "id": "Darius Šiaučiūnas",
             "name": "Darius Šiaučiūnas",
             "institutes": [
@@ -331,6 +540,22 @@
             "val": 14
         },
         {
+            "id": "Dmitrij Nikolajev",
+            "name": "Dmitrij Nikolajev",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
+        },
+        {
+            "id": "Domas Sakavičius",
+            "name": "Domas Sakavičius",
+            "institutes": [
+                "MI"
+            ],
+            "val": 0
+        },
+        {
             "id": "Donatas Šlevinskas",
             "name": "Donatas Šlevinskas",
             "institutes": [
@@ -345,6 +570,14 @@
                 "DMSTI"
             ],
             "val": 33
+        },
+        {
+            "id": "Dzmitry Padkapayeu",
+            "name": "Dzmitry Padkapayeu",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 0
         },
         {
             "id": "Edmundas Mazėtis",
@@ -371,8 +604,40 @@
             "val": 1
         },
         {
+            "id": "Edvardas Ražanskas",
+            "name": "Edvardas Ražanskas",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 0
+        },
+        {
+            "id": "Edvinas Pakalnickas",
+            "name": "Edvinas Pakalnickas",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
+        },
+        {
             "id": "Eglė Jaunė",
             "name": "Eglė Jaunė",
+            "institutes": [
+                "MI"
+            ],
+            "val": 3
+        },
+        {
+            "id": "Elita Pakalnickienė",
+            "name": "Elita Pakalnickienė",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
+        },
+        {
+            "id": "Emilija Globienė",
+            "name": "Emilija Globienė",
             "institutes": [
                 "MI"
             ],
@@ -393,6 +658,14 @@
                 "DMSTI"
             ],
             "val": 64
+        },
+        {
+            "id": "Evgenij Shapovalov",
+            "name": "Evgenij Shapovalov",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
         },
         {
             "id": "Gabija Liaudanskaitė",
@@ -428,6 +701,14 @@
             "val": 18
         },
         {
+            "id": "Gediminas Rimša",
+            "name": "Gediminas Rimša",
+            "institutes": [
+                "II"
+            ],
+            "val": 1
+        },
+        {
             "id": "Gerda Ana Melnik-Leroy",
             "name": "Gerda Ana Melnik-Leroy",
             "institutes": [
@@ -436,12 +717,28 @@
             "val": 18
         },
         {
+            "id": "Germanas Šamrickis",
+            "name": "Germanas Šamrickis",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
+        },
+        {
             "id": "Giedrius Alkauskas",
             "name": "Giedrius Alkauskas",
             "institutes": [
                 "II"
             ],
             "val": 35
+        },
+        {
+            "id": "Giedrius Graževičius",
+            "name": "Giedrius Graževičius",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 0
         },
         {
             "id": "Gintaras Puriuškis",
@@ -460,6 +757,14 @@
             "val": 12
         },
         {
+            "id": "Gintautas Bareikis",
+            "name": "Gintautas Bareikis",
+            "institutes": [
+                "II"
+            ],
+            "val": 41
+        },
+        {
             "id": "Gintautas Dzemyda",
             "name": "Gintautas Dzemyda",
             "institutes": [
@@ -468,12 +773,28 @@
             "val": 247
         },
         {
+            "id": "Gintautas Jakštas",
+            "name": "Gintautas Jakštas",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 0
+        },
+        {
             "id": "Gintautas Tamulevičius",
             "name": "Gintautas Tamulevičius",
             "institutes": [
                 "DMSTI"
             ],
             "val": 57
+        },
+        {
+            "id": "Glauco Endrigo Moura de Lima",
+            "name": "Glauco Endrigo Moura de Lima",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 0
         },
         {
             "id": "Gražina Korvel",
@@ -492,6 +813,14 @@
             "val": 34
         },
         {
+            "id": "Guoda Jocienė",
+            "name": "Guoda Jocienė",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
+        },
+        {
             "id": "Haroldas Giedra",
             "name": "Haroldas Giedra",
             "institutes": [
@@ -506,6 +835,14 @@
                 "TMI"
             ],
             "val": 10
+        },
+        {
+            "id": "Ieva Ramašauskienė",
+            "name": "Ieva Ramašauskienė",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 3
         },
         {
             "id": "Igor Katin",
@@ -532,6 +869,22 @@
             "val": 1
         },
         {
+            "id": "Ina Talandienė",
+            "name": "Ina Talandienė",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 0
+        },
+        {
+            "id": "Irmantas Mikulėnas",
+            "name": "Irmantas Mikulėnas",
+            "institutes": [
+                "MI"
+            ],
+            "val": 0
+        },
+        {
             "id": "Irmantas Radavičius",
             "name": "Irmantas Radavičius",
             "institutes": [
@@ -540,12 +893,28 @@
             "val": 5
         },
         {
+            "id": "Irus Grinis",
+            "name": "Irus Grinis",
+            "institutes": [
+                "II"
+            ],
+            "val": 1
+        },
+        {
             "id": "Joana Katina",
             "name": "Joana Katina",
             "institutes": [
                 "II"
             ],
             "val": 19
+        },
+        {
+            "id": "Jokūbas Bucevičius",
+            "name": "Jokūbas Bucevičius",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 0
         },
         {
             "id": "Jokūbas Putrius",
@@ -573,6 +942,14 @@
             "val": 109
         },
         {
+            "id": "Jolita Ignatavičiūtė",
+            "name": "Jolita Ignatavičiūtė",
+            "institutes": [
+                "II"
+            ],
+            "val": 10
+        },
+        {
             "id": "Jonas Dagys",
             "name": "Jonas Dagys",
             "institutes": [
@@ -589,12 +966,28 @@
             "val": 30
         },
         {
+            "id": "Jonas Matuzas",
+            "name": "Jonas Matuzas",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
+        },
+        {
             "id": "Jonas Mindaugas Rimšelis",
             "name": "Jonas Mindaugas Rimšelis",
             "institutes": [
                 "DMSTI"
             ],
             "val": 4
+        },
+        {
+            "id": "Jonas Ragaišis",
+            "name": "Jonas Ragaišis",
+            "institutes": [
+                "II"
+            ],
+            "val": 1
         },
         {
             "id": "Jonas Sprindys",
@@ -611,6 +1004,30 @@
                 "MI"
             ],
             "val": 160
+        },
+        {
+            "id": "Jonas Žagūnas",
+            "name": "Jonas Žagūnas",
+            "institutes": [
+                "II"
+            ],
+            "val": 1
+        },
+        {
+            "id": "Jorūnė Rimeisytė-Nekrašienė",
+            "name": "Jorūnė Rimeisytė-Nekrašienė",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 0
+        },
+        {
+            "id": "Julius Andrikonis",
+            "name": "Julius Andrikonis",
+            "institutes": [
+                "II"
+            ],
+            "val": 8
         },
         {
             "id": "Julius Damarackas",
@@ -645,6 +1062,14 @@
             "val": 7
         },
         {
+            "id": "Jurga Globienė",
+            "name": "Jurga Globienė",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 0
+        },
+        {
             "id": "Jurgita Markevičiūtė",
             "name": "Jurgita Markevičiūtė",
             "institutes": [
@@ -652,6 +1077,14 @@
                 "TMI"
             ],
             "val": 42
+        },
+        {
+            "id": "Justina Krauledaitė",
+            "name": "Justina Krauledaitė",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 0
         },
         {
             "id": "Justina Ramonaitė",
@@ -694,6 +1127,14 @@
             "val": 17
         },
         {
+            "id": "Karolina Kasparavičiūtė",
+            "name": "Karolina Kasparavičiūtė",
+            "institutes": [
+                "MI"
+            ],
+            "val": 0
+        },
+        {
             "id": "Karolis Bartkus",
             "name": "Karolis Bartkus",
             "institutes": [
@@ -710,12 +1151,28 @@
             "val": 27
         },
         {
+            "id": "Karolis Uosis",
+            "name": "Karolis Uosis",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
+        },
+        {
             "id": "Konstantinas Pileckas",
             "name": "Konstantinas Pileckas",
             "institutes": [
                 "TMI"
             ],
             "val": 95
+        },
+        {
+            "id": "Kristina Garšvienė",
+            "name": "Kristina Garšvienė",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 0
         },
         {
             "id": "Kristina Kaulakytė",
@@ -750,6 +1207,14 @@
             "val": 80
         },
         {
+            "id": "Kęstutis Mizara",
+            "name": "Kęstutis Mizara",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
+        },
+        {
             "id": "Laima Paliulionienė",
             "name": "Laima Paliulionienė",
             "institutes": [
@@ -766,12 +1231,36 @@
             "val": 1
         },
         {
+            "id": "Laimutė Mikalauskienė",
+            "name": "Laimutė Mikalauskienė",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 0
+        },
+        {
             "id": "Laura Ringienė",
             "name": "Laura Ringienė",
             "institutes": [
                 "DMSTI"
             ],
             "val": 24
+        },
+        {
+            "id": "Lina Druskienė",
+            "name": "Lina Druskienė",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 0
+        },
+        {
+            "id": "Lina Sakson",
+            "name": "Lina Sakson",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
         },
         {
             "id": "Linas Aidokas",
@@ -782,12 +1271,28 @@
             "val": 4
         },
         {
+            "id": "Linas Bevainis",
+            "name": "Linas Bevainis",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
+        },
+        {
             "id": "Linas Bukauskas",
             "name": "Linas Bukauskas",
             "institutes": [
                 "II"
             ],
             "val": 62
+        },
+        {
+            "id": "Linas Būtėnas",
+            "name": "Linas Būtėnas",
+            "institutes": [
+                "II"
+            ],
+            "val": 8
         },
         {
             "id": "Linas Laibinis",
@@ -822,6 +1327,14 @@
             "val": 19
         },
         {
+            "id": "Lukas Baltramaitis",
+            "name": "Lukas Baltramaitis",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
+        },
+        {
             "id": "Lukas Kuzma",
             "name": "Lukas Kuzma",
             "institutes": [
@@ -836,6 +1349,14 @@
                 "MI"
             ],
             "val": 3
+        },
+        {
+            "id": "Mantas Grubliauskis",
+            "name": "Mantas Grubliauskis",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
         },
         {
             "id": "Marco Marcozzi",
@@ -854,12 +1375,28 @@
             "val": 14
         },
         {
+            "id": "Marijus Vaičiulis",
+            "name": "Marijus Vaičiulis",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 31
+        },
+        {
             "id": "Marius Liutvinavičius",
             "name": "Marius Liutvinavičius",
             "institutes": [
                 "DMSTI"
             ],
             "val": 3
+        },
+        {
+            "id": "Marius Šomka",
+            "name": "Marius Šomka",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
         },
         {
             "id": "Martynas Manstavičius",
@@ -894,6 +1431,14 @@
             "val": 1
         },
         {
+            "id": "Michele Pizzi",
+            "name": "Michele Pizzi",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 0
+        },
+        {
             "id": "Mindaugas Bloznelis",
             "name": "Mindaugas Bloznelis",
             "institutes": [
@@ -926,6 +1471,38 @@
             "val": 3
         },
         {
+            "id": "Monika Vilkienė",
+            "name": "Monika Vilkienė",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 6
+        },
+        {
+            "id": "Neringa Bingelienė",
+            "name": "Neringa Bingelienė",
+            "institutes": [
+                "MI"
+            ],
+            "val": 0
+        },
+        {
+            "id": "Nika Bukolovaitė",
+            "name": "Nika Bukolovaitė",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 0
+        },
+        {
+            "id": "Nikita Jegorov",
+            "name": "Nikita Jegorov",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 0
+        },
+        {
             "id": "Nikolajus Kozulinas",
             "name": "Nikolajus Kozulinas",
             "institutes": [
@@ -950,12 +1527,36 @@
             "val": 57
         },
         {
+            "id": "Osvaldas Balandis",
+            "name": "Osvaldas Balandis",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
+        },
+        {
+            "id": "Paulius Balčiūnas",
+            "name": "Paulius Balčiūnas",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
+        },
+        {
             "id": "Paulius Drungilas",
             "name": "Paulius Drungilas",
             "institutes": [
                 "MI"
             ],
             "val": 47
+        },
+        {
+            "id": "Paulius Milmantas",
+            "name": "Paulius Milmantas",
+            "institutes": [
+                "II"
+            ],
+            "val": 1
         },
         {
             "id": "Paulius Virbalas",
@@ -983,6 +1584,14 @@
             "val": 30
         },
         {
+            "id": "Povilas Kvedaras",
+            "name": "Povilas Kvedaras",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
+        },
+        {
             "id": "Povilas Treigys",
             "name": "Povilas Treigys",
             "institutes": [
@@ -991,12 +1600,36 @@
             "val": 137
         },
         {
+            "id": "Pranas Katauskis",
+            "name": "Pranas Katauskis",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 61
+        },
+        {
+            "id": "Raimundas Vidunas",
+            "name": "Raimundas Vidunas",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 10
+        },
+        {
             "id": "Raivydas Šimėnas",
             "name": "Raivydas Šimėnas",
             "institutes": [
                 "MI"
             ],
             "val": 22
+        },
+        {
+            "id": "Ramūnas Dzindzalieta",
+            "name": "Ramūnas Dzindzalieta",
+            "institutes": [
+                "II"
+            ],
+            "val": 9
         },
         {
             "id": "Ramūnas Garunkštis",
@@ -1015,6 +1648,14 @@
             "val": 20
         },
         {
+            "id": "Rasa Varnagirė",
+            "name": "Rasa Varnagirė",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 7
+        },
+        {
             "id": "Remigijus Leipus",
             "name": "Remigijus Leipus",
             "institutes": [
@@ -1029,6 +1670,22 @@
                 "DMSTI"
             ],
             "val": 79
+        },
+        {
+            "id": "Rima Žagūnienė",
+            "name": "Rima Žagūnienė",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
+        },
+        {
+            "id": "Rimantas Eidukevičius",
+            "name": "Rimantas Eidukevičius",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 37
         },
         {
             "id": "Rimantas Kybartas",
@@ -1071,12 +1728,29 @@
             "val": 4
         },
         {
+            "id": "Rita Činčienė",
+            "name": "Rita Činčienė",
+            "institutes": [
+                "DMSTI",
+                "TMI"
+            ],
+            "val": 0
+        },
+        {
             "id": "Robertas Jurkus",
             "name": "Robertas Jurkus",
             "institutes": [
                 "TMI"
             ],
             "val": 11
+        },
+        {
+            "id": "Robertas Vilkas",
+            "name": "Robertas Vilkas",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 2
         },
         {
             "id": "Rokas Astrauskas",
@@ -1101,6 +1775,14 @@
                 "MI"
             ],
             "val": 3
+        },
+        {
+            "id": "Rokas Masiulis",
+            "name": "Rokas Masiulis",
+            "institutes": [
+                "II"
+            ],
+            "val": 2
         },
         {
             "id": "Rolandas Gricius",
@@ -1143,6 +1825,14 @@
             "val": 203
         },
         {
+            "id": "Rykantė Šimkūnaitė",
+            "name": "Rykantė Šimkūnaitė",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 0
+        },
+        {
             "id": "Rūta Levulienė",
             "name": "Rūta Levulienė",
             "institutes": [
@@ -1157,6 +1847,14 @@
                 "DMSTI"
             ],
             "val": 8
+        },
+        {
+            "id": "Sasan Ansarian Najaf Abadi",
+            "name": "Sasan Ansarian Najaf Abadi",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 0
         },
         {
             "id": "Sathuta Piripun Sellapperuma",
@@ -1199,6 +1897,14 @@
             "val": 39
         },
         {
+            "id": "Saulius Norvidas",
+            "name": "Saulius Norvidas",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 42
+        },
+        {
             "id": "Saulius Ragaišis",
             "name": "Saulius Ragaišis",
             "institutes": [
@@ -1237,6 +1943,14 @@
                 "II"
             ],
             "val": 22
+        },
+        {
+            "id": "Sigitas Šulčius",
+            "name": "Sigitas Šulčius",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
         },
         {
             "id": "Simonas Šimėnas",
@@ -1287,6 +2001,14 @@
             "val": 44
         },
         {
+            "id": "Tadas Verbyla",
+            "name": "Tadas Verbyla",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
+        },
+        {
             "id": "Tadas Žvirblis",
             "name": "Tadas Žvirblis",
             "institutes": [
@@ -1301,6 +2023,22 @@
                 "DMSTI"
             ],
             "val": 59
+        },
+        {
+            "id": "Tereza Klimošova",
+            "name": "Tereza Klimošova",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
+        },
+        {
+            "id": "Tomas Gžegožas Lipnevičius",
+            "name": "Tomas Gžegožas Lipnevičius",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
         },
         {
             "id": "Tomas Juškevičius",
@@ -1319,12 +2057,52 @@
             "val": 6
         },
         {
+            "id": "Tomas Poškevičius",
+            "name": "Tomas Poškevičius",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 0
+        },
+        {
             "id": "Tomas Raila",
             "name": "Tomas Raila",
             "institutes": [
                 "II"
             ],
             "val": 7
+        },
+        {
+            "id": "Tomas Smagurauskas",
+            "name": "Tomas Smagurauskas",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
+        },
+        {
+            "id": "Tomas Ustinavičius",
+            "name": "Tomas Ustinavičius",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
+        },
+        {
+            "id": "Ugnė Liaubaitė",
+            "name": "Ugnė Liaubaitė",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 0
+        },
+        {
+            "id": "Ugnė Utkutė",
+            "name": "Ugnė Utkutė",
+            "institutes": [
+                "MI"
+            ],
+            "val": 0
         },
         {
             "id": "Urtė Deinoravičiūtė",
@@ -1342,6 +2120,22 @@
                 "II"
             ],
             "val": 12
+        },
+        {
+            "id": "Vaidas Savanevičius",
+            "name": "Vaidas Savanevičius",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 0
+        },
+        {
+            "id": "Vaidotas Zemlys-Balevičius",
+            "name": "Vaidotas Zemlys-Balevičius",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 10
         },
         {
             "id": "Valdas Rapševičius",
@@ -1376,6 +2170,30 @@
             "val": 263
         },
         {
+            "id": "Vasilij Savin",
+            "name": "Vasilij Savin",
+            "institutes": [
+                "II"
+            ],
+            "val": 2
+        },
+        {
+            "id": "Viačeslav Pozdniakov",
+            "name": "Viačeslav Pozdniakov",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
+        },
+        {
+            "id": "Vieslav Lapin",
+            "name": "Vieslav Lapin",
+            "institutes": [
+                "II"
+            ],
+            "val": 1
+        },
+        {
             "id": "Viktor Medvedev",
             "name": "Viktor Medvedev",
             "institutes": [
@@ -1390,6 +2208,14 @@
                 "TMI"
             ],
             "val": 47
+        },
+        {
+            "id": "Viktoras Golubevas",
+            "name": "Viktoras Golubevas",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
         },
         {
             "id": "Virgilijus Krinickij",
@@ -1408,6 +2234,14 @@
             "val": 107
         },
         {
+            "id": "Vladas Tumasonis",
+            "name": "Vladas Tumasonis",
+            "institutes": [
+                "II"
+            ],
+            "val": 6
+        },
+        {
             "id": "Vladimiras Dolgopolovas",
             "name": "Vladimiras Dolgopolovas",
             "institutes": [
@@ -1422,6 +2256,14 @@
                 "TMI"
             ],
             "val": 85
+        },
+        {
+            "id": "Vytas Zacharovas",
+            "name": "Vytas Zacharovas",
+            "institutes": [
+                "II"
+            ],
+            "val": 23
         },
         {
             "id": "Vytautas Ašeris",
@@ -1456,6 +2298,22 @@
             "val": 5
         },
         {
+            "id": "Vytautas Pugačevskis",
+            "name": "Vytautas Pugačevskis",
+            "institutes": [
+                "DMSTI"
+            ],
+            "val": 0
+        },
+        {
+            "id": "Vytautas Stepas",
+            "name": "Vytautas Stepas",
+            "institutes": [
+                "MI"
+            ],
+            "val": 7
+        },
+        {
             "id": "Vytautas Valaitis",
             "name": "Vytautas Valaitis",
             "institutes": [
@@ -1470,6 +2328,14 @@
                 "II"
             ],
             "val": 103
+        },
+        {
+            "id": "Vytenis Šliogeris",
+            "name": "Vytenis Šliogeris",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
         },
         {
             "id": "Vytenis Šumskas",
@@ -1488,12 +2354,28 @@
             "val": 4
         },
         {
+            "id": "Zigmantas Žitkus",
+            "name": "Zigmantas Žitkus",
+            "institutes": [
+                "II"
+            ],
+            "val": 0
+        },
+        {
             "id": "Šarūnas Dirmeikis",
             "name": "Šarūnas Dirmeikis",
             "institutes": [
                 "MI"
             ],
             "val": 1
+        },
+        {
+            "id": "Šarūnas Repšys",
+            "name": "Šarūnas Repšys",
+            "institutes": [
+                "TMI"
+            ],
+            "val": 15
         },
         {
             "id": "Žilvinas Ledas",

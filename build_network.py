@@ -162,7 +162,7 @@ def main():
 
     # Format data for ForceGraph3D
     nodes = []
-    for author in sorted(connected_authors):
+    for author in sorted(original_authors_set):
         nodes.append({
             "id": author,
             "name": author,
@@ -172,9 +172,9 @@ def main():
         
     links = []
     exported_pairs = set()
-    for a1 in sorted(connected_authors):
+    for a1 in sorted(original_authors_set):
         for a2, score in similarity[a1].items():
-            if a2 in connected_authors and score > 0:
+            if score > 0:
                 # Store single undirected link by sorting keys
                 pair_key = tuple(sorted([a1, a2]))
                 if pair_key not in exported_pairs:

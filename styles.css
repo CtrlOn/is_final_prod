@@ -413,6 +413,7 @@ body {
 .filter-item input:checked + .checkbox-custom.inst-II { background: var(--color-II); }
 .filter-item input:checked + .checkbox-custom.inst-MI { background: var(--color-MI); }
 .filter-item input:checked + .checkbox-custom.inst-TMI { background: var(--color-TMI); }
+#show-isolated-chk:checked + .checkbox-custom { background: var(--accent-color); }
 
 .filter-item input:checked + .checkbox-custom::after {
   content: '';

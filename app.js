@@ -123,18 +123,24 @@ Graph.d3Force('gravity', (() => {
   return (alpha) => {
     const strength = 0.08; // pull strength
     activeGraphData.nodes.forEach(node => {
-      node.vx -= node.x * strength * alpha;
-      node.vy -= node.y * strength * alpha;
-      node.vz -= node.z * strength * alpha;
+      if (typeof node.x === 'number' && !isNaN(node.x)) {
+        node.vx -= node.x * strength * alpha;
+      }
+      if (typeof node.y === 'number' && !isNaN(node.y)) {
+        node.vy -= node.y * strength * alpha;
+      }
+      if (typeof node.z === 'number' && !isNaN(node.z)) {
+        node.vz -= node.z * strength * alpha;
+      }
     });
   };
 })());
 
 // Fetch Data & Kickoff
 Promise.all([
-  fetch('network_data.json').then(res => res.json()),
-  fetch('author_institutes.json').then(res => res.json()),
-  fetch('publications.txt').then(res => res.text())
+  fetch('network_data.json?v=' + Date.now()).then(res => res.json()),
+  fetch('author_institutes.json?v=' + Date.now()).then(res => res.json()),
+  fetch('publications.txt?v=' + Date.now()).then(res => res.text())
 ]).then(([networkData, institutes, pubsText]) => {
   allGraphData = networkData;
   authorInstitutes = institutes;
@@ -162,6 +168,12 @@ Promise.all([
   const urlParams = new URLSearchParams(window.location.search);
   const instituteArg = urlParams.get('institute');
   const authorArg = urlParams.get('author');
+  const isolatedArg = urlParams.get('isolated');
+  
+  const showIsolatedChk = document.getElementById('show-isolated-chk');
+  if (showIsolatedChk && (isolatedArg === '0' || isolatedArg === 'false')) {
+    showIsolatedChk.checked = false;
+  }
   
   if (instituteArg) {
     activeInstitutes.clear();
@@ -302,25 +314,43 @@ function updateGraph() {
     node.institutes.some(inst => activeInstitutes.has(inst))
   );
   
-  const nodeIds = new Set(filteredNodes.map(n => n.id));
+  const nodeIdsTemp = new Set(filteredNodes.map(n => n.id));
   
-  // If selected node is no longer in filtered nodes, close details and deselect
+  const filteredLinks = allGraphData.links.filter(link => {
+    const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
+    const targetId = typeof link.target === 'object' ? link.target.id : link.target;
+    return nodeIdsTemp.has(sourceId) && nodeIdsTemp.has(targetId);
+  });
+  
+  // Read dynamic "Show Isolated Authors" setting
+  const showIsolatedChk = document.getElementById('show-isolated-chk');
+  const showIsolated = showIsolatedChk ? showIsolatedChk.checked : true;
+  
+  let finalNodes = filteredNodes;
+  if (!showIsolated) {
+    const connectedNodeIds = new Set();
+    filteredLinks.forEach(link => {
+      const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
+      const targetId = typeof link.target === 'object' ? link.target.id : link.target;
+      connectedNodeIds.add(sourceId);
+      connectedNodeIds.add(targetId);
+    });
+    finalNodes = filteredNodes.filter(node => connectedNodeIds.has(node.id));
+  }
+  
+  const nodeIds = new Set(finalNodes.map(n => n.id));
+  
+  // If selected node is no longer in visible nodes, close details and deselect
   if (selectedNode && !nodeIds.has(selectedNode.id)) {
     detailPanel.classList.add('hidden');
     selectedNode = null;
   }
   
-  const filteredLinks = allGraphData.links.filter(link => {
-    const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
-    const targetId = typeof link.target === 'object' ? link.target.id : link.target;
-    return nodeIds.has(sourceId) && nodeIds.has(targetId);
-  });
-  
-  activeGraphData = { nodes: filteredNodes, links: filteredLinks };
+  activeGraphData = { nodes: finalNodes, links: filteredLinks };
   Graph.graphData(activeGraphData);
   
   // Update overall UI stats
-  statNodesCount.innerText = filteredNodes.length;
+  statNodesCount.innerText = finalNodes.length;
   statLinksCount.innerText = filteredLinks.length;
   
   // Refresh highlights
@@ -399,6 +429,16 @@ function updateURL() {
     url.searchParams.delete('author');
   }
   
+  // Encode isolated authors checkbox state (default is true, so only set parameter if hidden)
+  const showIsolatedChk = document.getElementById('show-isolated-chk');
+  if (showIsolatedChk) {
+    if (!showIsolatedChk.checked) {
+      url.searchParams.set('isolated', '0');
+    } else {
+      url.searchParams.delete('isolated');
+    }
+  }
+  
   window.history.replaceState(null, '', url.toString());
 }
 
@@ -443,7 +483,7 @@ function handleNodeClick(node) {
   Graph.cameraPosition(
     { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }, // camera coordinate
     node, // focal target (node position)
-    1500  // transitions duration (ms)
+    1000  // transitions duration (ms)
   );
   
   // Open details panel
@@ -554,7 +594,7 @@ function setupEventListeners() {
       updateURL();
     } else {
       if (delay < 350) {
-        Graph.zoomToFit(1500, 50);
+        Graph.zoomToFit(1000, 50);
       }
     }
   });
@@ -636,10 +676,18 @@ function setupEventListeners() {
         updateURL();
       } else {
         // Smoothly zoom out and center the camera to frame the entire active graph nicely
-        Graph.zoomToFit(1500, 50);
+        Graph.zoomToFit(1000, 50);
       }
     }
   });
+  
+  // Dynamic "Show Isolated Authors" toggle listener
+  const showIsolatedChk = document.getElementById('show-isolated-chk');
+  if (showIsolatedChk) {
+    showIsolatedChk.addEventListener('change', () => {
+      updateGraph();
+    });
+  }
 }
 
 // Find a node by name, pan camera to it, and open its details
