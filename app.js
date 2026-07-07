@@ -48,6 +48,7 @@ const authorInstitutesContainer = document.getElementById('author-institutes');
 const authorPubCount = document.getElementById('author-pub-count');
 const authorCoauthorCount = document.getElementById('author-coauthor-count');
 const authorPublications = document.getElementById('author-publications');
+const authorConnections = document.getElementById('author-connections');
 
 // Stats Elements
 const statNodesCount = document.getElementById('stat-nodes-count');
@@ -566,7 +567,67 @@ function openDetailPanel(node) {
       });
     }
   }, 50);
-  
+
+  // Fetch and display connections/co-authors immediately (since it's fast in-memory)
+  authorConnections.innerHTML = '';
+  const connections = [];
+  allGraphData.links.forEach(link => {
+    const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
+    const targetId = typeof link.target === 'object' ? link.target.id : link.target;
+    const sourceNode = typeof link.source === 'object' ? link.source : null;
+    const targetNode = typeof link.target === 'object' ? link.target : null;
+    
+    if (sourceId === node.id) {
+      connections.push({
+        id: targetId,
+        node: targetNode || allGraphData.nodes.find(n => n.id === targetId),
+        value: link.value
+      });
+    } else if (targetId === node.id) {
+      connections.push({
+        id: sourceId,
+        node: sourceNode || allGraphData.nodes.find(n => n.id === sourceId),
+        value: link.value
+      });
+    }
+  });
+
+  // Sort connections descending by strength (value)
+  connections.sort((a, b) => b.value - a.value);
+
+  if (connections.length === 0) {
+    authorConnections.innerHTML = '<div style="text-align:center; padding:20px; color:#747d8c;">No co-authors found.</div>';
+  } else {
+    connections.forEach(conn => {
+      // Find primary institute color for the co-author
+      const primaryInst = (conn.node && conn.node.institutes && conn.node.institutes[0]) || 'DEFAULT';
+      const color = INSTITUTE_COLORS[primaryInst] || INSTITUTE_COLORS.DEFAULT;
+      const name = conn.node ? conn.node.name : conn.id;
+      const strengthStr = Number.isInteger(conn.value) ? conn.value.toString() : conn.value.toFixed(2);
+      
+      const itemDiv = document.createElement('div');
+      itemDiv.className = 'connection-item';
+      itemDiv.title = `Click to view ${name}'s network`;
+      
+      itemDiv.innerHTML = `
+        <div class="connection-info">
+          <span class="connection-dot" style="color: ${color};"></span>
+          <span class="connection-name">${name}</span>
+        </div>
+        <span class="connection-strength">${strengthStr}</span>
+      `;
+      
+      // Clicking a connection selects and focuses on that collaborator!
+      itemDiv.addEventListener('click', () => {
+        if (conn.node) {
+          handleNodeClick(conn.node);
+        }
+      });
+      
+      authorConnections.appendChild(itemDiv);
+    });
+  }
+
   detailPanel.classList.remove('hidden');
 }
 

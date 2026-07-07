@@ -269,7 +269,7 @@ body {
 .publication-list {
   overflow-y: auto;
   flex-grow: 1;
-  max-height: 400px;
+  max-height: 200px;
   padding-right: 8px;
 }
 
@@ -299,6 +299,65 @@ body {
 .publication-item a:hover {
   color: var(--accent-hover);
   text-decoration: underline;
+}
+
+/* Connection list rendering */
+.connections-list {
+  overflow-y: auto;
+  max-height: 200px;
+  padding-right: 8px;
+}
+
+.connection-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.1s;
+}
+
+.connection-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+.connection-item:active {
+  transform: translateY(0);
+}
+
+.connection-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.connection-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  box-shadow: 0 0 6px currentColor;
+}
+
+.connection-name {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.connection-strength {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2px 8px;
+  border-radius: 6px;
+  color: var(--text-secondary);
 }
 
 /* Search Box and Suggestions */
