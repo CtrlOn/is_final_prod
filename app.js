@@ -23,6 +23,7 @@ let activeGraphData = { nodes: [], links: [] };
 let authorInstitutes = {};
 let publicationsList = [];
 let hoveredNode = null;
+let selectedNode = null;
 const highlightNodes = new Set();
 const highlightLinks = new Set();
 
@@ -235,6 +236,13 @@ function updateGraph() {
   );
   
   const nodeIds = new Set(filteredNodes.map(n => n.id));
+  
+  // If selected node is no longer in filtered nodes, close details and deselect
+  if (selectedNode && !nodeIds.has(selectedNode.id)) {
+    detailPanel.classList.add('hidden');
+    selectedNode = null;
+  }
+  
   const filteredLinks = allGraphData.links.filter(link => {
     const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
     const targetId = typeof link.target === 'object' ? link.target.id : link.target;
@@ -247,36 +255,37 @@ function updateGraph() {
   // Update overall UI stats
   statNodesCount.innerText = filteredNodes.length;
   statLinksCount.innerText = filteredLinks.length;
+  
+  // Refresh highlights
+  updateHighlights();
 }
 
-// Hover Event Handler
-function handleNodeHover(node) {
-  if (hoveredNode === node) return;
-  
+// Generalized Highlights Updater (handles hover and selection state)
+function updateHighlights() {
   highlightNodes.clear();
   highlightLinks.clear();
   
-  if (node) {
-    hoveredNode = node;
-    highlightNodes.add(node);
+  // Decide which node is active (hovered has priority over selected)
+  const activeNode = hoveredNode || selectedNode;
+  
+  if (activeNode) {
+    highlightNodes.add(activeNode);
     
     // Find all directly connected links and neighbors
     activeGraphData.links.forEach(link => {
       const source = typeof link.source === 'object' ? link.source.id : link.source;
       const target = typeof link.target === 'object' ? link.target.id : link.target;
       
-      if (source === node.id) {
+      if (source === activeNode.id) {
         highlightLinks.add(link);
         const neighbor = activeGraphData.nodes.find(n => n.id === target);
         if (neighbor) highlightNodes.add(neighbor);
-      } else if (target === node.id) {
+      } else if (target === activeNode.id) {
         highlightLinks.add(link);
         const neighbor = activeGraphData.nodes.find(n => n.id === source);
         if (neighbor) highlightNodes.add(neighbor);
       }
     });
-  } else {
-    hoveredNode = null;
   }
   
   // Dynamically update opacities of Three.js objects (traversing the node's rendering group)
@@ -296,12 +305,20 @@ function handleNodeHover(node) {
   
   // Force link update
   Graph.linkWidth(Graph.linkWidth())
-       .linkColor(Graph.linkColor())
-       .linkDirectionalParticles(Graph.linkDirectionalParticles());
+       .linkColor(Graph.linkColor());
+}
+
+// Hover Event Handler
+function handleNodeHover(node) {
+  if (hoveredNode === node) return;
+  hoveredNode = node;
+  updateHighlights();
 }
 
 // Click Event Handler
 function handleNodeClick(node) {
+  selectedNode = node;
+  
   // Focus camera on clicked node
   const distance = 90;
   const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
@@ -313,6 +330,9 @@ function handleNodeClick(node) {
   
   // Open details panel
   openDetailPanel(node);
+  
+  // Apply selection highlights
+  updateHighlights();
 }
 
 // Normalizes "Lastname, Firstname" -> "Firstname Lastname"
@@ -411,6 +431,15 @@ function setupEventListeners() {
   // Close details panel
   closeDetailBtn.addEventListener('click', () => {
     detailPanel.classList.add('hidden');
+    selectedNode = null;
+    updateHighlights();
+  });
+  
+  // Close details panel on background click
+  Graph.onBackgroundClick(() => {
+    detailPanel.classList.add('hidden');
+    selectedNode = null;
+    updateHighlights();
   });
   
   // Search Bar Auto-complete
