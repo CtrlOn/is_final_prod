@@ -29,6 +29,7 @@ const highlightLinks = new Set();
 
 // Active filters
 const activeInstitutes = new Set();
+let dynamicInstitutesList = [];
 
 // DOM Elements
 const loader = document.getElementById('loader');
@@ -142,17 +143,33 @@ Promise.all([
       node.institutes.forEach(inst => institutesSet.add(inst));
     }
   });
-  const dynamicInstitutes = Array.from(institutesSet).sort();
+  dynamicInstitutesList = Array.from(institutesSet).sort();
   
   // Map dynamic institutes to TAB10_COLORS! (Requirement 7)
-  dynamicInstitutes.forEach((inst, idx) => {
+  dynamicInstitutesList.forEach((inst, idx) => {
     INSTITUTE_COLORS[inst] = TAB10_COLORS[idx % TAB10_COLORS.length];
   });
   INSTITUTE_COLORS['DEFAULT'] = '#70a1ff';
   
   // Initialize activeInstitutes with all found institutes
   activeInstitutes.clear();
-  dynamicInstitutes.forEach(inst => activeInstitutes.add(inst));
+  dynamicInstitutesList.forEach(inst => activeInstitutes.add(inst));
+  
+  // Parse URL Parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  const instituteArg = urlParams.get('institute');
+  const authorArg = urlParams.get('author');
+  
+  if (instituteArg) {
+    activeInstitutes.clear();
+    dynamicInstitutesList.forEach((inst, idx) => {
+      // If bitmask has character and it's '1', include it. If bitmask is shorter, default to '1'.
+      const char = instituteArg[idx];
+      if (char === undefined || char === '1') {
+        activeInstitutes.add(inst);
+      }
+    });
+  }
   
   // Parse publications into lines, removing empty rows
   publicationsList = pubsText.split('\n')
@@ -165,11 +182,26 @@ Promise.all([
   });
   
   // Build and render dynamic filter checkboxes! (Requirement 7)
-  renderDynamicFilters(dynamicInstitutes);
+  renderDynamicFilters(dynamicInstitutesList);
   
   // Update state and render
   updateGraph();
   setupEventListeners();
+  
+  // If author query parameter is present, select them on load!
+  if (authorArg) {
+    const targetNode = activeGraphData.nodes.find(n => 
+      n.id.toLowerCase() === authorArg.toLowerCase() || 
+      n.name.toLowerCase() === authorArg.toLowerCase()
+    );
+    
+    if (targetNode) {
+      // Delay slightly so the simulation/canvas is ready and positioned
+      setTimeout(() => {
+        handleNodeClick(targetNode);
+      }, 600);
+    }
+  }
   
   // Hide Loading Screen
   setTimeout(() => {
@@ -192,7 +224,7 @@ function renderDynamicFilters(dynamicInstitutes) {
     
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
-    checkbox.checked = true;
+    checkbox.checked = activeInstitutes.has(inst);
     checkbox.setAttribute('data-inst', inst);
     checkbox.addEventListener('change', (e) => {
       if (e.target.checked) {
@@ -258,6 +290,9 @@ function updateGraph() {
   
   // Refresh highlights
   updateHighlights();
+  
+  // Sync state to URL query parameters
+  updateURL();
 }
 
 // Generalized Highlights Updater (handles hover and selection state)
@@ -308,6 +343,29 @@ function updateHighlights() {
        .linkColor(Graph.linkColor());
 }
 
+// Sync current filter & selected node state to URL query parameters
+function updateURL() {
+  const url = new URL(window.location.href);
+  
+  // Encode active institutes list as a bitmask (1 = checked, 0 = unchecked)
+  if (dynamicInstitutesList && dynamicInstitutesList.length > 0) {
+    let bitmask = '';
+    dynamicInstitutesList.forEach(inst => {
+      bitmask += activeInstitutes.has(inst) ? '1' : '0';
+    });
+    url.searchParams.set('institute', bitmask);
+  }
+  
+  // Encode selected author name/ID
+  if (selectedNode) {
+    url.searchParams.set('author', selectedNode.id);
+  } else {
+    url.searchParams.delete('author');
+  }
+  
+  window.history.replaceState(null, '', url.toString());
+}
+
 // Hover Event Handler
 function handleNodeHover(node) {
   if (hoveredNode === node) return;
@@ -354,6 +412,9 @@ function handleNodeClick(node) {
   
   // Apply selection highlights
   updateHighlights();
+  
+  // Sync state to URL query parameters
+  updateURL();
 }
 
 // Normalizes "Lastname, Firstname" -> "Firstname Lastname"
@@ -454,6 +515,7 @@ function setupEventListeners() {
     detailPanel.classList.add('hidden');
     selectedNode = null;
     updateHighlights();
+    updateURL();
   });
   
   // Close details panel on background click
@@ -461,6 +523,7 @@ function setupEventListeners() {
     detailPanel.classList.add('hidden');
     selectedNode = null;
     updateHighlights();
+    updateURL();
   });
   
   // Search Bar Auto-complete
