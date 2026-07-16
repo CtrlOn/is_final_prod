@@ -204,9 +204,20 @@ Promise.all([
       };
     });
   
-  // Save full copies
+  // Filter out nodes with 0 or invalid publications
+  allGraphData.nodes = allGraphData.nodes.filter(node => (Number(node.val) || 0) > 0);
+  
+  // Clean up any links referencing removed nodes
+  const validNodeIds = new Set(allGraphData.nodes.map(n => n.id));
+  allGraphData.links = allGraphData.links.filter(link => {
+    const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
+    const targetId = typeof link.target === 'object' ? link.target.id : link.target;
+    return validNodeIds.has(sourceId) && validNodeIds.has(targetId);
+  });
+  
+  // Save normalized values as numbers
   allGraphData.nodes.forEach(node => {
-    node.val = Number(node.val) || 1;
+    node.val = Number(node.val) || 0;
   });
   
   // Build and render dynamic filter checkboxes! (Requirement 7)

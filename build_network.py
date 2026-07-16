@@ -160,15 +160,30 @@ def main():
     print(f"{len(connected_authors)} out of {len(original_authors_set)} authors have co-authorship connections in this dataset.")
     print(f"Stripping {len(original_authors_set) - len(connected_authors)} disconnected singletons from the final visualizer.")
 
+    # Re-calculate author publication counts based on all unique publications in our dataset
+    # This ensures consistency and catches co-authored publications
+    author_publication_counts = defaultdict(int)
+    for cleaned_pub in unique_publications.keys():
+        author_matches = re.findall(r'<author[^>]*>([^<]+)</author>', cleaned_pub)
+        seen_in_pub = set()
+        for am in author_matches:
+            normalized = normalize_scraped_name(am)
+            if normalized in original_authors_set and normalized not in seen_in_pub:
+                seen_in_pub.add(normalized)
+                author_publication_counts[normalized] += 1
+
     # Format data for ForceGraph3D
+    # Only include authors who have at least 1 publication in the dataset
     nodes = []
     for author in sorted(original_authors_set):
-        nodes.append({
-            "id": author,
-            "name": author,
-            "institutes": author_to_institutes[author],
-            "val": author_publication_counts[author]
-        })
+        val = author_publication_counts[author]
+        if val > 0:
+            nodes.append({
+                "id": author,
+                "name": author,
+                "institutes": author_to_institutes[author],
+                "val": val
+            })
         
     links = []
     exported_pairs = set()
