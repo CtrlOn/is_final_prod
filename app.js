@@ -137,13 +137,33 @@ Graph.d3Force('gravity', (() => {
 })());
 
 // Fetch Data & Kickoff
-Promise.all([
-  fetch('network_data.json?v=' + Date.now()).then(res => res.json()),
-  fetch('author_institutes.json?v=' + Date.now()).then(res => res.json()),
-  fetch('publications.txt?v=' + Date.now()).then(res => res.text())
-]).then(([networkData, institutes, pubsText]) => {
-  allGraphData = networkData;
-  authorInstitutes = institutes;
+fetch('network_data.json?v=' + Date.now())
+  .then(res => {
+    if (!res.ok) throw new Error(`Failed to fetch network_data.json: ${res.status} ${res.statusText}`);
+    return res.json();
+  })
+  .then(networkData => {
+    const pubFiles = networkData.publication_files || ['publications.txt'];
+    console.log('=== DATA LOADING ===');
+    console.log('Publication files from network_data.json:', pubFiles);
+    
+    return Promise.all([
+      Promise.resolve(networkData),
+      fetch('author_institutes.json?v=' + Date.now()).then(res => {
+        if (!res.ok) throw new Error(`Failed to fetch author_institutes.json: ${res.status} ${res.statusText}`);
+        return res.json();
+      }),
+      Promise.all(pubFiles.map(file => fetch(file + '?v=' + Date.now()).then(res => {
+        if (!res.ok) throw new Error(`Failed to fetch ${file}: ${res.status} ${res.statusText}`);
+        return res.text();
+      })))
+    ]);
+  })
+  .then(([networkData, institutes, pubsTexts]) => {
+    const pubsText = pubsTexts.join('\n');
+    console.log(`Successfully fetched and merged ${pubsTexts.length} publication file(s). Total merged length: ${pubsText.length} characters.`);
+    allGraphData = networkData;
+    authorInstitutes = institutes;
   
   // Extract all unique institutes dynamically! (Requirement 7)
   const institutesSet = new Set();

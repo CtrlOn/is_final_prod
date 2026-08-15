@@ -169,11 +169,58 @@ def main():
                 
     print(f"Extracted {len(unique_publications)} unique publications total.")
 
-    print("\n--- STEP 4b: Save publications.txt ---")
-    with open("publications.txt", "w", encoding="utf-8") as f:
-        for pub_html in unique_publications.values():
-            f.write(pub_html + "\n")
-    print("Exported publications.txt")
+    print("\n--- STEP 4b: Save publications.txt (splitting if > 10MB) ---")
+    # Clean up any existing publications_*.txt files in the directory
+    for f_name in os.listdir("."):
+        if f_name.startswith("publications_") and f_name.endswith(".txt"):
+            try:
+                os.remove(f_name)
+            except Exception:
+                pass
+
+    max_bytes = 10 * 1024 * 1024  # 10MB
+    chunks = []
+    current_chunk = []
+    current_size = 0
+    
+    for pub_html in unique_publications.values():
+        pub_bytes = (pub_html + "\n").encode('utf-8')
+        if current_size + len(pub_bytes) > max_bytes and current_chunk:
+            chunks.append(current_chunk)
+            current_chunk = [pub_html]
+            current_size = len(pub_bytes)
+        else:
+            current_chunk.append(pub_html)
+            current_size += len(pub_bytes)
+            
+    if current_chunk:
+        chunks.append(current_chunk)
+        
+    publication_files = []
+    
+    # If there's only 1 chunk and it's less than 10MB, we can write 'publications.txt' for backward compatibility
+    if len(chunks) <= 1:
+        with open("publications.txt", "w", encoding="utf-8") as f:
+            for pub_html in chunks[0]:
+                f.write(pub_html + "\n")
+        print("Exported publications.txt (single file, size <= 10MB)")
+        publication_files.append("publications.txt")
+    else:
+        # Delete old publications.txt if it exists to avoid confusion
+        if os.path.exists("publications.txt"):
+            try:
+                os.remove("publications.txt")
+                print("Removed old publications.txt")
+            except Exception as e:
+                print(f"Warning: Could not remove old publications.txt: {e}")
+                
+        for idx, chunk in enumerate(chunks, 1):
+            filename = f"publications_{idx}.txt"
+            with open(filename, "w", encoding="utf-8") as f:
+                for pub_html in chunk:
+                    f.write(pub_html + "\n")
+            print(f"Exported {filename} (size: {os.path.getsize(filename)} bytes)")
+            publication_files.append(filename)
 
     print("\n--- STEP 5: Construct Co-Authorship Similarity Matrix ---")
     # We will build a similarity matrix for the original authors
@@ -260,7 +307,8 @@ def main():
 
     network_data = {
         "nodes": nodes,
-        "links": links
+        "links": links,
+        "publication_files": publication_files
     }
 
     with open("network_data.json", "w", encoding="utf-8") as f:

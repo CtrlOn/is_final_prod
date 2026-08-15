@@ -138339,5 +138339,12 @@
             "target": "Živilė Lukšienė",
             "value": 0.3333
         }
+    ],
+    "publication_files": [
+        "publications_1.txt",
+        "publications_2.txt",
+        "publications_3.txt",
+        "publications_4.txt",
+        "publications_5.txt"
     ]
 }
