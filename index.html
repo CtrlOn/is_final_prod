@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MIF VU Authors 3D Explorer</title>
+  <title>VU Authors 3D Explorer</title>
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,6 +37,9 @@
       <div id="author-institutes" class="tag-container">
         <!-- Color coded tags -->
       </div>
+      <div id="author-positions" class="positions-list" style="margin-top: 12px; display: flex; flex-direction: column; gap: 4px; font-size: 0.85em; color: var(--text-muted);">
+        <!-- Positions list -->
+      </div>
     </div>
     
     <div class="panel-section stats-grid">
@@ -69,7 +72,7 @@
   <div class="panel controls-panel">
     <div class="panel-section header-section">
       <div class="title-container">
-        <h1>MIF VU AUTHORS</h1>
+        <h1>VU AUTHORS</h1>
         <button id="info-btn" class="info-btn" title="About this graph">i</button>
       </div>
       <p class="subtitle">3D Network Visualizer</p>
@@ -85,9 +88,9 @@
       <div id="search-suggestions" class="search-suggestions hidden"></div>
     </div>
 
-    <!-- Filter by Institute -->
+    <!-- Filter by Faculty -->
     <div class="panel-section">
-      <h3>Filter by Institute</h3>
+      <h3>Filter by Faculty</h3>
       <div id="filter-group" class="filter-group">
         <!-- Populated dynamically in JavaScript -->
       </div>

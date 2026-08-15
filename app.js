@@ -541,6 +541,26 @@ function openDetailPanel(node) {
     span.style.borderColor = `${color}4d`; // 30% opacity hex (4d)
     authorInstitutesContainer.appendChild(span);
   });
+
+  // Render positions dynamically
+  const authorPositionsContainer = document.getElementById('author-positions');
+  if (authorPositionsContainer) {
+    authorPositionsContainer.innerHTML = '';
+    if (node.pareigos && node.pareigos.length > 0) {
+      node.pareigos.forEach(pos => {
+        const div = document.createElement('div');
+        div.className = 'position-item';
+        div.style.borderLeft = `2px solid ${INSTITUTE_COLORS[node.institutes[0]] || 'rgba(255, 255, 255, 0.2)'}`;
+        div.style.paddingLeft = '8px';
+        div.style.marginBottom = '6px';
+        div.style.fontSize = '0.9em';
+        div.style.lineHeight = '1.3';
+        div.style.color = 'var(--text-muted)';
+        div.innerText = pos;
+        authorPositionsContainer.appendChild(div);
+      });
+    }
+  }
   
   authorPubCount.innerText = node.val;
   

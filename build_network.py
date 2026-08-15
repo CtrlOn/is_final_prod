@@ -5,7 +5,11 @@ import time
 import urllib.request
 import urllib.parse
 import hashlib
+import sys
 from collections import defaultdict
+
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
 
 def safe_filename(name):
     """Generates a clean and safe filename suffix based on the author name."""
@@ -26,11 +30,20 @@ def fetch_url(url, cache_path, delay=0.2):
         with open(cache_path, "r", encoding="utf-8") as f:
             return f.read()
             
-    print(f"Fetching from network: {url}")
+    # Safely url-encode non-ascii characters before fetching
+    try:
+        parsed = urllib.parse.urlparse(url)
+        encoded_path = urllib.parse.quote(parsed.path)
+        encoded_query = urllib.parse.quote(parsed.query, safe='=&+')
+        safe_url = urllib.parse.urlunparse((parsed.scheme, parsed.netloc, encoded_path, parsed.params, encoded_query, parsed.fragment))
+    except Exception:
+        safe_url = url
+
+    print(f"Fetching from network: {safe_url}")
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
     }
-    req = urllib.request.Request(url, headers=headers)
+    req = urllib.request.Request(safe_url, headers=headers)
     try:
         with urllib.request.urlopen(req, timeout=15) as response:
             content = response.read().decode('utf-8')
@@ -53,62 +66,106 @@ def normalize_scraped_name(name):
     return " ".join(name.split())
 
 def main():
-    print("--- STEP 1: Parse Authors and Institutes ---")
-    authors_dir = "./authors"
-    author_to_institutes = defaultdict(list)
-    original_authors_set = set()
+    print("--- STEP 1: Parse Authors and Faculties recursively from VU_darbuotojai.json ---")
+    json_path = os.path.join("authors", "VU_darbuotojai.json")
     
-    # List and parse files
-    files = [f for f in os.listdir(authors_dir) if f.endswith(".txt")]
-    for filename in files:
-        institute_name = os.path.splitext(filename)[0]
-        filepath = os.path.join(authors_dir, filename)
-        with open(filepath, "r", encoding="utf-8") as f:
-            for line in f:
-                name = " ".join(line.strip().split())
-                if name:
-                    author_to_institutes[name].append(institute_name)
-                    original_authors_set.add(name)
+    if not os.path.exists(json_path):
+        print(f"Error: Could not find {json_path}!")
+        return
+
+    with open(json_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    # Sets are used to enforce uniqueness of faculties per author:
+    # "however if it appears in multiple divisions of a single faculty, dont let that affect the ratio of colors."
+    author_to_institutes = defaultdict(set)
+    author_to_elaba = {}
+    author_to_pareigos = defaultdict(list)
+    original_authors_set = set()
+
+    def traverse(padalinys, current_faculty=None):
+        lygis = padalinys.get("lygis")
+        pavadinimas = padalinys.get("pavadinimas")
+        
+        # If level is 1, this is the faculty (e.g. Matematikos ir informatikos fakultetas)
+        if lygis == 1:
+            current_faculty = pavadinimas
+            
+        for d in padalinys.get("darbuotojai", []):
+            name = d.get("vardas_pavarde")
+            elaba = d.get("elaba")
+            pareigos = d.get("pareigos")
+            
+            if name:
+                normalized_name = " ".join(name.strip().split())
+                original_authors_set.add(normalized_name)
+                
+                if elaba:
+                    author_to_elaba[normalized_name] = elaba.strip()
                     
-    print(f"Found {len(original_authors_set)} unique authors across {len(files)} institutes.")
+                if current_faculty:
+                    author_to_institutes[normalized_name].add(current_faculty)
+                    
+                # requirement: "in the info about author add a list of "pareigos" departments for each occurence (in any subdivision no matter the level)"
+                pos_str = f"{pareigos} ({pavadinimas})" if pareigos else pavadinimas
+                if pos_str not in author_to_pareigos[normalized_name]:
+                    author_to_pareigos[normalized_name].append(pos_str)
+                    
+        for sub in padalinys.get("padaliniai", []):
+            traverse(sub, current_faculty)
+
+    for p in data.get("padaliniai", []):
+        traverse(p)
+
+    # Convert sets to sorted lists for json serialization and consistent order
+    author_to_institutes_list = {
+        name: sorted(list(facs)) for name, facs in author_to_institutes.items()
+    }
+
+    print(f"Found {len(original_authors_set)} unique authors across VU faculties.")
     
     print("\n--- STEP 2: Save author_institutes.json ---")
     with open("author_institutes.json", "w", encoding="utf-8") as f:
-        json.dump(author_to_institutes, f, indent=4, ensure_ascii=False)
+        json.dump(author_to_institutes_list, f, indent=4, ensure_ascii=False)
     print("Exported author_institutes.json")
 
     print("\n--- STEP 3 & 4: Fetch and Parse Publications ---")
-    subcatalogs = ["mif", "dmsti", "mii"]
     unique_publications = {}  # key: cleaned pub HTML content, value: publication string
     author_publication_counts = defaultdict(int)
     author_seen_pubs = defaultdict(set)
     
     for author in sorted(original_authors_set):
-        encoded_author = urllib.parse.quote(author)
-        for subcat in subcatalogs:
-            url = f"https://elaba.mb.vu.lt/{subcat}/?aut={encoded_author}"
-            cache_path = get_cache_filename(author, subcat)
-            html_content = fetch_url(url, cache_path, delay=0.1)
-            if not html_content:
-                continue
-                
-            # Regex to find each <tr><td>Eil. Nr.</td><td>...</td></tr>
-            # It matches numbers and then catches everything until the closing </td></tr>
-            matches = re.finditer(
-                r'<tr>\s*<td>\d+</td>\s*<td>(.*?)</td>\s*</tr>', 
-                html_content, 
-                re.DOTALL | re.IGNORECASE
-            )
+        url = author_to_elaba.get(author)
+        if not url:
+            continue
             
-            for match in matches:
-                pub_html = match.group(1).strip()
-                # Clean up any inner HTML whitespace/newlines to stabilize keys
-                cleaned_key = " ".join(pub_html.split())
-                if cleaned_key not in unique_publications:
-                    unique_publications[cleaned_key] = pub_html
-                if cleaned_key not in author_seen_pubs[author]:
-                    author_seen_pubs[author].add(cleaned_key)
-                    author_publication_counts[author] += 1
+        # Parse subcatalog from URL to be fully compatible with existing .cache hashing
+        try:
+            parts = url.split('/')
+            subcat = parts[-2] if len(parts) >= 2 else "fsf"
+        except Exception:
+            subcat = "fsf"
+            
+        cache_path = get_cache_filename(author, subcat)
+        html_content = fetch_url(url, cache_path, delay=0.1)
+        if not html_content:
+            continue
+            
+        # Regex to find each <tr><td>Eil. Nr.</td><td>...</td></tr>
+        matches = re.finditer(
+            r'<tr>\s*<td>\d+</td>\s*<td>(.*?)</td>\s*</tr>', 
+            html_content, 
+            re.DOTALL | re.IGNORECASE
+        )
+        
+        for match in matches:
+            pub_html = match.group(1).strip()
+            cleaned_key = " ".join(pub_html.split())
+            if cleaned_key not in unique_publications:
+                unique_publications[cleaned_key] = pub_html
+            if cleaned_key not in author_seen_pubs[author]:
+                author_seen_pubs[author].add(cleaned_key)
+                author_publication_counts[author] += 1
                 
     print(f"Extracted {len(unique_publications)} unique publications total.")
 
@@ -181,7 +238,8 @@ def main():
             nodes.append({
                 "id": author,
                 "name": author,
-                "institutes": author_to_institutes[author],
+                "institutes": author_to_institutes_list.get(author, []),
+                "pareigos": author_to_pareigos.get(author, []),
                 "val": val
             })
         
