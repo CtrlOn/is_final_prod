@@ -1,8 +1,8 @@
 /* Core Design Tokens */
 :root {
   --bg-gradient: radial-gradient(circle at center, #111122 0%, #06060c 100%);
-  --panel-bg: rgba(14, 14, 28, 0.65);
-  --panel-border: rgba(255, 255, 255, 0.08);
+  --panel-bg: rgba(24, 24, 42, 0.72); /* Slightly brighter, more defined glass background */
+  --panel-border: rgba(255, 255, 255, 0.12); /* Slightly brighter borders for crisp division */
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
   
   --text-primary: #f5f6fa;
@@ -104,7 +104,7 @@ body {
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--panel-border);
   box-shadow: var(--glass-shadow);
-  border-radius: 16px;
+  border-radius: 6px;
   padding: 24px;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
   overflow-y: auto;
@@ -225,7 +225,7 @@ body {
   font-size: 0.7rem;
   font-weight: 700;
   padding: 4px 10px;
-  border-radius: 12px;
+  border-radius: 4px;
   text-transform: uppercase;
   letter-spacing: 1px;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -246,7 +246,7 @@ body {
 .stat-card {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
+  border-radius: 4px;
   padding: 12px;
   text-align: center;
 }
@@ -277,7 +277,7 @@ body {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.04);
   padding: 14px;
-  border-radius: 10px;
+  border-radius: 4px;
   margin-bottom: 12px;
   font-size: 0.85rem;
   line-height: 1.4;
@@ -370,7 +370,7 @@ body {
   flex-grow: 1;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 10px 14px;
   color: white;
   font-family: inherit;
@@ -388,7 +388,7 @@ body {
   background: var(--accent-color);
   border: none;
   color: white;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 0 16px;
   font-family: inherit;
   font-weight: 500;
@@ -410,7 +410,7 @@ body {
   right: 24px;
   background: #111122;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 8px;
+  border-radius: 4px;
   max-height: 200px;
   overflow-y: auto;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
@@ -650,9 +650,9 @@ body {
 
 /* Modal Content Card */
 .modal-content {
-  background: rgba(14, 14, 28, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 24px;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
   width: 90%;
   max-width: 600px;
   max-height: 85vh;
