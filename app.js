@@ -180,9 +180,8 @@ fetch('network_data.json?v=' + Date.now())
   });
   INSTITUTE_COLORS['DEFAULT'] = '#70a1ff';
   
-  // Initialize activeInstitutes with all found institutes
+  // Initialize activeInstitutes as empty by default (Requirement: off by default to avoid lag)
   activeInstitutes.clear();
-  dynamicInstitutesList.forEach(inst => activeInstitutes.add(inst));
   
   // Parse URL Parameters
   const urlParams = new URLSearchParams(window.location.search);
@@ -198,9 +197,9 @@ fetch('network_data.json?v=' + Date.now())
   if (instituteArg) {
     activeInstitutes.clear();
     dynamicInstitutesList.forEach((inst, idx) => {
-      // If bitmask has character and it's '1', include it. If bitmask is shorter, default to '1'.
+      // If bitmask has character and it's '1', include it. If bitmask is shorter, default to '0' (off).
       const char = instituteArg[idx];
-      if (char === undefined || char === '1') {
+      if (char === '1') {
         activeInstitutes.add(inst);
       }
     });
