@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   
   <!-- Tailwind/CSS - We use Vanilla CSS for maximum control and premium glassmorphism -->
-  <link rel="stylesheet" href="styles.css?v=2.1">
+  <link rel="stylesheet" href="styles.css?v=2.3">
   
   <!-- ThreeJS and 3D Force Graph via CDN -->
   <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
@@ -33,7 +33,7 @@
     <button id="close-detail-btn" class="close-btn">&times;</button>
     
     <div class="panel-section">
-      <h2 id="author-name" class="author-title">Artūras Štikonas</h2>
+      <h2 id="author-name" class="author-title">Selected Author</h2>
       <div id="author-institutes" class="tag-container">
         <!-- Color coded tags -->
       </div>
@@ -82,7 +82,7 @@
     <div class="panel-section">
       <h3>Search Author</h3>
       <div class="search-box">
-        <input type="text" id="search-input" placeholder="Type name (e.g. Štikonas)..." autocomplete="off">
+        <input type="text" id="search-input" placeholder="Search authors..." autocomplete="off">
         <button id="search-btn">Search</button>
       </div>
       <div id="search-suggestions" class="search-suggestions hidden"></div>
@@ -175,6 +175,6 @@
   </div>
 
   <!-- Main JavaScript App -->
-  <script type="module" src="app.js?v=1.4"></script>
+  <script type="module" src="app.js?v=2.5"></script>
 </body>
 </html>

@@ -370,14 +370,18 @@ function updateGraph() {
   
   const nodeIds = new Set(finalNodes.map(n => n.id));
   
-  // If selected node is no longer in visible nodes, close details and deselect
-  if (selectedNode && !nodeIds.has(selectedNode.id)) {
-    detailPanel.classList.add('hidden');
-    selectedNode = null;
-  }
-  
   activeGraphData = { nodes: finalNodes, links: filteredLinks };
   Graph.graphData(activeGraphData);
+
+  // If selected node is no longer in visible nodes, close details and deselect, otherwise refresh panel to reflect new filters
+  if (selectedNode) {
+    if (!nodeIds.has(selectedNode.id)) {
+      detailPanel.classList.add('hidden');
+      selectedNode = null;
+    } else {
+      openDetailPanel(selectedNode);
+    }
+  }
   
   // Update overall UI stats
   statNodesCount.innerText = finalNodes.length;
@@ -583,13 +587,14 @@ function openDetailPanel(node) {
   
   authorPubCount.innerText = node.val;
   
-  // Find co-authors count
+  // Find co-authors count (only those currently visible in the simulation)
+  const activeNodeIds = new Set(activeGraphData.nodes.map(n => n.id));
   const uniqueCoauthors = new Set();
   allGraphData.links.forEach(link => {
     const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
     const targetId = typeof link.target === 'object' ? link.target.id : link.target;
-    if (sourceId === node.id) uniqueCoauthors.add(targetId);
-    if (targetId === node.id) uniqueCoauthors.add(sourceId);
+    if (sourceId === node.id && activeNodeIds.has(targetId)) uniqueCoauthors.add(targetId);
+    if (targetId === node.id && activeNodeIds.has(sourceId)) uniqueCoauthors.add(sourceId);
   });
   authorCoauthorCount.innerText = uniqueCoauthors.size;
   
@@ -622,17 +627,21 @@ function openDetailPanel(node) {
     const targetNode = typeof link.target === 'object' ? link.target : null;
     
     if (sourceId === node.id) {
-      connections.push({
-        id: targetId,
-        node: targetNode || allGraphData.nodes.find(n => n.id === targetId),
-        value: link.value
-      });
+      if (activeNodeIds.has(targetId)) {
+        connections.push({
+          id: targetId,
+          node: targetNode || allGraphData.nodes.find(n => n.id === targetId),
+          value: link.value
+        });
+      }
     } else if (targetId === node.id) {
-      connections.push({
-        id: sourceId,
-        node: sourceNode || allGraphData.nodes.find(n => n.id === sourceId),
-        value: link.value
-      });
+      if (activeNodeIds.has(sourceId)) {
+        connections.push({
+          id: sourceId,
+          node: sourceNode || allGraphData.nodes.find(n => n.id === sourceId),
+          value: link.value
+        });
+      }
     }
   });
 

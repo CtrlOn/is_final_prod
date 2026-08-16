@@ -1,7 +1,7 @@
 /* Core Design Tokens */
 :root {
-  --bg-gradient: radial-gradient(circle at center, #111122 0%, #06060c 100%);
-  --panel-bg: rgba(24, 24, 42, 0.72); /* Slightly brighter, more defined glass background */
+  --bg-gradient: radial-gradient(circle at center, #2e0013 0%, #040007 100%);
+  --panel-bg: rgba(30, 20, 28, 0.72); /* Slightly brighter glass with a subtle VU burgundy warmth */
   --panel-border: rgba(255, 255, 255, 0.12); /* Slightly brighter borders for crisp division */
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
   
@@ -9,15 +9,15 @@
   --text-secondary: #a4b0be;
   --text-muted: #747d8c;
   
-  --accent-color: #70a1ff;
-  --accent-hover: #1e90ff;
+  --accent-color: #aa1e5b; /* A lighter, accessible VU burgundy for text and links */
+  --accent-hover: #c92c73; /* Vibrant rose-burgundy for hovers */
   
   /* Institute Colors */
   --color-DMSTI: #bb86fc; /* Purple */
   --color-II: #ff4757;    /* Red/Coral */
   --color-MI: #00d2d3;    /* Cyan */
   --color-TMI: #2ed573;   /* Green */
-  --color-DEFAULT: #70a1ff;
+  --color-DEFAULT: #aa1e5b;
 }
 
 /* Reset and Layout */
@@ -144,7 +144,7 @@ body {
   font-size: 1.6rem;
   font-weight: 700;
   letter-spacing: 3px;
-  background: linear-gradient(135deg, #fff 30%, #70a1ff 100%);
+  background: linear-gradient(135deg, #fff 30%, var(--accent-color) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -196,7 +196,7 @@ body {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #70a1ff 0%, #1e90ff 100%);
+  background: linear-gradient(135deg, var(--accent-color) 0%, #78003f 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -691,7 +691,7 @@ body {
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: 1px;
-  background: linear-gradient(135deg, #fff 30%, #70a1ff 100%);
+  background: linear-gradient(135deg, #fff 30%, var(--accent-color) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-top: 0;
@@ -724,13 +724,13 @@ body {
 
 /* Formula Highlight Box */
 .formula-box {
-  background: rgba(112, 161, 255, 0.06);
+  background: rgba(170, 30, 91, 0.08);
   border-left: 3px solid var(--accent-color);
   padding: 12px 16px;
-  border-radius: 4px 8px 8px 4px;
+  border-radius: 4px;
   font-family: 'Fira Code', monospace;
   font-size: 0.85rem;
-  color: #70a1ff;
+  color: var(--accent-hover);
   margin: 12px 0;
 }
 
