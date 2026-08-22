@@ -1,21 +1,48 @@
 import SpriteText from "https://esm.sh/three-spritetext";
 
-// Tableau 10 Color Cycle Palette
+// Performance Optimization: Monkey-patch THREE.CylinderGeometry to be open-ended (openEnded = true).
+// This removes cylinder caps (reducing faces from 24 to 12 per link), as they are always hidden inside node spheres anyway.
+const OriginalCylinderGeometry = THREE.CylinderGeometry;
+THREE.CylinderGeometry = function(radiusTop, radiusBottom, height, radialSegments, heightSegments, openEnded, thetaStart, thetaLength) {
+  return new OriginalCylinderGeometry(
+    radiusTop,
+    radiusBottom,
+    height,
+    radialSegments,
+    heightSegments,
+    true, // force openEnded to be true (no caps)
+    thetaStart,
+    thetaLength
+  );
+};
+Object.setPrototypeOf(THREE.CylinderGeometry, OriginalCylinderGeometry);
+THREE.CylinderGeometry.prototype = OriginalCylinderGeometry.prototype;
+
+// (Modified) Tableau 10 Color Cycle Palette
 const TAB10_COLORS = [
-  '#1f77b4', // Blue
-  '#ff7f0e', // Orange
-  '#2ca02c', // Green
-  '#d62728', // Red
-  '#9467bd', // Purple
-  '#8c564b', // Brown
-  '#e377c2', // Pink
-  '#7f7f7f', // Gray
-  '#bcbd22', // Olive
-  '#17becf'  // Cyan
+  '#0080D0', // Blue
+  '#D96B00', // Orange
+  '#00C900', // Green
+  '#D00000', // Red
+  '#7040B0', // Purple
+  '#C04020', // Vermilion
+  '#D04090', // Pink
+  '#70C000', // Lime / Chartreuse
+  '#D0C000', // Yellow
+  '#00C8C8', // Cyan
+  '#0098D0', // Sky Blue
+  '#D000D0', // Magenta
+  '#A000D0', // Violet
+  '#00C890', // Spring Green
+  '#00C0A0', // Turquoise
 ];
 
 // Institute Colors Mapping (Populated dynamically on data load)
 const INSTITUTE_COLORS = {};
+
+// Performance Caching Caches
+const SHARED_SPHERE_GEOMETRY = new THREE.SphereGeometry(1, 16, 16);
+const TEXTURE_CACHE = {};
 
 // Global App State
 let allGraphData = { nodes: [], links: [] };
@@ -59,58 +86,89 @@ const Graph = ForceGraph3D()(document.getElementById('3d-graph'))
   .showNavInfo(false)
   .nodeLabel(node => `<div class="scene-tooltip"><strong>${node.name}</strong><br/>${node.institutes.join(', ')} (${node.val} pubs)</div>`)
   .linkLabel(link => `<div class="scene-tooltip">Connection strength: <strong>${link.value}</strong></div>`)
-  .linkWidth(link => highlightNodes.size === 0 || highlightLinks.has(link) ? Math.sqrt(Math.max(1, link.value) * 1.5) : 0.1)
-  .linkColor(link => highlightNodes.size === 0 || highlightLinks.has(link) ? 'rgba(255, 255, 255, 0.8)' : 'rgba(255, 255, 255, 0.1)')
+  .linkResolution(3) // Low-poly triangular volumetric cylinders (incredibly fast rendering but keeps beautiful 3D volume!)
+  .linkWidth(link => Math.min(10, Math.sqrt(Math.max(1, link.value * 0.6)))) // Static width based on connection strength - avoids rebuilding geometries on hover!
+  .linkColor(link => {
+    const isHighlighted = highlightNodes.size === 0 || highlightLinks.has(link);
+    if (isHighlighted) {
+      // Scale opacity by connection strength for stunning detailed aesthetics
+      const opacity = Math.min(1, 0.5 + (link.value / 4));
+      return `rgba(255, 255, 255, 1)`;
+    } else {
+      return 'rgba(255, 255, 255, 0)'; // dim out unrelated links completely
+    }
+  })
   .onNodeHover(handleNodeHover)
   .onNodeClick(handleNodeClick)
   .nodeThreeObject(node => {
     const institutes = node.institutes || ['DEFAULT'];
     const group = new THREE.Group();
+    const nodeSize = Math.cbrt(node.val) * 3;
     
-    // --- 1. BUILD THE 3D BALL (SPHERE) WITH MULTI-COLOR SECTIONS (Beach-ball style) ---
-    const sphereCanvas = document.createElement('canvas');
-    sphereCanvas.width = 128;
-    sphereCanvas.height = 128;
-    const sCtx = sphereCanvas.getContext('2d');
-    
-    if (institutes.length <= 1) {
-      sCtx.fillStyle = INSTITUTE_COLORS[institutes[0]] || INSTITUTE_COLORS.DEFAULT;
-      sCtx.fillRect(0, 0, 128, 128);
-    } else {
-      const colWidth = 128 / institutes.length;
-      institutes.forEach((inst, i) => {
-        sCtx.fillStyle = INSTITUTE_COLORS[inst] || INSTITUTE_COLORS.DEFAULT;
-        sCtx.fillRect(i * colWidth, 0, colWidth, 128);
-      });
+    // --- 1. GET OR CREATE SHARED CANVAS TEXTURE FROM CACHE ---
+    const cacheKey = [...institutes].sort().join('|');
+    let sphereTexture = TEXTURE_CACHE[cacheKey];
+    if (!sphereTexture) {
+      const sphereCanvas = document.createElement('canvas');
+      sphereCanvas.width = 128;
+      sphereCanvas.height = 128;
+      const sCtx = sphereCanvas.getContext('2d');
+      
+      if (institutes.length <= 1) {
+        sCtx.fillStyle = INSTITUTE_COLORS[institutes[0]] || INSTITUTE_COLORS.DEFAULT;
+        sCtx.fillRect(0, 0, 128, 128);
+      } else {
+        const colWidth = 128 / institutes.length;
+        institutes.forEach((inst, i) => {
+          sCtx.fillStyle = INSTITUTE_COLORS[inst] || INSTITUTE_COLORS.DEFAULT;
+          sCtx.fillRect(i * colWidth, 0, colWidth, 128);
+        });
+      }
+      
+      sphereTexture = new THREE.CanvasTexture(sphereCanvas);
+      TEXTURE_CACHE[cacheKey] = sphereTexture;
     }
     
-    const sphereTexture = new THREE.CanvasTexture(sphereCanvas);
-    const nodeSize = Math.cbrt(node.val) * 3;
-    const sphereGeom = new THREE.SphereGeometry(nodeSize, 32, 32);
+    // --- 2. CREATE LIGHTWEIGHT UNIQUE MATERIAL SHARING THE CACHED TEXTURE ---
+    // (A unique material per node is required so that highlighting/opacity updates can be independent)
     const sphereMat = new THREE.MeshBasicMaterial({
       map: sphereTexture,
       transparent: true,
       opacity: 1.0
     });
     
-    const sphereMesh = new THREE.Mesh(sphereGeom, sphereMat);
+    // --- 3. INSTANTIATE SPHERE USING SHARED GEOMETRY (SCALED) ---
+    const sphereMesh = new THREE.Mesh(SHARED_SPHERE_GEOMETRY, sphereMat);
+    sphereMesh.scale.setScalar(nodeSize);
     group.add(sphereMesh);
     
-    // --- 2. BUILD THE FLOATING LABEL ---
+    // --- 4. BUILD THE FLOATING LABEL ---
     const sprite = new SpriteText(node.name);
     sprite.material.depthWrite = false; // make sprite background transparent
     const primaryInst = institutes[0] || 'DEFAULT';
     sprite.color = INSTITUTE_COLORS[primaryInst] || INSTITUTE_COLORS.DEFAULT;
     sprite.textHeight = 10;
     sprite.padding = 1;    // Add padding to prevent diacritics (e.g. Ž) from clipping
-    sprite.center.y = -1.8 - nodeSize * 0.1; // shift above node
+    sprite.center.y = -1.4 - nodeSize * 0.1; // shift above node
     
     // Disable raycasting on the sprite so hover events/tooltips only target the sphere!
     sprite.raycast = () => null;
     
     group.add(sprite);
     
-    node.__mesh = group; // Save reference for opacities/hover highlights
+    // Save references for dynamic highlights/updates
+    node.__mesh = group; 
+    node.__sphereMesh = sphereMesh;
+    node.__sprite = sprite;
+    
+    // Dynamic default visibility: show label only if highlighted or if prominent (val >= 15)
+    const activeNode = hoveredNode || selectedNode;
+    if (activeNode) {
+      sprite.visible = highlightNodes.has(node);
+    } else {
+      sprite.visible = node.val >= 15;
+    }
+    
     return group;
   });
 
@@ -412,34 +470,42 @@ function updateHighlights() {
       
       if (source === activeNode.id) {
         highlightLinks.add(link);
-        const neighbor = activeGraphData.nodes.find(n => n.id === target);
+        // O(1) performance lookup: use link.target directly if it's already a node object from force simulation
+        const neighbor = typeof link.target === 'object' ? link.target : activeGraphData.nodes.find(n => n.id === target);
         if (neighbor) highlightNodes.add(neighbor);
       } else if (target === activeNode.id) {
         highlightLinks.add(link);
-        const neighbor = activeGraphData.nodes.find(n => n.id === source);
+        // O(1) performance lookup: use link.source directly if it's already a node object from force simulation
+        const neighbor = typeof link.source === 'object' ? link.source : activeGraphData.nodes.find(n => n.id === source);
         if (neighbor) highlightNodes.add(neighbor);
       }
     });
   }
   
-  // Dynamically update opacities of Three.js objects (traversing the node's rendering group)
+  // High-speed direct property access instead of slow recursive traversal for 800+ nodes
   activeGraphData.nodes.forEach(n => {
-    const obj = n.__threeObj || n.__mesh;
-    if (obj) {
-      const isHighlighted = highlightNodes.size === 0 || highlightNodes.has(n);
-      const targetOpacity = isHighlighted ? 1.0 : 0.15;
-      obj.traverse(child => {
-        if (child.material) {
-          child.material.transparent = true;
-          child.material.opacity = targetOpacity;
-        }
-      });
+    const isHighlighted = highlightNodes.size === 0 || highlightNodes.has(n);
+    const targetOpacity = isHighlighted ? 1.0 : 0.15;
+    
+    if (n.__sphereMesh) {
+      n.__sphereMesh.material.opacity = targetOpacity;
+    }
+    
+    // Dynamic Label Visibility and Opacity Optimization:
+    // When a node is hovered/selected, show labels ONLY for the highlighted node and its co-authors.
+    // When nothing is selected, show labels only for prominent authors (val >= 15) to maintain superb rendering performance.
+    if (n.__sprite) {
+      n.__sprite.material.opacity = targetOpacity;
+      if (activeNode) {
+        n.__sprite.visible = highlightNodes.has(n);
+      } else {
+        n.__sprite.visible = n.val >= 15;
+      }
     }
   });
   
-  // Force link update
-  Graph.linkWidth(Graph.linkWidth())
-       .linkColor(Graph.linkColor());
+  // Force link color/opacity updates (highly optimized, runs instantly without rebuilding geometries)
+  Graph.linkColor(Graph.linkColor());
 }
 
 // Sync current filter & selected node state to URL query parameters
