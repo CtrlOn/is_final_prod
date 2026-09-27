@@ -44,6 +44,10 @@ const INSTITUTE_COLORS = {};
 const SHARED_SPHERE_GEOMETRY = new THREE.SphereGeometry(1, 16, 16);
 const TEXTURE_CACHE = {};
 
+// Touch devices have no hover, and small screens use a top bar + bottom sheet layout
+const IS_TOUCH = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+const MOBILE_QUERY = window.matchMedia('(max-width: 768px)');
+
 // Global App State
 let allGraphData = { nodes: [], links: [] };
 let activeGraphData = { nodes: [], links: [] };
@@ -66,6 +70,8 @@ const searchInput = document.getElementById('search-input');
 const searchBtn = document.getElementById('search-btn');
 const searchSuggestions = document.getElementById('search-suggestions');
 const detailPanel = document.getElementById('detail-panel');
+const controlsPanel = document.querySelector('.controls-panel');
+const panelToggleBtn = document.getElementById('panel-toggle-btn');
 const closeDetailBtn = document.getElementById('close-detail-btn');
 
 // Detail Panel Elements
@@ -81,11 +87,13 @@ const statNodesCount = document.getElementById('stat-nodes-count');
 const statLinksCount = document.getElementById('stat-links-count');
 
 // Initialize 3D Force Graph
-const Graph = ForceGraph3D()(document.getElementById('3d-graph'))
+// Orbit controls pan with two fingers; trackball controls need three, which is unusable on phones
+const Graph = ForceGraph3D({ controlType: IS_TOUCH ? 'orbit' : 'trackball' })(document.getElementById('3d-graph'))
   .backgroundColor('#06060c')
   .showNavInfo(false)
-  .nodeLabel(node => `<div class="scene-tooltip"><strong>${node.name}</strong><br/>${node.institutes.join(', ')} (${node.val} pubs)</div>`)
-  .linkLabel(link => `<div class="scene-tooltip">Connection strength: <strong>${link.value}</strong></div>`)
+  // Hover tooltips get stuck after a tap on touch screens, the details panel shows the same info
+  .nodeLabel(node => IS_TOUCH ? '' : `<div class="scene-tooltip"><strong>${node.name}</strong><br/>${node.institutes.join(', ')} (${node.val} pubs)</div>`)
+  .linkLabel(link => IS_TOUCH ? '' : `<div class="scene-tooltip">Connection strength: <strong>${link.value}</strong></div>`)
   .linkResolution(3) // Low-poly triangular volumetric cylinders (incredibly fast rendering but keeps beautiful 3D volume!)
   .linkWidth(link => Math.min(10, Math.sqrt(Math.max(1, link.value * 0.6)))) // Static width based on connection strength - avoids rebuilding geometries on hover!
   .linkColor(link => {
@@ -434,7 +442,7 @@ function updateGraph() {
   // If selected node is no longer in visible nodes, close details and deselect, otherwise refresh panel to reflect new filters
   if (selectedNode) {
     if (!nodeIds.has(selectedNode.id)) {
-      detailPanel.classList.add('hidden');
+      hideDetailPanel();
       selectedNode = null;
     } else {
       openDetailPanel(selectedNode);
@@ -544,6 +552,8 @@ function updateURL() {
 
 // Hover Event Handler
 function handleNodeHover(node) {
+  // Touch screens report the last tapped node as hovered until the next tap, which would override the selection highlight
+  if (IS_TOUCH) return;
   if (hoveredNode === node) return;
   hoveredNode = node;
   updateHighlights();
@@ -555,6 +565,10 @@ function handleNodeClick(node) {
   Graph.onEngineStop(() => {});
   
   selectedNode = node;
+  
+  // Make room for the details sheet on small screens and show the new author from the top
+  if (MOBILE_QUERY.matches) setControlsExpanded(false);
+  detailPanel.scrollTop = 0;
   
   // Find co-authors currently visible in the active graph
   const neighbors = activeGraphData.nodes.filter(n => {
@@ -748,13 +762,47 @@ function openDetailPanel(node) {
   }
 
   detailPanel.classList.remove('hidden');
+  updateViewOffset();
+}
+
+function hideDetailPanel() {
+  detailPanel.classList.add('hidden');
+  updateViewOffset();
+}
+
+// On small screens the details sheet covers the lower half of the canvas,
+// so shift the rendered view up to keep the focused author visible above it
+function updateViewOffset() {
+  const camera = Graph.camera();
+  const sheetOpen = MOBILE_QUERY.matches && !detailPanel.classList.contains('hidden');
+  if (sheetOpen) {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    camera.setViewOffset(w, h, 0, detailPanel.offsetHeight / 2, w, h);
+  } else if (camera.view && camera.view.enabled) {
+    camera.clearViewOffset();
+  }
+}
+
+function setControlsExpanded(expanded) {
+  controlsPanel.classList.toggle('expanded', expanded);
+  panelToggleBtn.setAttribute('aria-expanded', String(expanded));
 }
 
 // Setup Event Listeners (Filters, Search)
 function setupEventListeners() {
+  // Mobile top bar: menu toggle and center button (touch devices have no Backspace or reliable double-tap)
+  panelToggleBtn.addEventListener('click', () => {
+    setControlsExpanded(!controlsPanel.classList.contains('expanded'));
+  });
+  document.getElementById('center-btn').addEventListener('click', () => {
+    Graph.zoomToFit(1000, 50);
+  });
+  window.addEventListener('resize', updateViewOffset);
+  
   // Close details panel
   closeDetailBtn.addEventListener('click', () => {
-    detailPanel.classList.add('hidden');
+    hideDetailPanel();
     selectedNode = null;
     updateHighlights();
     updateURL();
@@ -763,12 +811,17 @@ function setupEventListeners() {
   // Close details panel on background click (single click deselects, double click centers)
   let lastBgClickTime = 0;
   Graph.onBackgroundClick(() => {
+    if (MOBILE_QUERY.matches && controlsPanel.classList.contains('expanded')) {
+      setControlsExpanded(false);
+      return;
+    }
+    
     const now = Date.now();
     const delay = now - lastBgClickTime;
     lastBgClickTime = now;
     
     if (selectedNode) {
-      detailPanel.classList.add('hidden');
+      hideDetailPanel();
       selectedNode = null;
       updateHighlights();
       updateURL();
@@ -850,7 +903,7 @@ function setupEventListeners() {
     if (e.key === 'Backspace') {
       if (selectedNode) {
         // Deselect current author
-        detailPanel.classList.add('hidden');
+        hideDetailPanel();
         selectedNode = null;
         updateHighlights();
         updateURL();

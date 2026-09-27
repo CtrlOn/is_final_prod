@@ -34,6 +34,7 @@ body {
   color: var(--text-primary);
   overflow: hidden;
   height: 100vh;
+  height: 100dvh;
   width: 100vw;
 }
 
@@ -572,6 +573,11 @@ body {
   white-space: nowrap !important;
 }
 
+/* The library reuses the tooltip container when nothing is hovered; hide it instead of drawing an empty box */
+.scene-tooltip:empty {
+  display: none !important;
+}
+
 /* Scrollbars styling */
 ::-webkit-scrollbar {
   width: 6px;
@@ -771,4 +777,195 @@ body {
   font-family: inherit;
   font-size: 0.8rem;
   color: #fff;
+}
+
+/* Header action buttons (center / menu toggle) */
+.header-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+
+.icon-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.icon-btn:active,
+.icon-btn[aria-expanded="true"] {
+  background: var(--accent-color);
+  border-color: transparent;
+  color: #fff;
+}
+
+.controls-list.touch-only {
+  display: none;
+}
+
+/* Touch devices: no hover, so show touch controls instead of mouse ones */
+@media (hover: none) and (pointer: coarse) {
+  .icon-btn.touch-only {
+    display: inline-flex;
+  }
+
+  .controls-list.touch-only {
+    display: block;
+  }
+
+  .controls-list.pointer-only {
+    display: none;
+  }
+
+  .suggestion-item {
+    padding: 12px 14px;
+  }
+
+  .filter-group {
+    gap: 14px;
+  }
+}
+
+/* Small screens: collapsible top bar + bottom sheet for author details */
+@media (max-width: 768px) {
+  .panel {
+    padding: 14px 16px;
+  }
+
+  .icon-btn.mobile-only,
+  .icon-btn.touch-only {
+    display: inline-flex;
+  }
+
+  .controls-panel {
+    top: calc(8px + env(safe-area-inset-top));
+    left: 8px;
+    right: 8px;
+    width: auto;
+    max-height: calc(100dvh - 16px - env(safe-area-inset-top));
+  }
+
+  .controls-panel .header-section {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  .controls-panel.expanded .header-section {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+  }
+
+  .header-section h1 {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+  }
+
+  .header-section .subtitle {
+    display: none;
+  }
+
+  .controls-body {
+    display: none;
+  }
+
+  .controls-panel.expanded .controls-body {
+    display: block;
+  }
+
+  .panel-section {
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+  }
+
+  /* iOS zooms into inputs with font-size below 16px */
+  #search-input {
+    font-size: 16px;
+  }
+
+  .detail-panel {
+    display: block;
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    /* Fixed height so the camera view offset stays stable while content loads */
+    height: 50dvh;
+    max-height: none;
+    border-radius: 14px 14px 0 0;
+    padding-bottom: calc(16px + env(safe-area-inset-bottom));
+  }
+
+  .detail-panel.hidden {
+    transform: translateY(100%);
+  }
+
+  /* One scroll area for the whole sheet instead of nested scroll boxes */
+  .publication-list,
+  .connections-list {
+    max-height: none;
+    overflow-y: visible;
+    padding-right: 0;
+  }
+
+  .detail-panel .close-btn {
+    position: sticky;
+    top: 0;
+    float: right;
+    z-index: 2;
+    width: 36px;
+    height: 36px;
+    margin: -4px -6px 0 8px;
+    border-radius: 50%;
+    background: rgba(30, 20, 28, 0.9);
+    font-size: 1.6rem;
+  }
+
+  .author-title {
+    font-size: 1.15rem;
+  }
+
+  .stats-grid {
+    gap: 10px;
+  }
+
+  .stat-card {
+    padding: 8px;
+  }
+
+  .stat-value {
+    font-size: 1.3rem;
+  }
+
+  .scene-tooltip {
+    white-space: normal !important;
+    width: auto !important;
+    max-width: calc(100vw - 32px) !important;
+  }
+
+  .modal-overlay {
+    height: 100dvh;
+  }
+
+  .modal-content {
+    width: calc(100% - 24px);
+    max-height: 85dvh;
+    padding: 24px 20px;
+  }
+
+  .modal-close-btn {
+    top: 14px;
+    right: 16px;
+  }
 }
