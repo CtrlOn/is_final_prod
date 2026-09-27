@@ -51,8 +51,11 @@ const MOBILE_QUERY = window.matchMedia('(max-width: 768px)');
 // Global App State
 let allGraphData = { nodes: [], links: [] };
 let activeGraphData = { nodes: [], links: [] };
-let authorInstitutes = {};
-let publicationsList = [];
+// Publications are split into small shards and loaded on demand (see build_network.py)
+let publicationFiles = [];
+let publicationsPerFile = 0;
+const publicationShards = new Map(); // shard index -> Promise<string[]>
+let detailRenderToken = 0;
 let hoveredNode = null;
 let selectedNode = null;
 const highlightNodes = new Set();
@@ -95,7 +98,8 @@ const Graph = ForceGraph3D({ controlType: IS_TOUCH ? 'orbit' : 'trackball' })(do
   .nodeLabel(node => IS_TOUCH ? '' : `<div class="scene-tooltip"><strong>${node.name}</strong><br/>${node.institutes.join(', ')} (${node.val} pubs)</div>`)
   .linkLabel(link => IS_TOUCH ? '' : `<div class="scene-tooltip">Connection strength: <strong>${link.value}</strong></div>`)
   .linkResolution(3) // Low-poly triangular volumetric cylinders (incredibly fast rendering but keeps beautiful 3D volume!)
-  .linkWidth(link => Math.min(10, Math.sqrt(Math.max(1, link.value * 0.6)))) // Static width based on connection strength - avoids rebuilding geometries on hover!
+  // Touch devices get 1px lines: far fewer triangles than cylinders for ~20k links
+  .linkWidth(link => IS_TOUCH ? 0 : Math.min(10, Math.sqrt(Math.max(1, link.value * 0.6)))) // Static width based on connection strength - avoids rebuilding geometries on hover!
   .linkColor(link => {
     const isHighlighted = highlightNodes.size === 0 || highlightLinks.has(link);
     if (isHighlighted) {
@@ -150,35 +154,42 @@ const Graph = ForceGraph3D({ controlType: IS_TOUCH ? 'orbit' : 'trackball' })(do
     sphereMesh.scale.setScalar(nodeSize);
     group.add(sphereMesh);
     
-    // --- 4. BUILD THE FLOATING LABEL ---
+    // Save references for dynamic highlights/updates
+    node.__mesh = group;
+    node.__sphereMesh = sphereMesh;
+    node.__sprite = null; // the label is built on first display, see setLabelVisible()
+
+    // Dynamic default visibility: show label only if highlighted or if prominent (val >= 15)
+    const activeNode = hoveredNode || selectedNode;
+    setLabelVisible(node, activeNode ? highlightNodes.has(node) : node.val >= 15);
+
+    return group;
+  });
+
+// Phones report devicePixelRatio of 3+; rendering at full density multiplies GPU work for little visible gain
+Graph.renderer().setPixelRatio(Math.min(window.devicePixelRatio, IS_TOUCH ? 1.5 : 2));
+
+// Each label is its own canvas texture, and most stay hidden, so they are only built when first shown
+function setLabelVisible(node, visible) {
+  if (!node.__sprite) {
+    if (!visible || !node.__mesh) return;
+    const institutes = node.institutes || ['DEFAULT'];
+    const nodeSize = Math.cbrt(node.val) * 3;
     const sprite = new SpriteText(node.name);
     sprite.material.depthWrite = false; // make sprite background transparent
-    const primaryInst = institutes[0] || 'DEFAULT';
-    sprite.color = INSTITUTE_COLORS[primaryInst] || INSTITUTE_COLORS.DEFAULT;
+    sprite.color = INSTITUTE_COLORS[institutes[0]] || INSTITUTE_COLORS.DEFAULT;
     sprite.textHeight = 10;
     sprite.padding = 1;    // Add padding to prevent diacritics (e.g. Ž) from clipping
     sprite.center.y = -1.4 - nodeSize * 0.1; // shift above node
-    
+
     // Disable raycasting on the sprite so hover events/tooltips only target the sphere!
     sprite.raycast = () => null;
-    
-    group.add(sprite);
-    
-    // Save references for dynamic highlights/updates
-    node.__mesh = group; 
-    node.__sphereMesh = sphereMesh;
+
+    node.__mesh.add(sprite);
     node.__sprite = sprite;
-    
-    // Dynamic default visibility: show label only if highlighted or if prominent (val >= 15)
-    const activeNode = hoveredNode || selectedNode;
-    if (activeNode) {
-      sprite.visible = highlightNodes.has(node);
-    } else {
-      sprite.visible = node.val >= 15;
-    }
-    
-    return group;
-  });
+  }
+  node.__sprite.visible = visible;
+}
 
 // Configure default hardcoded forces (Requirement 2)
 Graph.d3Force('charge').strength(-800);
@@ -203,33 +214,16 @@ Graph.d3Force('gravity', (() => {
 })());
 
 // Fetch Data & Kickoff
-fetch('network_data.json?v=' + Date.now())
+// 'no-cache' revalidates with the server (ETag) instead of re-downloading unchanged data on every visit
+fetch('network_data.json', { cache: 'no-cache' })
   .then(res => {
     if (!res.ok) throw new Error(`Failed to fetch network_data.json: ${res.status} ${res.statusText}`);
     return res.json();
   })
   .then(networkData => {
-    const pubFiles = networkData.publication_files || ['publications.txt'];
-    console.log('=== DATA LOADING ===');
-    console.log('Publication files from network_data.json:', pubFiles);
-    
-    return Promise.all([
-      Promise.resolve(networkData),
-      fetch('author_institutes.json?v=' + Date.now()).then(res => {
-        if (!res.ok) throw new Error(`Failed to fetch author_institutes.json: ${res.status} ${res.statusText}`);
-        return res.json();
-      }),
-      Promise.all(pubFiles.map(file => fetch(file + '?v=' + Date.now()).then(res => {
-        if (!res.ok) throw new Error(`Failed to fetch ${file}: ${res.status} ${res.statusText}`);
-        return res.text();
-      })))
-    ]);
-  })
-  .then(([networkData, institutes, pubsTexts]) => {
-    const pubsText = pubsTexts.join('\n');
-    console.log(`Successfully fetched and merged ${pubsTexts.length} publication file(s). Total merged length: ${pubsText.length} characters.`);
     allGraphData = networkData;
-    authorInstitutes = institutes;
+    publicationFiles = networkData.publication_files || [];
+    publicationsPerFile = networkData.publications_per_file || 1;
   
   // Extract all unique institutes dynamically! (Requirement 7)
   const institutesSet = new Set();
@@ -270,24 +264,6 @@ fetch('network_data.json?v=' + Date.now())
       }
     });
   }
-  
-  // Pre-parse publications with a fast regex to avoid CPU-heavy DOMParser during runtime
-  const authorRegex = /<author[^>]*>([^<]+)<\/author>/g;
-  publicationsList = pubsText.split('\n')
-    .map(line => line.trim())
-    .filter(line => line.length > 0)
-    .map(pubHtml => {
-      const authors = [];
-      let match;
-      authorRegex.lastIndex = 0;
-      while ((match = authorRegex.exec(pubHtml)) !== null) {
-        authors.push(normalizeAuthorName(match[1]).toLowerCase());
-      }
-      return {
-        html: pubHtml,
-        authors: authors
-      };
-    });
   
   // Filter out nodes with 0 or invalid publications
   allGraphData.nodes = allGraphData.nodes.filter(node => (Number(node.val) || 0) > 0);
@@ -502,16 +478,19 @@ function updateHighlights() {
     // Dynamic Label Visibility and Opacity Optimization:
     // When a node is hovered/selected, show labels ONLY for the highlighted node and its co-authors.
     // When nothing is selected, show labels only for prominent authors (val >= 15) to maintain superb rendering performance.
+    setLabelVisible(n, activeNode ? highlightNodes.has(n) : n.val >= 15);
     if (n.__sprite) {
       n.__sprite.material.opacity = targetOpacity;
-      if (activeNode) {
-        n.__sprite.visible = highlightNodes.has(n);
-      } else {
-        n.__sprite.visible = n.val >= 15;
-      }
     }
   });
-  
+
+  // Hide unrelated link objects outright: fully transparent links would still cost a draw call each
+  activeGraphData.links.forEach(link => {
+    if (link.__lineObj) {
+      link.__lineObj.visible = highlightNodes.size === 0 || highlightLinks.has(link);
+    }
+  });
+
   // Force link color/opacity updates (highly optimized, runs instantly without rebuilding geometries)
   Graph.linkColor(Graph.linkColor());
 }
@@ -610,22 +589,29 @@ function handleNodeClick(node) {
   updateURL();
 }
 
-// Normalizes "Lastname, Firstname" -> "Firstname Lastname"
-function normalizeAuthorName(name) {
-  name = name.trim();
-  if (name.includes(',')) {
-    const parts = name.split(',');
-    return `${parts[1].trim()} ${parts[0].trim()}`;
+function loadPublicationShard(shardIdx) {
+  if (!publicationShards.has(shardIdx)) {
+    const file = publicationFiles[shardIdx];
+    const promise = fetch(file, { cache: 'no-cache' })
+      .then(res => {
+        if (!res.ok) throw new Error(`Failed to fetch ${file}: ${res.status} ${res.statusText}`);
+        return res.text();
+      })
+      .then(text => text.split('\n'));
+    // Forget failed downloads so opening the author again retries
+    promise.catch(() => publicationShards.delete(shardIdx));
+    publicationShards.set(shardIdx, promise);
   }
-  return name;
+  return publicationShards.get(shardIdx);
 }
 
-// Parse raw HTML publication entries to find matches
-function findPublicationsForAuthor(authorName) {
-  const lowerName = authorName.toLowerCase();
-  return publicationsList
-    .filter(pub => pub.authors.includes(lowerName))
-    .map(pub => pub.html);
+// Load only the shards holding this author's publications (node.pubs are global publication indices)
+async function findPublicationsForAuthor(node) {
+  const pubIds = node.pubs || [];
+  const shardOf = id => Math.floor(id / publicationsPerFile);
+  const shardIdxs = [...new Set(pubIds.map(shardOf))];
+  const shards = new Map(await Promise.all(shardIdxs.map(async idx => [idx, await loadPublicationShard(idx)])));
+  return pubIds.map(id => shards.get(shardOf(id))[id % publicationsPerFile]);
 }
 
 // Detail Panel Populator
@@ -679,10 +665,12 @@ function openDetailPanel(node) {
   authorCoauthorCount.innerText = uniqueCoauthors.size;
   
   // Fetch and display publications
-  authorPublications.innerHTML = '<div style="text-align:center; padding:20px; color:#747d8c;">Scanning publication logs...</div>';
-  
-  setTimeout(() => {
-    const matchedPubs = findPublicationsForAuthor(node.id);
+  // (results are dropped if another author was opened while the shards were downloading)
+  const renderToken = ++detailRenderToken;
+  authorPublications.innerHTML = '<div style="text-align:center; padding:20px; color:#747d8c;">Loading publications...</div>';
+
+  findPublicationsForAuthor(node).then(matchedPubs => {
+    if (renderToken !== detailRenderToken) return;
     authorPublications.innerHTML = '';
     
     if (matchedPubs.length === 0) {
@@ -695,7 +683,11 @@ function openDetailPanel(node) {
         authorPublications.appendChild(div);
       });
     }
-  }, 50);
+  }).catch(err => {
+    if (renderToken !== detailRenderToken) return;
+    console.error('Error loading publications:', err);
+    authorPublications.innerHTML = '<div style="text-align:center; padding:20px; color:#747d8c;">Could not load publications. Please try again.</div>';
+  });
 
   // Fetch and display connections/co-authors immediately (since it's fast in-memory)
   authorConnections.innerHTML = '';

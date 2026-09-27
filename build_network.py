@@ -8,6 +8,8 @@ import hashlib
 import sys
 from collections import defaultdict
 
+PUBLICATIONS_PER_FILE = 1000  # ~0.6 MB per shard
+
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8')
 
@@ -169,58 +171,29 @@ def main():
                 
     print(f"Extracted {len(unique_publications)} unique publications total.")
 
-    print("\n--- STEP 4b: Save publications.txt (splitting if > 10MB) ---")
-    # Clean up any existing publications_*.txt files in the directory
+    print("\n--- STEP 4b: Save publications in small shards ---")
+    # Small fixed-size shards let the browser download only the shards holding the selected author's publications
+    # (publications are discovered author by author, so one author's publications mostly land in a few shards).
+    # Each publication is written as one whitespace-normalized line, so line N of shard K is publication K * size + N.
+    pub_dir = "publications"
+    os.makedirs(pub_dir, exist_ok=True)
+    for f_name in os.listdir(pub_dir):
+        if f_name.endswith(".txt"):
+            os.remove(os.path.join(pub_dir, f_name))
+    # Remove outputs of the older single/10MB-chunk layout
     for f_name in os.listdir("."):
-        if f_name.startswith("publications_") and f_name.endswith(".txt"):
-            try:
-                os.remove(f_name)
-            except Exception:
-                pass
+        if f_name == "publications.txt" or (f_name.startswith("publications_") and f_name.endswith(".txt")):
+            os.remove(f_name)
 
-    max_bytes = 10 * 1024 * 1024  # 10MB
-    chunks = []
-    current_chunk = []
-    current_size = 0
-    
-    for pub_html in unique_publications.values():
-        pub_bytes = (pub_html + "\n").encode('utf-8')
-        if current_size + len(pub_bytes) > max_bytes and current_chunk:
-            chunks.append(current_chunk)
-            current_chunk = [pub_html]
-            current_size = len(pub_bytes)
-        else:
-            current_chunk.append(pub_html)
-            current_size += len(pub_bytes)
-            
-    if current_chunk:
-        chunks.append(current_chunk)
-        
+    pub_keys = list(unique_publications.keys())
     publication_files = []
-    
-    # If there's only 1 chunk and it's less than 10MB, we can write 'publications.txt' for backward compatibility
-    if len(chunks) <= 1:
-        with open("publications.txt", "w", encoding="utf-8") as f:
-            for pub_html in chunks[0]:
-                f.write(pub_html + "\n")
-        print("Exported publications.txt (single file, size <= 10MB)")
-        publication_files.append("publications.txt")
-    else:
-        # Delete old publications.txt if it exists to avoid confusion
-        if os.path.exists("publications.txt"):
-            try:
-                os.remove("publications.txt")
-                print("Removed old publications.txt")
-            except Exception as e:
-                print(f"Warning: Could not remove old publications.txt: {e}")
-                
-        for idx, chunk in enumerate(chunks, 1):
-            filename = f"publications_{idx}.txt"
-            with open(filename, "w", encoding="utf-8") as f:
-                for pub_html in chunk:
-                    f.write(pub_html + "\n")
-            print(f"Exported {filename} (size: {os.path.getsize(filename)} bytes)")
-            publication_files.append(filename)
+    for first in range(0, len(pub_keys), PUBLICATIONS_PER_FILE):
+        filename = f"{pub_dir}/{first // PUBLICATIONS_PER_FILE}.txt"
+        with open(filename, "w", encoding="utf-8", newline="\n") as f:
+            for pub in pub_keys[first:first + PUBLICATIONS_PER_FILE]:
+                f.write(pub + "\n")
+        publication_files.append(filename)
+    print(f"Exported {len(publication_files)} publication shards to {pub_dir}/ ({PUBLICATIONS_PER_FILE} per file)")
 
     print("\n--- STEP 5: Construct Co-Authorship Similarity Matrix ---")
     # We will build a similarity matrix for the original authors
@@ -266,28 +239,30 @@ def main():
 
     # Re-calculate author publication counts based on all unique publications in our dataset
     # This ensures consistency and catches co-authored publications
-    author_publication_counts = defaultdict(int)
-    for cleaned_pub in unique_publications.keys():
+    # Also keep each author's publication indices so the browser can load just those publications
+    author_publication_ids = defaultdict(list)
+    for pub_idx, cleaned_pub in enumerate(pub_keys):
         author_matches = re.findall(r'<author[^>]*>([^<]+)</author>', cleaned_pub)
         seen_in_pub = set()
         for am in author_matches:
             normalized = normalize_scraped_name(am)
             if normalized in original_authors_set and normalized not in seen_in_pub:
                 seen_in_pub.add(normalized)
-                author_publication_counts[normalized] += 1
+                author_publication_ids[normalized].append(pub_idx)
 
     # Format data for ForceGraph3D
     # Only include authors who have at least 1 publication in the dataset
     nodes = []
     for author in sorted(original_authors_set):
-        val = author_publication_counts[author]
+        val = len(author_publication_ids[author])
         if val > 0:
             nodes.append({
                 "id": author,
                 "name": author,
                 "institutes": author_to_institutes_list.get(author, []),
                 "pareigos": author_to_pareigos.get(author, []),
-                "val": val
+                "val": val,
+                "pubs": author_publication_ids[author]
             })
         
     links = []
@@ -308,11 +283,13 @@ def main():
     network_data = {
         "nodes": nodes,
         "links": links,
-        "publication_files": publication_files
+        "publication_files": publication_files,
+        "publications_per_file": PUBLICATIONS_PER_FILE
     }
 
+    # Compact output: every visitor downloads this file, and indenting the publication index lists would bloat it
     with open("network_data.json", "w", encoding="utf-8") as f:
-        json.dump(network_data, f, indent=4, ensure_ascii=False)
+        json.dump(network_data, f, ensure_ascii=False, separators=(",", ":"))
     print("Exported network_data.json")
     print("Pipeline compilation completed successfully!")
 
